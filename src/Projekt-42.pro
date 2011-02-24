@@ -11,8 +11,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        coreengine.cpp
+        coreengine.cpp \
+    eventhandler.cpp
 
-HEADERS  += coreengine.h
+HEADERS  += coreengine.h \
+    eventhandler.h
 
 FORMS    += coreengine.ui

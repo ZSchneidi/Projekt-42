@@ -5,8 +5,19 @@ CoreEngine::CoreEngine(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CoreEngine)
 {
-    ui->setupUi(this);
+    //ui->setupUi(this);
+
+    this->event_handler = new EventHandler(this);
+    this->installEventFilter(this->event_handler);
 }
+
+
+void CoreEngine::keyPressEvent(QKeyEvent *event)
+{
+    //qDebug() << "Key pressed on core";
+}
+
+
 
 CoreEngine::~CoreEngine()
 {
