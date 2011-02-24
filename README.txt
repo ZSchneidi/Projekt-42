@@ -1,2 +1,1 @@
-Test
-noch n test
+Initialisation of "Projekt-42" Repository.
