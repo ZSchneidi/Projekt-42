@@ -3,7 +3,6 @@
 EventHandler::EventHandler(CoreEngine *parent):
         QObject()
 {
-    qDebug() << "hello " << parent;
     this->core = parent;
 }
 
@@ -21,10 +20,10 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
             {
             switch(keyEvent->key())
                 {
-                case 0x41:
+                case TOGGLE_FULLSCREEN_BUTTON:
                     qDebug() << "control A was pressed on " << obj;
-                    if(!this->core->isMaximized())
-                        this->core->showMaximized();
+                    if(!this->core->isFullScreen())
+                        this->core->showFullScreen();
                     else
                         this->core->showNormal();
                     return true;
@@ -33,8 +32,6 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
                     return false;
 
                 }
-
-           // qDebug() << "event :" << keyEvent->modifiers();
             }
         }
     return false;

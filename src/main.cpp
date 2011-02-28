@@ -1,5 +1,5 @@
 #include <QtGui/QApplication>
-#include "coreengine.h"
+#include "core/coreengine.h"
 
 int main(int argc, char *argv[])
 {
