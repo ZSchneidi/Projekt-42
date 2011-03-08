@@ -4,6 +4,8 @@
 #foo.txt
 build/
 src/release/
+Abschluss- projekt/Vorlagen
+am100002/
 
 #ignore *.pro.user
 *.pro.user
