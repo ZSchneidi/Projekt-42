@@ -1,0 +1,5 @@
+
+Due to the Qt build in garbage collection QObject based classes musst be instatiated
+in heap. So these objects are instatiated with the new operator.
+
+This is done to ensure, that parent objects automatically delete their child objects.

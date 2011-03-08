@@ -4,6 +4,8 @@
 #foo.txt
 build/
 src/release/
+src/debug/
+src/object_script.Projekt*
 Abschluss- projekt/Vorlagen
 am100002/
 
