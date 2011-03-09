@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     CoreEngine w(0,mode,path);
 
     w.getLogHandler()->setLoggerState(log_state);
+    w.getLogHandler()->setLoggerWriteMode(QIODevice::Truncate);
     /*call the startup routine*/
     w.SystemStartUp();
 

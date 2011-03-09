@@ -2,16 +2,16 @@
 
 LogHandler::LogHandler(QObject *parent) :
     QObject(parent)
-{
+    {
     this->system_log = new QFile(LOG_FILE);
-
-}
+    this->write_mode = QIODevice::Append;
+    }
 
 bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type)
-{
+    {
     if(this->system_log_state == LogHandler::INACTIVE)
 	return false;
-    if (!system_log->open(QIODevice::ReadWrite | QIODevice::Append))
+    if (!system_log->open(QIODevice::ReadWrite | this->write_mode))
 	return false;
     QString time = QTime::currentTime().toString(Qt::SystemLocaleLongDate);
     QString date = QDate::currentDate().toString(Qt::SystemLocaleDate);
@@ -37,10 +37,17 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
 	}
 
     this->system_log->close();
+    /*this changes the open mode to append, so that the comming lines will be append to the log file*/
+    this->write_mode = QIODevice::Append;
     return true;
-}
+    }
 
 void LogHandler::setLoggerState(Log_state state)
-{
+    {
     this->system_log_state = state;
-}
+    }
+
+void LogHandler::setLoggerWriteMode(QIODevice::OpenModeFlag mode)
+    {
+    this->write_mode = mode;
+    }

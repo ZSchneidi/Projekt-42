@@ -1,0 +1,40 @@
+[09.03.2011-23:17:22][SYSTEM] Iinitialize system startup
+[09.03.2011-23:17:22][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
+[09.03.2011-23:17:22][INFO] Machine definition:
+	id: 0
+	amid: 100002
+	type: machine
+	bgFile: multi_purpose/100214.jpg
+	bgWidth: 1280
+	bgHeigth: 1024
+	mnr: 000100
+	mtel: 
+
+[09.03.2011-23:17:22][INFO] Screen definition:
+	id: 205593
+	parent: 0
+	typ: screen
+	name: Screen-A-
+	aux: 
+	timeout: 0
+	bgImg: multi_purpose/100595.png
+	Def: Y
+
+[09.03.2011-23:17:22][INFO] Screen definition:
+	id: 205594
+	parent: 0
+	typ: screen
+	name: Screen-B-
+	aux: 
+	timeout: 0
+	bgImg: multi_purpose/100595.png
+	Def: N
+
+[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
+[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
+[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
+[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
+[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_t'
+[09.03.2011-23:17:22][SYSTEM] Iinitialize UI from config files
+[09.03.2011-23:17:22][SYSTEM] Startup lasts 15 milliseconds
+[09.03.2011-23:17:24][SYSTEM] Application was closed manually

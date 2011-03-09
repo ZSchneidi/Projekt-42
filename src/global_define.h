@@ -1,6 +1,7 @@
 #ifndef GLOBAL_DEFINE_H
 #define GLOBAL_DEFINE_H
 
+#include <exception>
 #include <QDebug>
 
 #define LOG_FILE		"system_log.log"
@@ -21,7 +22,7 @@ toggles the application fullscreen mode*/
 
 /*define of the known tag names*/
 #define MACHINE_CFG_TAG		"machine"
-
+#define OBJECT_CFG_TAG		"object"
 
 /*define of the known attributes*/
 //machine attributes
@@ -34,6 +35,19 @@ toggles the application fullscreen mode*/
 #define MACHINE_ATTR_MNR	"mnr"
 #define MACHINE_ATTR_MTEL	"mtel"
 
+//Object types
+#define OBJECT_TYPE_SCREEN	"screen"
+
+//Screen obj attributes
+#define SCREEN_ATTR_ID		"id"
+#define SCREEN_ATTR_PARENT	"parent"
+#define SCREEN_ATTR_TYPE	"typ"
+#define SCREEN_ATTR_NAME	"name"
+#define SCREEN_ATTR_AUX		"aux"
+#define SCREEN_ATTR_TIMEOUT	"timeout"
+#define SCREEN_ATTR_BGIMG	"bgImg"
+#define SCREEN_ATTR_DEF		"Def"
+
 
 /*LOG messages*/
 #define SYSTEM_INIT_MSG		"Iinitialize system startup"
@@ -41,7 +55,18 @@ toggles the application fullscreen mode*/
 #define QML_UI_INIT_MSG		"Iinitialize UI from qml files"
 #define UNEX_CFG_MSG		"Found unexpected config file"
 #define UNHA_ATT_MSG		"Found unhandled attribute \'#_1\' in \'#_2\' tag"
+#define UNHA_OBJ_TYPE_MSG	"Found unhandled object type \'#_1\'"
 #define MISSING_MACH_TAG	"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
+#define MISSING_OBJ_TAG		"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
+#define ERROR_APP_CLOSE		"Application was closed manually"
+
+
+/*Exceptions*/
+
+class eUnsetPointer : public std::exception
+{
+  public: virtual const char* what() const throw() {return "Access to unset Pointer.";}
+};
 
 
 #endif // GLOBAL_DEFINE_H

@@ -13,6 +13,8 @@ class LogHandler : public QObject
 {
     Q_OBJECT
 
+    QIODevice::OpenModeFlag write_mode;
+
 public:
     explicit LogHandler(QObject *parent = 0);
 
@@ -31,6 +33,7 @@ public:
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
     void setLoggerState(Log_state state);
+    void setLoggerWriteMode(QIODevice::OpenModeFlag);
 
 private:
 
@@ -38,9 +41,6 @@ private:
 
     Log_state system_log_state;
 
-signals:
-
-public slots:
 
 };
 

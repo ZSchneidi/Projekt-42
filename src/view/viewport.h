@@ -26,6 +26,8 @@ class ViewPort : public QDeclarativeView
 public:
     explicit ViewPort(CoreEngine *parent = 0,QUrl path = QUrl(""));
 
+    bool initViewPort();
+
     inline CoreEngine* getCore() { return this->core; }
 
 signals:

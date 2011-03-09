@@ -6,12 +6,14 @@
 #include "core/eventhandler.h"
 #include "core/configparser.h"
 #include "core/loghandler.h"
+#include "core/uiobjecthandler.h"
 #include "view/viewport.h"
 
 class ViewPort;
 class EventHandler;
 class ConfigParser;
 class LogHandler;
+class UIObjectHandler;
 
 namespace Ui {
     class CoreEngine;
@@ -47,27 +49,28 @@ public:
 
     inline CoreEngine *getCore() {return this;}
     inline LogHandler *getLogHandler() {return this->log_handler;}
+    inline UIObjectHandler *getUIObjectHandler() {return this->ui_object_handler;}
 
+protected:
+
+    void closeEvent(QCloseEvent *);
 
 private:
 
     ViewPort *declarative_viewport;
     ConfigParser *config_parser;
     LogHandler *log_handler;
+    UIObjectHandler *ui_object_handler;
 
     Ui::CoreEngine *ui;
 
     EventHandler *event_handler;
 
-    bool setUpMainWindow();
+    bool setUpViewport();
     bool initStartup();
 
     InitMode init_mode;
     QUrl ui_layer_path;
-
-
-protected:
-
 
 };
 

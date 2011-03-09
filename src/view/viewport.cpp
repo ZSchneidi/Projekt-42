@@ -6,17 +6,20 @@ ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
 {
     this->core = parent;
     this->main_layer_path = path;
-    /*initialize root_context with the root context of the ViewPort*/
-    this->root_context = this->rootContext();
 
     this->interface = new ViewPortInterface(this);
 
-    /*this manifests the qmlInterface in the qml environment
-     *for more informations see qmlinterface.h
-     */
+
+
+    }
+
+bool ViewPort::initViewPort()
+    {
+    /*initialize root_context with the root context of the ViewPort*/
+    this->root_context = this->rootContext();
+    /*this manifests the viewportinterface in the qml environment*/
     this->root_context->setContextProperty("viewportinterface", this->interface );
 
-
     this->setSource(this->main_layer_path);
-
-}
+    return true;
+    }
