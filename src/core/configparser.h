@@ -14,14 +14,16 @@
 
 #include "global_define.h"
 #include "core/coreengine.h"
+#include "core/uiobjecthandler.h"
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
-#include "core/uiobjecthandler.h"
+#include "elements/buttoncobject.h"
 
 class CoreEngine;
+class UIObjectHandler;
 class MachineConfig;
 class ScreenObject;
-class UIObjectHandler;
+class ButtonCObject;
 
 class ConfigParser : public QObject
 {
@@ -33,12 +35,13 @@ public:
     //GETTER
 
     //SETTER
-    void initConfigPath(QString path);
+    void initConfigPath(const QString path);
 
     bool buildConfig();
-    bool buildMachineConfig(QString machine_cfg);
-    bool buildObjects(QString object_cfgv);
-    bool buildScreenObject(QDomNamedNodeMap &map);
+    bool buildMachineConfig(const QString machine_cfg);
+    bool buildObjects(const QString object_cfgv);
+    bool buildScreenObject(const QDomNamedNodeMap &map);
+    bool buildButtonCObject(const QDomNamedNodeMap &map);
 
 signals:
 

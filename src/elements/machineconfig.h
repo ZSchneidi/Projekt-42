@@ -5,6 +5,7 @@
 #include <QSize>
 
 #include <QDebug>
+#include "global_define.h"
 
 class MachineConfig : public QObject
 {

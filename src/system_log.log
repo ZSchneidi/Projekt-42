@@ -1,16 +1,15 @@
-[09.03.2011-23:17:22][SYSTEM] Iinitialize system startup
-[09.03.2011-23:17:22][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
-[09.03.2011-23:17:22][INFO] Machine definition:
+[11.03.2011-19:37:08][SYSTEM] Iinitialize system startup
+[11.03.2011-19:37:08][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
+[11.03.2011-19:37:08][INFO] Machine definition:
 	id: 0
 	amid: 100002
-	type: machine
+	typ: machine
 	bgFile: multi_purpose/100214.jpg
 	bgWidth: 1280
-	bgHeigth: 1024
+	bgHeight: 1024
 	mnr: 000100
 	mtel: 
-
-[09.03.2011-23:17:22][INFO] Screen definition:
+[11.03.2011-19:37:08][INFO] Screen definition:
 	id: 205593
 	parent: 0
 	typ: screen
@@ -19,8 +18,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: Y
-
-[09.03.2011-23:17:22][INFO] Screen definition:
+[11.03.2011-19:37:08][INFO] Screen definition:
 	id: 205594
 	parent: 0
 	typ: screen
@@ -29,12 +27,75 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: N
+[11.03.2011-19:37:08][INFO] Screen definition:
+	id: 205595
+	parent: 205593
+	typ: button_c
+	name: Button-1-
+	aux: 
+	xPos: 0
+	yPos: 0
+	upFile: multi_purpose/100256.png
+	doFile: multi_purpose/100257.png
+	actUpFile: 
+	actDoFile: 
+	teaUpFile: 
+	teaDoFile: 
+	visible: N
+	urlLink: 
 
-[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
-[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
-[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
-[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_c'
-[09.03.2011-23:17:22][WARNING] Found unhandled object type 'button_t'
-[09.03.2011-23:17:22][SYSTEM] Iinitialize UI from config files
-[09.03.2011-23:17:22][SYSTEM] Startup lasts 15 milliseconds
-[09.03.2011-23:17:24][SYSTEM] Application was closed manually
+[11.03.2011-19:37:08][INFO] Screen definition:
+	id: 205596
+	parent: 205593
+	typ: button_c
+	name: Button-2-
+	aux: as
+	xPos: 200
+	yPos: 100
+	upFile: multi_purpose/100242.png
+	doFile: multi_purpose/100257.png
+	actUpFile: asd
+	actDoFile: qwe
+	teaUpFile: yxc
+	teaDoFile: das
+	visible: Y
+	urlLink: sad
+
+[11.03.2011-19:37:08][INFO] Screen definition:
+	id: 205597
+	parent: 205594
+	typ: button_c
+	name: Button-3-
+	aux: 
+	xPos: 0
+	yPos: 0
+	upFile: multi_purpose/100253.png
+	doFile: multi_purpose/100250.png
+	actUpFile: 
+	actDoFile: 
+	teaUpFile: 
+	teaDoFile: 
+	visible: N
+	urlLink: 
+
+[11.03.2011-19:37:08][INFO] Screen definition:
+	id: 205598
+	parent: 205594
+	typ: button_c
+	name: Button-4-
+	aux: 
+	xPos: 100
+	yPos: 100
+	upFile: multi_purpose/101123.png
+	doFile: multi_purpose/101350.jpg
+	actUpFile: 
+	actDoFile: 
+	teaUpFile: 
+	teaDoFile: 
+	visible: Y
+	urlLink: 
+
+[11.03.2011-19:37:08][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/am100002/v/cfg/obj_cfgv.xml on line 9
+[11.03.2011-19:37:08][SYSTEM] Iinitialize UI from config files
+[11.03.2011-19:37:08][SYSTEM] Startup lasts 17 milliseconds
+[11.03.2011-19:37:11][SYSTEM] Application was closed manually

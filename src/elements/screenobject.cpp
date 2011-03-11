@@ -26,7 +26,7 @@ QString ScreenObject::getObjLogEntry()
     temp += "\t"+QString(SCREEN_ATTR_AUX)+": " +this->aux+"\n";
     temp += "\t"+QString(SCREEN_ATTR_TIMEOUT)+": " + QString::number(this->timeout)+"\n";
     temp += "\t"+QString(SCREEN_ATTR_BGIMG)+": " + this->bgimg+"\n";
-    temp += "\t"+QString(SCREEN_ATTR_DEF)+": " + this->def+"\n";
+    temp += "\t"+QString(SCREEN_ATTR_DEF)+": " + this->def;
     return temp;
 }
 

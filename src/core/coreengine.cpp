@@ -110,3 +110,4 @@ CoreEngine::~CoreEngine()
     {
     delete ui;
     }
+

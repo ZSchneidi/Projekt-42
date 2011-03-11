@@ -11,7 +11,7 @@ ConfigParser::ConfigParser(CoreEngine *parent) :
     this->module_cfg_state = false;
     }
 
-void ConfigParser::initConfigPath(QString path)
+void ConfigParser::initConfigPath(const QString path)
     {
     this->config_dir->cd(path);
     }
@@ -60,6 +60,7 @@ bool ConfigParser::buildConfig()
 		}
 	    else
 		{
+		/*waring message for all unexpected configuration files*/
 		this->core->logWarning(QString(UNEX_CFG_MSG)+" \'"+(*this->file_list_it).fileName()+"\'");
 		}
 	    }
@@ -68,7 +69,10 @@ bool ConfigParser::buildConfig()
     return true;
     }
 
-bool ConfigParser::buildMachineConfig(QString machine_cfg)
+/**
+  *Parsermethod for the system machine configuration.
+  */
+bool ConfigParser::buildMachineConfig(const QString machine_cfg)
     {
     QFile config_file(machine_cfg);
     if (!config_file.open(QIODevice::ReadOnly))
@@ -117,7 +121,7 @@ bool ConfigParser::buildMachineConfig(QString machine_cfg)
  * This method is designed to parse the object config file
  * and to initialize the required objects in the UIObjectHandler
  */
-bool ConfigParser::buildObjects(QString object_cfgv)
+bool ConfigParser::buildObjects(const QString object_cfgv)
     {
     QFile obj_file(object_cfgv);
     if (!obj_file.open(QIODevice::ReadOnly))
@@ -146,15 +150,17 @@ bool ConfigParser::buildObjects(QString object_cfgv)
 		{
 		if(attr.value() == OBJECT_TYPE_SCREEN)
 		    this->buildScreenObject(map);
+		else if(attr.value() == OBJECT_TYPE_BUTTON_C)
+		    this->buildButtonCObject(map);
 		else
-		    this->core->logWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value()));
+		    this->core->logWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
 		}
 	    }
 	}
     return true;
     }
 
-bool ConfigParser::buildScreenObject(QDomNamedNodeMap &map)
+bool ConfigParser::buildScreenObject(const QDomNamedNodeMap &map)
     {
     ScreenObject temp_screen;
     for(uint i = 1; i <= map.length();i++)
@@ -177,7 +183,50 @@ bool ConfigParser::buildScreenObject(QDomNamedNodeMap &map)
 	if(attr.name() == SCREEN_ATTR_DEF)
 	    temp_screen.setObjDef(attr.value());
 	}
+    qDebug() << temp_screen.getObjLogEntry();
     this->core->logInfo(temp_screen.getObjLogEntry());
+    return true;
+    }
+
+bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
+    {
+    ButtonCObject temp_buttonc;
+    for(uint i = 1; i <= map.length();i++)
+	{
+	QDomAttr attr = map.item(i-1).toAttr();
+	if(attr.name() == BUTTON_C_ATTR_ID)
+	    temp_buttonc.setObjID(attr.value().toInt());
+	if(attr.name() == BUTTON_C_ATTR_PARENT)
+	    temp_buttonc.setObjParent(attr.value().toInt());
+	if(attr.name() == BUTTON_C_ATTR_TYPE)
+	    temp_buttonc.setObjType(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_NAME)
+	    temp_buttonc.setObjName(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_AUX)
+	    temp_buttonc.setObjAux(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_XPOS)
+	    temp_buttonc.setObjXPos(attr.value().toInt());
+	if(attr.name() == BUTTON_C_ATTR_YPOS)
+	    temp_buttonc.setObjYPos(attr.value().toInt());
+	if(attr.name() == BUTTON_C_ATTR_UPFILE)
+	    temp_buttonc.setObjUpFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_DOFILE)
+	    temp_buttonc.setObjDoFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_ACT_UPFILE)
+	    temp_buttonc.setObjActUpFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_ACT_DOFILE)
+	    temp_buttonc.setObjActDoFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_TEA_UPFILE)
+	    temp_buttonc.setObjTeaUpFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_TEA_DOFILE)
+	    temp_buttonc.setObjTeaDoFile(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_VISIBLE)
+	    temp_buttonc.setObjVisible(attr.value());
+	if(attr.name() == BUTTON_C_ATTR_URL_LINK)
+	    temp_buttonc.setObjUrlLink(attr.value());
+	}
+    qDebug() << temp_buttonc.getObjLogEntry();
+    this->core->logInfo(temp_buttonc.getObjLogEntry());
     return true;
     }
 

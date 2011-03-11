@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     elements/machineconfig.cpp \
     core/loghandler.cpp \
     elements/screenobject.cpp \
-    core/uiobjecthandler.cpp
+    core/uiobjecthandler.cpp \
+    elements/buttoncobject.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -30,7 +31,8 @@ HEADERS  += core/coreengine.h \
     elements/machineconfig.h \
     core/loghandler.h \
     elements/screenobject.h \
-    core/uiobjecthandler.h
+    core/uiobjecthandler.h \
+    elements/buttoncobject.h
 
 FORMS    += coreengine.ui
 

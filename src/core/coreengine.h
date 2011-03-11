@@ -57,6 +57,8 @@ protected:
 
 private:
 
+    int stuff;
+
     ViewPort *declarative_viewport;
     ConfigParser *config_parser;
     LogHandler *log_handler;
