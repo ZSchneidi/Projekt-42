@@ -1,7 +1,6 @@
 #include "buttoncobject.h"
 
-ButtonCObject::ButtonCObject(QDeclarativeItem *parent) :
-    QDeclarativeItem(parent)
+ButtonCObject::ButtonCObject()
 {
     }
 

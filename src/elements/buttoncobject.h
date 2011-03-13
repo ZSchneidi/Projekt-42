@@ -5,9 +5,9 @@
 
 #include "global_define.h"
 
-class ButtonCObject : public QDeclarativeItem
+class ButtonCObject
 {
-    Q_OBJECT
+    //Q_OBJECT
 
 private:
 
@@ -28,7 +28,7 @@ private:
     QString url_link;
 
 public:
-    explicit ButtonCObject(QDeclarativeItem *parent = 0);
+    explicit ButtonCObject();
 
     //GETTER
     inline int getObjID() {return this->id;}

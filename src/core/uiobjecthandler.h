@@ -6,10 +6,12 @@
 
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
+#include "elements/buttoncobject.h"
 #include "global_define.h"
 
 class MachineConfig;
 class ScreenObject;
+class ButtonCObject;
 
 class UIObjectHandler : public QObject
 {
@@ -20,19 +22,21 @@ public:
 
     bool initUIObjectHandler();
 
-    typedef QList<ScreenObject> ScreenList;
+    typedef QList<ScreenObject*> ScreenList;
+    typedef QList<ButtonCObject*> ButtonCList;
 
 private:
 
     bool object_handler_state;
     MachineConfig *machine_cfg;
-
-    ScreenList *screen_list;
+    ScreenList screen_list;
+    ButtonCList buttonc_list;
 
 public:
 
     MachineConfig *getMachineConfig();
     ScreenList *getScreenList();
+    ButtonCList *getButtonCList();
 
 };
 

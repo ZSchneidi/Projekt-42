@@ -5,7 +5,7 @@
 
 #include "global_define.h"
 
-class ScreenObject : public QDeclarativeItem
+class ScreenObject : public QObject
 {
     Q_OBJECT
 
@@ -22,7 +22,7 @@ private:
 
 
 public:
-    explicit ScreenObject(QObject *parent = 0);
+    explicit ScreenObject();
 
     //GETTER
     inline int getObjID() {return this->id;}

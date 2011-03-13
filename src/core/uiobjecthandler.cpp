@@ -4,7 +4,8 @@ UIObjectHandler::UIObjectHandler(QObject *parent) :
     QObject(parent)
     {
     this->object_handler_state = false;
-    this->machine_cfg = NULL;
+    this->screen_list.clear();
+    this->buttonc_list.clear();
     }
 
 bool UIObjectHandler::initUIObjectHandler()
@@ -26,5 +27,12 @@ UIObjectHandler::ScreenList *UIObjectHandler::getScreenList()
     {
     //if(this->screen_list == NULL)
     //	throw eUnsetPointer();
-    return this->screen_list;
+    return &this->screen_list;
+    }
+
+UIObjectHandler::ButtonCList *UIObjectHandler::getButtonCList()
+    {
+    //if(this->buttonc_list == NULL)
+    //	throw eUnsetPointer();
+    return &this->buttonc_list;
     }

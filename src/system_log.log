@@ -1,6 +1,6 @@
-[11.03.2011-19:37:08][SYSTEM] Iinitialize system startup
-[11.03.2011-19:37:08][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
-[11.03.2011-19:37:08][INFO] Machine definition:
+[13.03.2011-18:17:13][SYSTEM] Iinitialize system startup
+[13.03.2011-18:17:13][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
+[13.03.2011-18:17:13][INFO] Machine definition:
 	id: 0
 	amid: 100002
 	typ: machine
@@ -9,7 +9,7 @@
 	bgHeight: 1024
 	mnr: 000100
 	mtel: 
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205593
 	parent: 0
 	typ: screen
@@ -18,7 +18,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: Y
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205594
 	parent: 0
 	typ: screen
@@ -27,7 +27,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: N
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205595
 	parent: 205593
 	typ: button_c
@@ -44,7 +44,7 @@
 	visible: N
 	urlLink: 
 
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205596
 	parent: 205593
 	typ: button_c
@@ -61,7 +61,7 @@
 	visible: Y
 	urlLink: sad
 
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205597
 	parent: 205594
 	typ: button_c
@@ -78,7 +78,7 @@
 	visible: N
 	urlLink: 
 
-[11.03.2011-19:37:08][INFO] Screen definition:
+[13.03.2011-18:17:13][INFO] Screen definition:
 	id: 205598
 	parent: 205594
 	typ: button_c
@@ -95,7 +95,4 @@
 	visible: Y
 	urlLink: 
 
-[11.03.2011-19:37:08][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/am100002/v/cfg/obj_cfgv.xml on line 9
-[11.03.2011-19:37:08][SYSTEM] Iinitialize UI from config files
-[11.03.2011-19:37:08][SYSTEM] Startup lasts 17 milliseconds
-[11.03.2011-19:37:11][SYSTEM] Application was closed manually
+[13.03.2011-18:17:13][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/am100002/v/cfg/obj_cfgv.xml on line 9

@@ -33,10 +33,10 @@ bool ConfigParser::buildConfig()
 		{
 		/*get the reference of the machine config*/
 		try {
-		    this->machine_cfg = this->core->getUIObjectHandler()->getMachineConfig();
+		    this->machine_cfg_ref = this->core->getUIObjectHandler()->getMachineConfig();
 		} catch (eUnsetPointer &e) {
 		    this->core->getUIObjectHandler()->initUIObjectHandler();
-		    this->machine_cfg = this->core->getUIObjectHandler()->getMachineConfig();
+		    this->machine_cfg_ref = this->core->getUIObjectHandler()->getMachineConfig();
 		    }
 
 		if(this->buildMachineConfig((*this->file_list_it).absoluteFilePath()))
@@ -50,10 +50,11 @@ bool ConfigParser::buildConfig()
 	    else if((*this->file_list_it).fileName() == OBJ_CFGV)
 		{
 		try {
-		    this->screen_list = this->core->getUIObjectHandler()->getScreenList();
+		    this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
+		    this->buttonc_list_ref = this->core->getUIObjectHandler()->getButtonCList();
 		} catch (eUnsetPointer &e) {
 		    this->core->getUIObjectHandler()->initUIObjectHandler();
-		    this->screen_list = this->core->getUIObjectHandler()->getScreenList();
+		    this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
 		}
 		if(this->buildObjects((*this->file_list_it).absoluteFilePath()))
 		    this->object_cfg_state = true;
@@ -93,27 +94,27 @@ bool ConfigParser::buildMachineConfig(const QString machine_cfg)
 	{
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == MACHINE_ATTR_ID)
-	    this->machine_cfg->setID(attr.value().toInt());
+	    this->machine_cfg_ref->setID(attr.value().toInt());
 	else if(attr.name() == MACHINE_ATTR_AMID)
-	    this->machine_cfg->setMachineID(attr.value().toInt());
+	    this->machine_cfg_ref->setMachineID(attr.value().toInt());
 	else if(attr.name() == MACHINE_ATTR_TYPE)
-	    this->machine_cfg->setMachineType(attr.value());
+	    this->machine_cfg_ref->setMachineType(attr.value());
 	else if(attr.name() == MACHINE_ATTR_BGFILE)
-	    this->machine_cfg->setBackgroundFile(attr.value());
+	    this->machine_cfg_ref->setBackgroundFile(attr.value());
 	else if(attr.name() == MACHINE_ATTR_BGWIDTH)
-	    this->machine_cfg->setBackgroundWidth(attr.value().toInt());
+	    this->machine_cfg_ref->setBackgroundWidth(attr.value().toInt());
 	else if(attr.name() == MACHINE_ATTR_BGHEIGHT)
-	    this->machine_cfg->setBackgroundHeight(attr.value().toInt());
+	    this->machine_cfg_ref->setBackgroundHeight(attr.value().toInt());
 	else if(attr.name() == MACHINE_ATTR_MNR)
-	    this->machine_cfg->setMachineNumber(attr.value());
+	    this->machine_cfg_ref->setMachineNumber(attr.value());
 	else if(attr.name() == MACHINE_ATTR_MTEL)
-	    this->machine_cfg->setMachineTelNumber(attr.value());
+	    this->machine_cfg_ref->setMachineTelNumber(attr.value());
 	else
 	    {
 	    this->core->logWarning(QString(UNHA_ATT_MSG).replace("#_1",attr.name()).replace("#_2",MACHINE_CFG_TAG));
 	    }
 	}
-    this->core->logInfo(this->machine_cfg->getLogEntryStr());
+    this->core->logInfo(this->machine_cfg_ref->getLogEntryStr());
     return true;
     }
 
@@ -130,13 +131,13 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
     QDomDocument doc;
     doc.setContent(data);
     QDomNodeList node_list = doc.elementsByTagName(QString(OBJECT_CFG_TAG));
-    qDebug() << node_list.count();
     /*if at least 1 tag was found proceed otherwise return false*/
     if(!node_list.count() > 0)
 	{
 	this->core->logError(QString(MISSING_OBJ_TAG));
 	return false;
 	}
+    /*iterate through the dom nodes*/
     for(int i = 0;i <node_list.count();i++)
 	{
 	QDomNode node = node_list.item(i);
@@ -144,16 +145,19 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 	/*iterate through the attributes*/
 	for(uint i = 1; i <= map.length();i++)
 	    {
-	    QDomAttr attr = map.item(i-1).toAttr();
-	    /* handle the different object types */
-	    if(attr.name() == SCREEN_ATTR_TYPE)
+	    if(map.item(i-1).isAttr())
 		{
-		if(attr.value() == OBJECT_TYPE_SCREEN)
-		    this->buildScreenObject(map);
-		else if(attr.value() == OBJECT_TYPE_BUTTON_C)
-		    this->buildButtonCObject(map);
-		else
-		    this->core->logWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
+		QDomAttr attr = map.item(i-1).toAttr();
+		/* handle the different object types */
+		if(attr.name() == OBJECT_CFG_TYPE_ATTR)
+		    {
+		    if(attr.value() == OBJECT_TYPE_SCREEN)
+			this->buildScreenObject(map);
+		    else if(attr.value() == OBJECT_TYPE_BUTTON_C)
+			this->buildButtonCObject(map);
+		    else
+			this->core->logWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
+		    }
 		}
 	    }
 	}
@@ -162,71 +166,72 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 
 bool ConfigParser::buildScreenObject(const QDomNamedNodeMap &map)
     {
-    ScreenObject temp_screen;
+    ScreenObject* temp = new ScreenObject();
+
     for(uint i = 1; i <= map.length();i++)
 	{
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == SCREEN_ATTR_ID)
-	    temp_screen.setObjID(attr.value().toInt());
+	    temp->setObjID(attr.value().toInt());
 	if(attr.name() == SCREEN_ATTR_PARENT)
-	    temp_screen.setObjParent(attr.value().toInt());
+	    temp->setObjParent(attr.value().toInt());
 	if(attr.name() == SCREEN_ATTR_TYPE)
-	    temp_screen.setObjType(attr.value());
+	    temp->setObjType(attr.value());
 	if(attr.name() == SCREEN_ATTR_NAME)
-	    temp_screen.setObjName(attr.value());
+	    temp->setObjName(attr.value());
 	if(attr.name() == SCREEN_ATTR_AUX)
-	    temp_screen.setObjAux(attr.value());
+	    temp->setObjAux(attr.value());
 	if(attr.name() == SCREEN_ATTR_TIMEOUT)
-	    temp_screen.setObjTimeout(attr.value().toInt());
+	    temp->setObjTimeout(attr.value().toInt());
 	if(attr.name() == SCREEN_ATTR_BGIMG)
-	    temp_screen.setObjBackgroundImage(attr.value());
+	    temp->setObjBackgroundImage(attr.value());
 	if(attr.name() == SCREEN_ATTR_DEF)
-	    temp_screen.setObjDef(attr.value());
+	    temp->setObjDef(attr.value());
 	}
-    qDebug() << temp_screen.getObjLogEntry();
-    this->core->logInfo(temp_screen.getObjLogEntry());
+    this->screen_list_ref->append(temp);
+    this->core->logInfo(this->screen_list_ref->last()->getObjLogEntry());
     return true;
     }
 
 bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
     {
-    ButtonCObject temp_buttonc;
+    ButtonCObject *temp_buttonc = new ButtonCObject();
     for(uint i = 1; i <= map.length();i++)
 	{
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == BUTTON_C_ATTR_ID)
-	    temp_buttonc.setObjID(attr.value().toInt());
+	    temp_buttonc->setObjID(attr.value().toInt());
 	if(attr.name() == BUTTON_C_ATTR_PARENT)
-	    temp_buttonc.setObjParent(attr.value().toInt());
+	    temp_buttonc->setObjParent(attr.value().toInt());
 	if(attr.name() == BUTTON_C_ATTR_TYPE)
-	    temp_buttonc.setObjType(attr.value());
+	    temp_buttonc->setObjType(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_NAME)
-	    temp_buttonc.setObjName(attr.value());
+	    temp_buttonc->setObjName(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_AUX)
-	    temp_buttonc.setObjAux(attr.value());
+	    temp_buttonc->setObjAux(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_XPOS)
-	    temp_buttonc.setObjXPos(attr.value().toInt());
+	    temp_buttonc->setObjXPos(attr.value().toInt());
 	if(attr.name() == BUTTON_C_ATTR_YPOS)
-	    temp_buttonc.setObjYPos(attr.value().toInt());
+	    temp_buttonc->setObjYPos(attr.value().toInt());
 	if(attr.name() == BUTTON_C_ATTR_UPFILE)
-	    temp_buttonc.setObjUpFile(attr.value());
+	    temp_buttonc->setObjUpFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_DOFILE)
-	    temp_buttonc.setObjDoFile(attr.value());
+	    temp_buttonc->setObjDoFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_ACT_UPFILE)
-	    temp_buttonc.setObjActUpFile(attr.value());
+	    temp_buttonc->setObjActUpFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_ACT_DOFILE)
-	    temp_buttonc.setObjActDoFile(attr.value());
+	    temp_buttonc->setObjActDoFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_TEA_UPFILE)
-	    temp_buttonc.setObjTeaUpFile(attr.value());
+	    temp_buttonc->setObjTeaUpFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_TEA_DOFILE)
-	    temp_buttonc.setObjTeaDoFile(attr.value());
+	    temp_buttonc->setObjTeaDoFile(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_VISIBLE)
-	    temp_buttonc.setObjVisible(attr.value());
+	    temp_buttonc->setObjVisible(attr.value());
 	if(attr.name() == BUTTON_C_ATTR_URL_LINK)
-	    temp_buttonc.setObjUrlLink(attr.value());
+	    temp_buttonc->setObjUrlLink(attr.value());
 	}
-    qDebug() << temp_buttonc.getObjLogEntry();
-    this->core->logInfo(temp_buttonc.getObjLogEntry());
+    this->buttonc_list_ref->append(temp_buttonc);
+    this->core->logInfo(this->buttonc_list_ref->last()->getObjLogEntry());
     return true;
     }
 

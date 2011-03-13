@@ -1,9 +1,9 @@
 #include "screenobject.h"
 
-ScreenObject::ScreenObject(QObject *parent) :
-    QDeclarativeItem()
+ScreenObject::ScreenObject() :
+    QObject()
 {
-    this->setFlag(QGraphicsItem::ItemHasNoContents,false);
+    //this->setFlag(QGraphicsItem::ItemHasNoContents,false);
     this->id = 0;
     this->iparent = 0;
     this->timeout = 0;

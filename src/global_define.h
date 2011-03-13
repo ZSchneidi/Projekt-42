@@ -23,6 +23,8 @@ toggles the application fullscreen mode*/
 /*define of the known tag names*/
 #define MACHINE_CFG_TAG			"machine"
 #define OBJECT_CFG_TAG			"object"
+#define OBJECT_CFG_TYPE_ATTR		"typ"	    //used to get the type of the object
+
 
 /*define of the known attributes*/
 //machine attributes

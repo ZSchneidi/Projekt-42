@@ -57,8 +57,9 @@ private:
     QFileInfoList::Iterator file_list_it;
 
     CoreEngine *core;
-    MachineConfig *machine_cfg;
-    UIObjectHandler::ScreenList *screen_list;
+    MachineConfig *machine_cfg_ref;
+    UIObjectHandler::ScreenList *screen_list_ref;
+    UIObjectHandler::ButtonCList *buttonc_list_ref;
 
     bool machine_cfg_state;
     bool object_cfg_state;
