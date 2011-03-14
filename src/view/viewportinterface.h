@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "view/viewport.h"
+#include "core/uiobjecthandler.h"
 
 class ViewPort;
 
@@ -11,6 +12,9 @@ class ViewPortInterface : public QObject
     Q_OBJECT
 
     ViewPort *parent;
+
+    //Q_PROPERTY(QDeclarativeListProperty<ScreenObject> screen READ screen);
+
 
 public:
     explicit ViewPortInterface(ViewPort *parent = 0);

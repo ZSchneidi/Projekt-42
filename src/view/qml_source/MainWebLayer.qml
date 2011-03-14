@@ -11,4 +11,13 @@ Rectangle {
 	text: "This UI is generated from cfg files"
     }
 
+    Text {
+	id: machine_id
+
+	text: machine_config.type
+	onTextChanged: {
+	    console.log();
+	}
+    }
+
 }

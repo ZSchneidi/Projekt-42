@@ -18,8 +18,8 @@ bool UIObjectHandler::initUIObjectHandler()
 
 MachineConfig *UIObjectHandler::getMachineConfig()
     {
-    if(this->machine_cfg == NULL)
-	throw eUnsetPointer();
+    //if(this->machine_cfg == NULL)
+	//throw eUnsetPointer();
     return this->machine_cfg;
     }
 

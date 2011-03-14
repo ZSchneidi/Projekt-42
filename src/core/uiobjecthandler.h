@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QList>
+#include <QMetaType>
 
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
@@ -39,5 +40,8 @@ public:
     ButtonCList *getButtonCList();
 
 };
+
+
+Q_DECLARE_METATYPE(QList<ScreenObject*>)
 
 #endif // UIOBJECTHANDLER_H

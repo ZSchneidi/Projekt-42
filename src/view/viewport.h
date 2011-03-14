@@ -27,6 +27,7 @@ public:
     explicit ViewPort(CoreEngine *parent = 0,QUrl path = QUrl(""));
 
     bool initViewPort();
+    void initViewLayer();
 
     inline CoreEngine* getCore() { return this->core; }
     inline QDeclarativeContext *getRootContext() {return this->root_context;}

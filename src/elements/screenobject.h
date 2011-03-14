@@ -2,6 +2,7 @@
 #define SCREENOBJECT_H
 
 #include <QObject>
+#include <QMetaType>
 
 #include "global_define.h"
 
@@ -11,7 +12,7 @@ class ScreenObject : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int id READ getObjID CONSTANT)
+   // Q_PROPERTY(int id READ getObjID CONSTANT)
 
 private:
 
@@ -52,5 +53,6 @@ public:
 
 };
 
+Q_DECLARE_METATYPE(ScreenObject*)
 
 #endif // SCREENOBJECT_H

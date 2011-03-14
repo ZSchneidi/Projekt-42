@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QSize>
+#include <QMetaType>
 
 #include <QDebug>
 #include "global_define.h"
@@ -10,6 +11,10 @@
 class MachineConfig : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(int amid READ getMachineID CONSTANT)
+
+    Q_PROPERTY(QString type READ getMachineType CONSTANT)
 
     int id;
     int amid;
@@ -52,5 +57,7 @@ signals:
 public slots:
 
 };
+
+//Q_DECLARE_METATYPE(MachineConfig*)
 
 #endif // MACHINECONFIG_H
