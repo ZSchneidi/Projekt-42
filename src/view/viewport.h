@@ -29,6 +29,7 @@ public:
     bool initViewPort();
 
     inline CoreEngine* getCore() { return this->core; }
+    inline QDeclarativeContext *getRootContext() {return this->root_context;}
 
 signals:
 

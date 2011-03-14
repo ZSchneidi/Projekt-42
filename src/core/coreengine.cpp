@@ -53,7 +53,10 @@ bool CoreEngine::setUpViewport()
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     /*define the viewport as main Widget*/
     this->setCentralWidget(declarative_viewport);
+    this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(this->ui_object_handler->getScreenList()));
 
+
+            //this->context->setContextProperty("imageDataModel", QVariant::fromValue(this->imange_data_model->getDataModel()));
     return true;
     }
 
@@ -65,13 +68,15 @@ bool CoreEngine::initStartup()
     switch(this->init_mode)
 	{
 	case CoreEngine::WEB_UI:
-	    this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
-	    this->config_parser->buildConfig();
-	    this->log_handler->writeToSystemLog(WEB_UI_INIT_MSG,LogHandler::SYSTEM_LOG);
+            this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+            /*parse the config files and build all objects for the UIObjectHandler*/
+            this->config_parser->buildConfig();
+
+            this->logSystemMsg(WEB_UI_INIT_MSG);
+
 	    break;
 	case CoreEngine::QML_UI:
-
-	    this->log_handler->writeToSystemLog(QML_UI_INIT_MSG,LogHandler::SYSTEM_LOG);
+            this->logSystemMsg(QML_UI_INIT_MSG);
 	    break;
 	default:
 

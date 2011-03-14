@@ -64,6 +64,8 @@ private:
     bool machine_cfg_state;
     bool object_cfg_state;
     bool module_cfg_state;
+
+    bool validateConfigXMLIntegrity(QString path);
 };
 
 #endif // CONFIGPARSER_H

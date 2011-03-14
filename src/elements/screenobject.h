@@ -1,13 +1,17 @@
 #ifndef SCREENOBJECT_H
 #define SCREENOBJECT_H
 
-#include <QDeclarativeItem>
+#include <QObject>
 
 #include "global_define.h"
+
+
 
 class ScreenObject : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(int id READ getObjID CONSTANT)
 
 private:
 
@@ -47,5 +51,6 @@ public:
     inline void setObjDef(QString def) {this->def = def;}
 
 };
+
 
 #endif // SCREENOBJECT_H

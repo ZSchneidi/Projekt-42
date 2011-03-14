@@ -41,4 +41,5 @@ OTHER_FILES += \
     Project_doc.txt \
     view/qml_source/MainWebLayer.qml \
     dev_notice.txt \
-    TODO.txt
+    TODO.txt \
+    myschema.xsd

@@ -39,6 +39,8 @@ bool ConfigParser::buildConfig()
 		    this->machine_cfg_ref = this->core->getUIObjectHandler()->getMachineConfig();
 		    }
 
+                if(!this->validateConfigXMLIntegrity((*this->file_list_it).absoluteFilePath()))
+                    qDebug() << "invalid config xml";
 		if(this->buildMachineConfig((*this->file_list_it).absoluteFilePath()))
 		    this->machine_cfg_state = true;
 		}
@@ -78,9 +80,11 @@ bool ConfigParser::buildMachineConfig(const QString machine_cfg)
     QFile config_file(machine_cfg);
     if (!config_file.open(QIODevice::ReadOnly))
 	return false;
+
     QByteArray data = config_file.readAll();
     QDomDocument doc;
     doc.setContent(data);
+
     QDomNodeList node_list = doc.elementsByTagName(QString(MACHINE_CFG_TAG));
     /*if at least 1 tag was found proceed otherwise return false*/
     if(!node_list.count() > 0)
@@ -140,7 +144,7 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
     /*iterate through the dom nodes*/
     for(int i = 0;i <node_list.count();i++)
 	{
-	QDomNode node = node_list.item(i);
+        QDomNode node = node_list.item(i);
 	QDomNamedNodeMap map = node.attributes();
 	/*iterate through the attributes*/
 	for(uint i = 1; i <= map.length();i++)
@@ -232,6 +236,26 @@ bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
 	}
     this->buttonc_list_ref->append(temp_buttonc);
     this->core->logInfo(this->buttonc_list_ref->last()->getObjLogEntry());
+    return true;
+    }
+
+bool ConfigParser::validateConfigXMLIntegrity(QString path)
+    {
+    /*QFile file(path);
+    QFile temp_file("config/temp_file.xml");
+    file.open(QIODevice::ReadOnly);
+    temp_file.open(QIODevice::ReadWrite);
+
+    QString line;
+    QTextStream t( &file );
+    while ( !t.atEnd() )
+        {
+        line = t.readLine();
+        if(line.contains("version") && !line.contains("encoding"))
+            qDebug() << line;
+        }
+    file.close();
+    return false;*/
     return true;
     }
 

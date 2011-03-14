@@ -17,7 +17,7 @@ void ButtonCObject::setObjVisible(QString value)
 QString ButtonCObject::getObjLogEntry()
     {
     QString temp;
-    temp += "Screen definition:\n";
+    temp += "Button_C definition:\n";
     temp += "\t"+QString(BUTTON_C_ATTR_ID)+": " + QString::number(this->id)+"\n";
     temp += "\t"+QString(BUTTON_C_ATTR_PARENT)+": " + QString::number(this->iparent)+"\n";
     temp += "\t"+QString(BUTTON_C_ATTR_TYPE)+": " + this->type+"\n";
@@ -32,6 +32,6 @@ QString ButtonCObject::getObjLogEntry()
     temp += "\t"+QString(BUTTON_C_ATTR_TEA_UPFILE)+": " +this->tea_up_file+"\n";
     temp += "\t"+QString(BUTTON_C_ATTR_TEA_DOFILE)+": " +this->tea_do_file+"\n";
     temp += "\t"+QString(BUTTON_C_ATTR_VISIBLE)+": " +this->visible+"\n";
-    temp += "\t"+QString(BUTTON_C_ATTR_URL_LINK)+": " +this->url_link+"\n";
+    temp += "\t"+QString(BUTTON_C_ATTR_URL_LINK)+": " +this->url_link;
     return temp;
     }

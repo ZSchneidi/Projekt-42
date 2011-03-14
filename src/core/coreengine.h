@@ -23,6 +23,8 @@ class CoreEngine : public QMainWindow
 {
     Q_OBJECT
 
+
+
 public:
     /*declaration of the initial startup modes*/
     enum InitMode {

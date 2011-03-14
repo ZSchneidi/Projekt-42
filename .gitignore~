@@ -12,7 +12,7 @@ am100002/
 #ignore *.pro.user
 *.pro.user
 *.pro.user.*
-*moc_*
+
 
 # Ignore (generated) html files,
 *.html

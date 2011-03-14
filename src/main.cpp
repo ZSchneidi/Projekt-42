@@ -1,6 +1,8 @@
 #include <QtGui/QApplication>
 #include "core/coreengine.h"
 #include "core/loghandler.h"
+#include "elements/screenobject.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +12,8 @@ int main(int argc, char *argv[])
      */
     CoreEngine::InitMode mode = CoreEngine::WEB_UI;
     LogHandler::Log_state log_state = LogHandler::ACTIVE;
+
+    qmlRegisterType<ScreenObject>("Objects", 1, 0, "ScreenObject");
 
     QUrl path("");
     /*depending on the InitMode the path is set to a qml or cfg file.*/

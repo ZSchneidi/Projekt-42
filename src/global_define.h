@@ -12,7 +12,7 @@ toggles the application fullscreen mode*/
 
 #define DEFAULT_QML_LAYER		"view/qml_source/MainLayer.qml"
 #define DEFAULT_WEB_LAYER		"view/qml_source/MainWebLayer.qml"
-#define DEFAULT_WEB_CFG_DIR		"../am100002/v/cfg/"
+#define DEFAULT_WEB_CFG_DIR		"config/am100002/v/cfg/"
 
 
 /*define of the expected config files*/
@@ -21,6 +21,7 @@ toggles the application fullscreen mode*/
 #define OBJ_CFGV			"obj_cfgv.xml"
 
 /*define of the known tag names*/
+#define REQ_ROOT_TAG			"root"
 #define MACHINE_CFG_TAG			"machine"
 #define OBJECT_CFG_TAG			"object"
 #define OBJECT_CFG_TYPE_ATTR		"typ"	    //used to get the type of the object
