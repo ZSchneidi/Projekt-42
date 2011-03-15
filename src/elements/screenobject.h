@@ -52,5 +52,6 @@ public:
 
 };
 
+Q_DECLARE_METATYPE(ScreenObject);
 
 #endif // SCREENOBJECT_H
