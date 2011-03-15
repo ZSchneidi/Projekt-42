@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     core/loghandler.cpp \
     elements/screenobject.cpp \
     core/uiobjecthandler.cpp \
-    elements/buttoncobject.cpp
+    elements/buttoncobject.cpp \
+    elements/screenlistwrapper.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -32,7 +33,8 @@ HEADERS  += core/coreengine.h \
     core/loghandler.h \
     elements/screenobject.h \
     core/uiobjecthandler.h \
-    elements/buttoncobject.h
+    elements/buttoncobject.h \
+    elements/screenlistwrapper.h
 
 FORMS    += coreengine.ui
 
@@ -41,5 +43,4 @@ OTHER_FILES += \
     Project_doc.txt \
     view/qml_source/MainWebLayer.qml \
     dev_notice.txt \
-    TODO.txt \
-    myschema.xsd
+    TODO.txt

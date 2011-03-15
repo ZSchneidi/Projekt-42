@@ -23,6 +23,8 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode, QUrl path) :
     /*install the EvenFilter to forward all Events to the EventHandler*/
     this->installEventFilter(this->event_handler);
 
+
+
     }
 
 /**
@@ -48,15 +50,16 @@ bool CoreEngine::SystemStartUp()
  */
 bool CoreEngine::setUpViewport()
     {
+    this->resize(QSize(1200,600));
     this->declarative_viewport->initViewPort();
     /*this fills the parent application window with the qml view*/
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     /*define the viewport as main Widget*/
     this->setCentralWidget(declarative_viewport);
-    this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(this->ui_object_handler->getScreenList()));
+    this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(*this->ui_object_handler->getScreenList()));
+    this->declarative_viewport->getRootContext()->setContextProperty("machine_config",this->ui_object_handler->getMachineConfig());
 
-
-            //this->context->setContextProperty("imageDataModel", QVariant::fromValue(this->imange_data_model->getDataModel()));
+    this->declarative_viewport->initViewLayer();
     return true;
     }
 
@@ -71,6 +74,7 @@ bool CoreEngine::initStartup()
             this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
             /*parse the config files and build all objects for the UIObjectHandler*/
             this->config_parser->buildConfig();
+
 
             this->logSystemMsg(WEB_UI_INIT_MSG);
 

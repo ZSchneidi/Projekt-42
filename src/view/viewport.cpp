@@ -9,8 +9,6 @@ ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
 
     this->interface = new ViewPortInterface(this);
 
-
-
     }
 
 bool ViewPort::initViewPort()
@@ -20,6 +18,12 @@ bool ViewPort::initViewPort()
     /*this manifests the viewportinterface in the qml environment*/
     this->root_context->setContextProperty("viewportinterface", this->interface );
 
-    this->setSource(this->main_layer_path);
     return true;
     }
+
+void ViewPort::initViewLayer()
+    {
+
+    this->setSource(this->main_layer_path);
+    }
+
