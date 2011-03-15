@@ -39,8 +39,10 @@ HEADERS  += core/coreengine.h \
 FORMS    += coreengine.ui
 
 OTHER_FILES += \
-    view/qml_source/MainLayer.qml \
     Project_doc.txt \
-    view/qml_source/MainWebLayer.qml \
     dev_notice.txt \
-    TODO.txt
+    TODO.txt \
+    view/qml_source/WebSubLayer.qml \
+    view/qml_source/QmlSubLayer.qml \
+    view/qml_source/MainViewLayer.qml \
+    view/qml_source/AdminPanel.qml

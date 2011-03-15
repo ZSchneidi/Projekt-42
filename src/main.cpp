@@ -15,13 +15,7 @@ int main(int argc, char *argv[])
 
     //qmlRegisterType<ScreenObject>("Objects", 1, 0, "ScreenObject");
 
-    QUrl path("");
-    /*depending on the InitMode the path is set to a qml or cfg file.*/
-    if(mode == CoreEngine::QML_UI)
-	path = DEFAULT_QML_LAYER;
-    else if (mode == CoreEngine::WEB_UI)
-	path = DEFAULT_WEB_LAYER;
-    CoreEngine w(0,mode,path);
+    CoreEngine w(0,mode);
 
     w.getLogHandler()->setLoggerState(log_state);
     w.getLogHandler()->setLoggerWriteMode(QIODevice::Truncate);

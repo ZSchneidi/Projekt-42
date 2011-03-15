@@ -19,18 +19,30 @@ class ViewPort : public QDeclarativeView
     /**context for the QDeclarative environment*/
     QDeclarativeContext *root_context;
 
+    /**/
     CoreEngine *core;
+    /*the interface between C++ and QML layer */
     ViewPortInterface *interface;
+
     QUrl main_layer_path;
+    QUrl sub_layer_path;
+
 
 public:
     explicit ViewPort(CoreEngine *parent = 0,QUrl path = QUrl(""));
 
     bool initViewPort();
-    void initViewLayer();
+    void initViewLayer(QUrl source = QUrl(""));
 
+    void initQmlProperties();
+
+    //GETTER
     inline CoreEngine* getCore() { return this->core; }
     inline QDeclarativeContext *getRootContext() {return this->root_context;}
+    inline QUrl getSubLayerPath() { return this->sub_layer_path; }
+
+    //SETTER
+    inline void setSubLayerPath(QUrl source) { this->sub_layer_path = source; }
 
 signals:
 

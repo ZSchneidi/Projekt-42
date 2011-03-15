@@ -13,7 +13,7 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode, QUrl path) :
     /*the config_parser is used to build dynamic object and module handler*/
     this->config_parser = new ConfigParser(this);
     /*instantiate the main Viewport for graphical UI as declarative_viewport*/
-    this->declarative_viewport = new ViewPort(this,this->ui_layer_path);
+    this->declarative_viewport = new ViewPort(this);
     /*instantiate an EventHandler which will catch and process every Event send to the Application*/
     this->event_handler = new EventHandler(this);
     /*instantiate a LogHandler which logs all system information etc.*/
@@ -58,8 +58,12 @@ bool CoreEngine::setUpViewport()
     this->setCentralWidget(declarative_viewport);
     this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(*this->ui_object_handler->getScreenList()));
     this->declarative_viewport->getRootContext()->setContextProperty("machine_config",this->ui_object_handler->getMachineConfig());
+    if(this->init_mode == CoreEngine::QML_UI)
+        this->ui_layer_path = DEFAULT_QML_LAYER;
+    else if (this->init_mode == CoreEngine::WEB_UI)
+        this->ui_layer_path = DEFAULT_WEB_LAYER;
 
-    this->declarative_viewport->initViewLayer();
+    this->declarative_viewport->initViewLayer(QUrl(MAIN_VIEW_LAYER));
     return true;
     }
 

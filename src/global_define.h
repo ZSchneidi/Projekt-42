@@ -10,8 +10,12 @@
 toggles the application fullscreen mode*/
 #define TOGGLE_FULLSCREEN_BUTTON 0x41
 
-#define DEFAULT_QML_LAYER		"view/qml_source/MainLayer.qml"
-#define DEFAULT_WEB_LAYER		"view/qml_source/MainWebLayer.qml"
+/*define the relative paths to the view layer source files*/
+#define MAIN_VIEW_LAYER 		"view/qml_source/MainViewLayer.qml"
+#define DEFAULT_QML_LAYER		"view/qml_source/QmlSubLayer.qml"
+#define DEFAULT_WEB_LAYER		"view/qml_source/WebSubLayer.qml"
+
+/*define of the relative path to the machine config*/
 #define DEFAULT_WEB_CFG_DIR		"config/am100002/v/cfg/"
 
 

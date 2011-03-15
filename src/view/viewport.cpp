@@ -21,9 +21,9 @@ bool ViewPort::initViewPort()
     return true;
     }
 
-void ViewPort::initViewLayer()
+void ViewPort::initViewLayer(QUrl source)
     {
-
+    this->main_layer_path = source;
     this->setSource(this->main_layer_path);
     }
 

@@ -13,11 +13,17 @@ class ViewPortInterface : public QObject
 
     ViewPort *parent;
 
-    //Q_PROPERTY(QDeclarativeListProperty<ScreenObject> screen READ screen);
+    Q_PROPERTY(QUrl sublayer READ getSubLayer() CONSTANT);
 
 
 public:
     explicit ViewPortInterface(ViewPort *parent = 0);
+
+    //GETTER
+    QUrl getSubLayer();
+
+    //SETTER
+
 
 signals:
 
