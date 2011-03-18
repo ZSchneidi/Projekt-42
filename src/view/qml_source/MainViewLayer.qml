@@ -12,6 +12,12 @@ Item {
         id: background
         anchors.fill: parent
 
+        Button{
+            anchors.centerIn: parent
+            z:2
+            product_name: "Kaffe Schwarz"
+        }
+
         Rectangle {
             id: rectangle1
             gradient: Gradient {
