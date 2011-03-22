@@ -6,35 +6,70 @@ Item {
     width:  800
     height: 600
 
-    Item {
-	id: mainContent
-	clip: true
-	anchors.fill: parent
-	Rectangle {
-	    id: background
-	    anchors.fill: parent
+    property int d_ADMIN_DELAY_TIME: 5000
 
-	    Rectangle {
-		id: rectangle1
-		color: "transparent"
-		anchors.fill: parent
-		z:3
+    Rectangle {
+        id: background
+        anchors.fill: parent
 
-		AdminPanel{
-		    id: main_admin_panel
-		    z:2
-		}
+        Button{
+            anchors.centerIn: parent
+            z:2
+            product_name: "Kaffe Schwarz"
+        }
 
-	    }
-	    Loader{
-		id: mainContentLoader
-		anchors.fill: parent
-		source: "QmlSubLayer.qml"
+        Rectangle {
+            id: rectangle1
+            gradient: Gradient {
+                GradientStop {
+                    position: 0
+                    color: "#dddddd"
+                }
 
-		}
+                GradientStop {
+                    position: 1
+                    color: "#808284"
+                }
+            }
+            anchors.fill: parent
 
-	}
+            Item {
+                id: admin_switch
+                width: 50
+                height: 50
+                anchors.top: parent.top
+                anchors.right: parent.right
+                Rectangle {
+                    color: "#a8b8c2"
+                    opacity: 0.2
+                    anchors.fill: parent
+                }
 
-	}
+                /*the timer is used to delay the appearance of the admin menu*/
+                Timer {
+                    id: admin_timer
+                    interval: d_ADMIN_DELAY_TIME;
+                    onTriggered: {
+                        console.log('show admin panel');
+                       // listViewBox.state = "shown"
+                    }
+                }
+                MouseArea {
+                    id: admin_mouse_area
+                    opacity: 1
+                    anchors.fill: parent
+                    onPressed: {
+                        console.log('admin pressed');
+                        admin_timer.start()
+                    }
+                    onReleased: {
+                        console.log('admin released');
+                        admin_timer.stop()
+                    }
+                }
+            }
+
+        }
+    }
 
 }
