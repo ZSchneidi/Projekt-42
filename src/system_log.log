@@ -1,5 +1,6 @@
-[15.03.11-09:40:23 CEST][SYSTEM] Iinitialize system startup
-[15.03.11-09:40:23 CEST][INFO] Machine definition:
+[18.03.2011-00:27:24][SYSTEM] Iinitialize system startup
+[18.03.2011-00:27:24][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
+[18.03.2011-00:27:24][INFO] Machine definition:
 	id: 0
 	amid: 100002
 	typ: machine
@@ -8,8 +9,7 @@
 	bgHeight: 1024
 	mnr: 000100
 	mtel: 
-[15.03.11-09:40:23 CEST][WARNING] Found unexpected config file 'machine_cfg.xml~'
-[15.03.11-09:40:23 CEST][INFO] Screen definition:
+[18.03.2011-00:27:24][INFO] Screen definition:
 	id: 205593
 	parent: 0
 	typ: screen
@@ -18,7 +18,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: Y
-[15.03.11-09:40:23 CEST][INFO] Screen definition:
+[18.03.2011-00:27:24][INFO] Screen definition:
 	id: 205594
 	parent: 0
 	typ: screen
@@ -27,7 +27,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: N
-[15.03.11-09:40:23 CEST][INFO] Button_C definition:
+[18.03.2011-00:27:24][INFO] Button_C definition:
 	id: 205595
 	parent: 205593
 	typ: button_c
@@ -43,23 +43,23 @@
 	teaDoFile: 
 	visible: N
 	urlLink: 
-[15.03.11-09:40:23 CEST][INFO] Button_C definition:
+[18.03.2011-00:27:24][INFO] Button_C definition:
 	id: 205596
 	parent: 205593
 	typ: button_c
 	name: Button-2-
-	aux: 
+	aux: as
 	xPos: 200
 	yPos: 100
 	upFile: multi_purpose/100242.png
 	doFile: multi_purpose/100257.png
-	actUpFile: 
-	actDoFile: 
-	teaUpFile: 
-	teaDoFile: 
+	actUpFile: asd
+	actDoFile: qwe
+	teaUpFile: yxc
+	teaDoFile: das
 	visible: Y
-	urlLink: 
-[15.03.11-09:40:23 CEST][INFO] Button_C definition:
+	urlLink: sad
+[18.03.2011-00:27:24][INFO] Button_C definition:
 	id: 205597
 	parent: 205594
 	typ: button_c
@@ -75,7 +75,7 @@
 	teaDoFile: 
 	visible: N
 	urlLink: 
-[15.03.11-09:40:23 CEST][INFO] Button_C definition:
+[18.03.2011-00:27:24][INFO] Button_C definition:
 	id: 205598
 	parent: 205594
 	typ: button_c
@@ -91,8 +91,7 @@
 	teaDoFile: 
 	visible: Y
 	urlLink: 
-[15.03.11-09:40:23 CEST][WARNING] Found unhandled object type 'button_t'in /home/js/Development/Projekte/Projekt-42/src/config/am100002/v/cfg/obj_cfgv.xml on line 9
-[15.03.11-09:40:23 CEST][WARNING] Found unexpected config file 'obj_cfgv.xml~'
-[15.03.11-09:40:23 CEST][SYSTEM] Iinitialize UI from config files
-[15.03.11-09:40:23 CEST][SYSTEM] Startup lasts 5 milliseconds
-[15.03.11-09:40:27 CEST][SYSTEM] Application was closed manually
+[18.03.2011-00:27:24][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/src/config/am100002/v/cfg/obj_cfgv.xml on line 9
+[18.03.2011-00:27:24][SYSTEM] Iinitialize UI from config files
+[18.03.2011-00:27:24][SYSTEM] Startup lasts 21 milliseconds
+[18.03.2011-00:27:26][SYSTEM] Application was closed manually

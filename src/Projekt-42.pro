@@ -45,4 +45,6 @@ OTHER_FILES += \
     view/qml_source/WebSubLayer.qml \
     view/qml_source/QmlSubLayer.qml \
     view/qml_source/MainViewLayer.qml \
-    view/qml_source/AdminPanel.qml
+    view/qml_source/AdminPanel.qml \
+    view/qml_source/KeyPad.qml \
+    view/qml_source/pos_layout/PosScreen.qml
