@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>view/qml_source/AdminPanel.qml</file>
+        <file>view/qml_source/KeyPad.qml</file>
+        <file>view/qml_source/MainViewLayer.qml</file>
+        <file>view/qml_source/QmlSubLayer.qml</file>
+        <file>view/qml_source/WebSubLayer.qml</file>
+        <file>view/qml_source/pos_layout/PosScreen.qml</file>
+        <file>view/qml_source/pos_layout/SelectionBox.qml</file>
+        <file>view/qml_source/pos_layout/Button.qml</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>view/qml_source/img/r_20_shadow.png</file>
+        <file>view/qml_source/img/schadow_15_bar.png</file>
+        <file>view/qml_source/img/schadow_15_col.png</file>
+    </qresource>
+</RCC>

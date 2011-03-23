@@ -50,7 +50,7 @@ bool CoreEngine::SystemStartUp()
  */
 bool CoreEngine::setUpViewport()
     {
-    this->resize(QSize(1200,600));
+    this->resize(QSize(800,600));
     this->declarative_viewport->initViewPort();
     /*this fills the parent application window with the qml view*/
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);

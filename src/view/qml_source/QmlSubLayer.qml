@@ -17,12 +17,15 @@ Rectangle {
     }
     border.color: "#cacaca"
 
-    Loader{
-	id: sale_loader
-	anchors.fill: parent
-	source: "pos_layout/PosScreen.qml"
+    Button{
+	anchors.centerIn: parent
+	z:2
+	button_name: "Kaffe Schwarz"
+	button_height: 300
+	button_with: 200
+    }
 
-	}
+
 
     Text {
 	id:text2

@@ -1,9 +1,13 @@
 import QtQuick 1.0
 Item {
-    id: name
-    property string product_name: ""
-    width: 180
-    height: 200
+    id: button_item
+    property string button_name: "empty"
+    property int button_with: 130
+    property int button_height: 140
+
+
+    width: button_with
+    height: button_height
 
     Rectangle {
         id:button_base
@@ -26,39 +30,55 @@ Item {
             GradientStop {
                 position: 0.99
                 color: "#212b31"
-            }
-        }
+	    }
+	}
+	/*shadow declaration*/
+	BorderImage {
+	    anchors.fill: button_base
+	    anchors { leftMargin: -10; topMargin: -10; rightMargin: -10; bottomMargin: -10 }
+	    border { left: 30; top: 30; right: 30; bottom: 30 }
+	    horizontalTileMode: BorderImage.Stretch
+	    verticalTileMode: BorderImage.Stretch
+	    z:-1
+	    source: "../img/r_20_shadow.png"
+	 }
 
-        Text {
+
+	Text {
             id: text1
-            x: 36
-            y: 43
-            color: "#c4c0c0"
-            text: "Kaffe Schwarz"
-            wrapMode: Text.WordWrap
+	    y: 11
+	    color: "#c4c0c0"
+	    text: button_name
+     anchors.right: parent.right
+     anchors.rightMargin: 5
+     anchors.left: parent.left
+     anchors.leftMargin: 5
+     anchors.bottom: parent.bottom
+     anchors.bottomMargin: 10
+     z: 2
+	    wrapMode: Text.WordWrap
             smooth: true
-            font.pointSize: 20
+	    font.pointSize: 15
             style: Text.Sunken
             styleColor: "#000000"
-            anchors.verticalCenterOffset: 60
             verticalAlignment: Text.AlignTop
-            anchors.centerIn: parent
             horizontalAlignment: Text.AlignHCenter
         }
         Item {
             id: picture
-            height: 130
-            anchors.right: parent.right
+	    x: 0
+	    y: 0
+	    anchors.fill: parent
+	    anchors.bottomMargin: 40
             anchors.rightMargin: 0
-            anchors.left: parent.left
             anchors.leftMargin: 0
-            anchors.top: parent.top
             anchors.topMargin: 0
 
             Rectangle {
                 id: rectangle1
-                height: 120
                 radius: 20
+		anchors.fill: parent
+		anchors.bottomMargin: 0
                 gradient: Gradient {
                     GradientStop {
                         position: 0
@@ -72,21 +92,24 @@ Item {
                 }
                 clip: true
                 opacity: 1
-                anchors.right: parent.right
                 anchors.rightMargin: 10
-                anchors.left: parent.left
                 anchors.leftMargin: 10
-                anchors.top: parent.top
                 anchors.topMargin: 10
 
                 Image {
                     id: image1
+		    x: 0
+		    y: 0
+		    anchors.rightMargin: 0
+		    anchors.leftMargin: 0
+		    anchors.topMargin: 0
+		    anchors.bottomMargin: 0
                     scale: 1
                     z: 1
                     smooth: true
                     fillMode: Image.PreserveAspectFit
                     anchors.fill: parent
-                    source: "img/Coffee.png"
+		    source: "../img/Coffee.png"
                 }
 
 

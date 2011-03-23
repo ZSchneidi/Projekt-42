@@ -6,6 +6,7 @@
 
 #define LOG_FILE			"system_log.log"
 
+
 /*define the hex representation of the button which
 toggles the application fullscreen mode*/
 #define TOGGLE_FULLSCREEN_BUTTON 0x41
