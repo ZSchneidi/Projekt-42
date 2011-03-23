@@ -2,6 +2,9 @@
 #define COREENGINE_H
 
 #include <QMainWindow>
+#include <QTime>
+#include <QTimer>
+
 #include "global_define.h"
 #include "core/eventhandler.h"
 #include "core/configparser.h"
@@ -53,11 +56,28 @@ public:
     inline LogHandler *getLogHandler() {return this->log_handler;}
     inline UIObjectHandler *getUIObjectHandler() {return this->ui_object_handler;}
 
+    void startSystemTimer();
+
+    QTime *system_time;
+    QTimer *system_timer;
+    QDate *system_date;
+
 protected:
 
     void closeEvent(QCloseEvent *);
 
+private slots:
+
+    void updateSystemDateTime();
+
 private:
+
+
+    bool setUpViewport();
+    bool initStartup();
+
+    void initSystemConnections();
+
 
     int stuff;
 
@@ -69,10 +89,6 @@ private:
     Ui::CoreEngine *ui;
 
     EventHandler *event_handler;
-
-    bool setUpViewport();
-    bool initStartup();
-
     InitMode init_mode;
     QUrl ui_layer_path;
 

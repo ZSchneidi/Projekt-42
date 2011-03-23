@@ -26,12 +26,6 @@ public:
     typedef QList<ScreenObject*> ScreenList;
     typedef QList<ButtonCObject*> ButtonCList;
 
-private:
-
-    bool object_handler_state;
-    MachineConfig *machine_cfg;
-    ScreenList screen_list;
-    ButtonCList buttonc_list;
 
 public:
 
@@ -39,6 +33,12 @@ public:
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
 
+private:
+
+    bool object_handler_state;
+    MachineConfig *machine_cfg;
+    ScreenList screen_list;
+    ButtonCList buttonc_list;
 };
 
 

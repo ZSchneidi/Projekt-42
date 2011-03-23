@@ -23,8 +23,16 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode, QUrl path) :
     /*install the EvenFilter to forward all Events to the EventHandler*/
     this->installEventFilter(this->event_handler);
 
+    this->system_time = new QTime();
+    this->system_timer = new QTimer(this);
+    this->system_date = new QDate();
 
+    this->initSystemConnections();
+    }
 
+void CoreEngine::initSystemConnections()
+    {
+    connect(this->system_timer,SIGNAL(timeout()),this,SLOT(updateSystemDateTime()));
     }
 
 /**
@@ -34,6 +42,7 @@ bool CoreEngine::SystemStartUp()
     {
     QTime time;
     time.start();
+    this->startSystemTimer();
     /*startup processes*/
     this->log_handler->writeToSystemLog(SYSTEM_INIT_MSG,LogHandler::SYSTEM_LOG);
 
@@ -64,6 +73,7 @@ bool CoreEngine::setUpViewport()
         this->ui_layer_path = DEFAULT_WEB_LAYER;
 
     this->declarative_viewport->initViewLayer(QUrl(MAIN_VIEW_LAYER));
+    this->updateSystemDateTime();
     return true;
     }
 
@@ -123,4 +133,20 @@ CoreEngine::~CoreEngine()
     {
     delete ui;
     }
+/**
+ * starts the system timer with an interval of one minute
+ */
+void CoreEngine::startSystemTimer()
+    {
+    this->system_timer->start(SYSTEM_TIMER_INTERVAL);
+    }
+/**
+  *is called every time the system timer emits timeout()
+  */
+void CoreEngine::updateSystemDateTime()
+    {
+    this->declarative_viewport->getViewPortInterface()->setSystemTime(this->system_time->currentTime().toString(TITLE_TIME_FORMAT));
+    this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::TextDate));
+    }
+
 

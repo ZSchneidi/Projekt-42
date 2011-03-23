@@ -17,7 +17,6 @@ bool ViewPort::initViewPort()
     this->root_context = this->rootContext();
     /*this manifests the viewportinterface in the qml environment*/
     this->root_context->setContextProperty("viewportinterface", this->interface );
-
     return true;
     }
 

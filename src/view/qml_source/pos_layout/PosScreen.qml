@@ -3,11 +3,16 @@ import QtQuick 1.0
 Item {
     width: 800
     height: 600
-    property int title_height: 100
     property color title_text_color: "#5c5c5c"
-    property int menu_width: 250
-    property int bottom_info_height: 80
-    property int top_info_height: 40
+    property int menu_width_percent: 25
+    property int title_height_percent: 20
+    property int bottom_info_height_percent: 10
+    property int top_info_height_percent: 7
+    property int system_title_size: 90
+    property int system_time_size: 60
+    property int system_date_size: 20
+    property int datetime_width_percent: 30
+    property string title_font: "Impact"
 
     id: pos_screen
     /** Screen background declaration**/
@@ -35,7 +40,7 @@ Item {
 	anchors.top: parent.top
 	anchors.right: parent.right
 	anchors.left: parent.left
-	height: title_height
+	height: (parent.height/100)*title_height_percent
 	z: 2
 	Rectangle{
 	    id: title_background
@@ -63,45 +68,54 @@ Item {
 	    }
 
 	    Text {
-		id: pos_screen_text
+		id: pos_screen_title_text
 		anchors.left: parent.left
-		anchors.top: parent.top
+		anchors.bottom: parent.bottom
 		color: title_text_color
-		text: "StuffMate"
+		text: viewportinterface.system_title
 		smooth: true
-		font.pixelSize: 90
+		font.pixelSize: (pos_screen_title.height/100)*system_title_size
 		font.bold: true
 		style: Text.Raised
-		font.family: "Impact"
+		font.family: title_font
 	    }
-	    Text {
-		id: pos_screen_clock
-		color: "#5c5c5c"
-		text: "13:37"
-		anchors.topMargin: 0
-		smooth: true
-		anchors.rightMargin: 48
-		anchors.right: parent.right
+	    Item {
+		id: date_time
 		anchors.top: parent.top
-		font.pixelSize: 70
-		font.bold: true
-		style: Text.Raised
-		font.family: "Impact"
-	    }
-	    Text {
-		id: pos_screen_day
-		text: "Mittwoch, 3. Mai 2011"
-		smooth: true
-		font.italic: false
-		anchors.topMargin: 65
-		anchors.rightMargin: 15
+		anchors.bottom: parent.bottom
 		anchors.right: parent.right
-		anchors.top: parent.top
-		color: title_text_color
-		font.pixelSize: 25
-		style: Text.Raised
-		font.family: "Impact"
+		width: (parent.width/100)*datetime_width_percent
+
+		Text {
+		    id: pos_screen_clock
+		    color: "#5c5c5c"
+		    smooth: true
+		    anchors.horizontalCenter: parent.horizontalCenter
+		    anchors.bottomMargin: (parent.height/100)*30
+		    font.pixelSize: (parent.height/100)*system_time_size
+		    font.bold: true
+		    style: Text.Raised
+		    font.family: title_font
+		    Connections{
+			target: viewportinterface
+			onSystemTimeChanged: pos_screen_clock.text = new_time
+		    }
+		}
+		Text {
+		    id: pos_screen_day
+		    text: "Mittwoch, 3. Mai 2011"
+		    smooth: true
+		    font.italic: false
+		    anchors.horizontalCenter: parent.horizontalCenter
+		    anchors.bottomMargin: 10
+		    anchors.bottom: parent.bottom
+		    color: title_text_color
+		    font.pixelSize: (parent.height/100)*system_date_size
+		    style: Text.Raised
+		    font.family: title_font
+		}
 	    }
+
 	}
 
     }
@@ -112,7 +126,7 @@ Item {
 	anchors.top: pos_screen_title.bottom
 	anchors.left: pos_screen.left
 	anchors.bottom: pos_screen.bottom
-	width: menu_width
+	width: (parent.width/100)*menu_width_percent
 	z: 1
 	Rectangle{
 	    id:pos_screen_menu_background
@@ -129,6 +143,13 @@ Item {
 	    anchors.fill: parent
 
 	}
+
+	Loader{
+	    id:menu_loader
+	    anchors.fill: parent
+	    source: "MenuBar.qml"
+	}
+
 	Image{
 	    id:schadow_menu
 	    width: 5
@@ -147,7 +168,7 @@ Item {
 	id: pos_screen_select_box
 	anchors.top: pos_screen_title.bottom
 	anchors.left: pos_screen_menu.right
-	anchors.bottom: pos_screen_bottom_info.top
+	anchors.bottom: pos_screen.bottom
 	anchors.right: pos_screen.right
 	Loader{
 	    id: selection_loader
@@ -162,10 +183,11 @@ Item {
 	anchors.left: pos_screen_menu.right
 	anchors.right: pos_screen.right
 	anchors.top: pos_screen_title.bottom
-	height: top_info_height
+	height: (parent.height/100)*top_info_height_percent
 	Rectangle{
 	    anchors.fill: parent
 	    color: "lightgrey"
+	    opacity: 0.1
 	}
     }
 
@@ -175,10 +197,11 @@ Item {
 	anchors.left: pos_screen_menu.right
 	anchors.right: pos_screen.right
 	anchors.bottom: pos_screen.bottom
-	height: bottom_info_height
+	height: (parent.height/100)*bottom_info_height_percent
 	Rectangle{
 	    anchors.fill: parent
 	    color: "lightgrey"
+	    opacity: 0.1
 	}
     }
 

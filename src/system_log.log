@@ -1,6 +1,6 @@
-[23.03.2011-01:04:54][SYSTEM] Iinitialize system startup
-[23.03.2011-01:04:54][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
-[23.03.2011-01:04:54][INFO] Machine definition:
+[23.03.2011-23:16:46][SYSTEM] Iinitialize system startup
+[23.03.2011-23:16:46][WARNING] Found unexpected config file 'machine_cfg - Kopie.xml'
+[23.03.2011-23:16:46][INFO] Machine definition:
 	id: 0
 	amid: 100002
 	typ: machine
@@ -9,7 +9,7 @@
 	bgHeight: 1024
 	mnr: 000100
 	mtel: 
-[23.03.2011-01:04:54][INFO] Screen definition:
+[23.03.2011-23:16:46][INFO] Screen definition:
 	id: 205593
 	parent: 0
 	typ: screen
@@ -18,7 +18,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: Y
-[23.03.2011-01:04:54][INFO] Screen definition:
+[23.03.2011-23:16:46][INFO] Screen definition:
 	id: 205594
 	parent: 0
 	typ: screen
@@ -27,7 +27,7 @@
 	timeout: 0
 	bgImg: multi_purpose/100595.png
 	Def: N
-[23.03.2011-01:04:54][INFO] Button_C definition:
+[23.03.2011-23:16:46][INFO] Button_C definition:
 	id: 205595
 	parent: 205593
 	typ: button_c
@@ -43,7 +43,7 @@
 	teaDoFile: 
 	visible: N
 	urlLink: 
-[23.03.2011-01:04:54][INFO] Button_C definition:
+[23.03.2011-23:16:46][INFO] Button_C definition:
 	id: 205596
 	parent: 205593
 	typ: button_c
@@ -59,7 +59,7 @@
 	teaDoFile: das
 	visible: Y
 	urlLink: sad
-[23.03.2011-01:04:54][INFO] Button_C definition:
+[23.03.2011-23:16:46][INFO] Button_C definition:
 	id: 205597
 	parent: 205594
 	typ: button_c
@@ -75,7 +75,7 @@
 	teaDoFile: 
 	visible: N
 	urlLink: 
-[23.03.2011-01:04:54][INFO] Button_C definition:
+[23.03.2011-23:16:46][INFO] Button_C definition:
 	id: 205598
 	parent: 205594
 	typ: button_c
@@ -91,7 +91,7 @@
 	teaDoFile: 
 	visible: Y
 	urlLink: 
-[23.03.2011-01:04:54][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/src/config/am100002/v/cfg/obj_cfgv.xml on line 9
-[23.03.2011-01:04:54][SYSTEM] Iinitialize UI from config files
-[23.03.2011-01:04:54][SYSTEM] Startup lasts 90 milliseconds
-[23.03.2011-01:05:15][SYSTEM] Application was closed manually
+[23.03.2011-23:16:46][WARNING] Found unhandled object type 'button_t'in E:/Dev-Labs/Projekte/Qt/Projekt-42/src/config/am100002/v/cfg/obj_cfgv.xml on line 9
+[23.03.2011-23:16:46][SYSTEM] Iinitialize UI from config files
+[23.03.2011-23:16:46][SYSTEM] Startup lasts 148 milliseconds
+[23.03.2011-23:17:21][SYSTEM] Application was closed manually

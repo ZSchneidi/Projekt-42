@@ -49,7 +49,9 @@ OTHER_FILES += \
     view/qml_source/KeyPad.qml \
     view/qml_source/pos_layout/PosScreen.qml\
     view/qml_source/pos_layout/Button.qml \
-    view/qml_source/pos_layout/SelectionBox.qml
+    view/qml_source/pos_layout/SelectionBox.qml \
+    view/qml_source/pos_layout/MenuBar.qml \
+    view/qml_source/pos_layout/MenuButton.qml
 
 RESOURCES += \
     main_ressource.qrc

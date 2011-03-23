@@ -6,6 +6,9 @@
 
 #define LOG_FILE			"system_log.log"
 
+/** Core definition **/
+
+#define SYSTEM_TIMER_INTERVAL		60000 //milliseconds
 
 /*define the hex representation of the button which
 toggles the application fullscreen mode*/
@@ -87,6 +90,10 @@ toggles the application fullscreen mode*/
 #define MISSING_OBJ_TAG		"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
 #define ERROR_APP_CLOSE		"Application was closed manually"
 
+
+/** QML layer definition **/
+#define SYSTEM_TITLE		"StuffMates"
+#define TITLE_TIME_FORMAT	"hh:mm"
 
 /*Exceptions*/
 
