@@ -25,6 +25,10 @@ public:
 	INFO
 	};
 
+    enum Event_type {
+	PPRODUCT_EVENT
+	};
+
     enum Log_state {
 	ACTIVE,
 	RESTRICTED,
@@ -32,15 +36,19 @@ public:
 	};
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
+    bool writeToEventLog(QString message,LogHandler::Event_type);
+
     void setLoggerState(Log_state state);
     void setLoggerWriteMode(QIODevice::OpenModeFlag);
 
 private:
 
     QFile *system_log;
+    QFile *event_log;
 
     Log_state system_log_state;
 
+    QString getSystemTimeStr();
 
 };
 

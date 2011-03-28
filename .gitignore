@@ -14,6 +14,9 @@ am100002/
 *.pro.user.*
 *moc_*
 
+# Ignore log files
+*.log
+
 # Ignore (generated) html files,
 *.html
 *Makefile*

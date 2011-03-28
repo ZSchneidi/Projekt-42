@@ -11,6 +11,7 @@
 #include "core/loghandler.h"
 #include "core/uiobjecthandler.h"
 #include "view/viewport.h"
+#include "elements/product.h"
 
 class ViewPort;
 class EventHandler;
@@ -52,6 +53,7 @@ public:
     bool logError(const QString message);
     bool logInfo(const QString message);
 
+
     inline CoreEngine *getCore() {return this;}
     inline LogHandler *getLogHandler() {return this->log_handler;}
     inline UIObjectHandler *getUIObjectHandler() {return this->ui_object_handler;}
@@ -77,7 +79,7 @@ private:
     bool initStartup();
 
     void initSystemConnections();
-
+    void registerQmlTypes();
 
     int stuff;
 

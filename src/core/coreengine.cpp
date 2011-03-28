@@ -54,6 +54,33 @@ bool CoreEngine::SystemStartUp()
     }
 
 /**
+ * This startup method is used to controll the behavior on the application startup.
+ */
+bool CoreEngine::initStartup()
+    {
+    switch(this->init_mode)
+	{
+	case CoreEngine::WEB_UI:
+	    this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+	    /*parse the config files and build all objects for the UIObjectHandler*/
+	    this->config_parser->buildConfig();
+
+
+	    this->logSystemMsg(WEB_UI_INIT_MSG);
+
+	    break;
+	case CoreEngine::QML_UI:
+	    this->logSystemMsg(QML_UI_INIT_MSG);
+	    break;
+	default:
+
+	    break;
+	}
+
+    return true;
+    }
+
+/**
  * This Method is designed to set up the main Viewport of the Application
  *
  */
@@ -65,8 +92,7 @@ bool CoreEngine::setUpViewport()
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     /*define the viewport as main Widget*/
     this->setCentralWidget(declarative_viewport);
-    this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(*this->ui_object_handler->getScreenList()));
-    this->declarative_viewport->getRootContext()->setContextProperty("machine_config",this->ui_object_handler->getMachineConfig());
+    this->registerQmlTypes();
     if(this->init_mode == CoreEngine::QML_UI)
         this->ui_layer_path = DEFAULT_QML_LAYER;
     else if (this->init_mode == CoreEngine::WEB_UI)
@@ -77,32 +103,18 @@ bool CoreEngine::setUpViewport()
     return true;
     }
 
+
 /**
- * This startup method is used to controll the behavior on the application startup.
- */
-bool CoreEngine::initStartup()
+  * This method is called to register custom c++ types to the qml environment
+  */
+void CoreEngine::registerQmlTypes()
     {
-    switch(this->init_mode)
-	{
-	case CoreEngine::WEB_UI:
-            this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
-            /*parse the config files and build all objects for the UIObjectHandler*/
-            this->config_parser->buildConfig();
-
-
-            this->logSystemMsg(WEB_UI_INIT_MSG);
-
-	    break;
-	case CoreEngine::QML_UI:
-            this->logSystemMsg(QML_UI_INIT_MSG);
-	    break;
-	default:
-
-	    break;
-	}
-
-    return true;
+    this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(*this->ui_object_handler->getScreenList()));
+    this->declarative_viewport->getRootContext()->setContextProperty("machine_config",this->ui_object_handler->getMachineConfig());
+    qmlRegisterType<Product>("Product", 0,1, "Product");
     }
+
+
 
 /**
  * Alternative ways to log messages to system log.
@@ -146,7 +158,8 @@ void CoreEngine::startSystemTimer()
 void CoreEngine::updateSystemDateTime()
     {
     this->declarative_viewport->getViewPortInterface()->setSystemTime(this->system_time->currentTime().toString(TITLE_TIME_FORMAT));
-    this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::TextDate));
+    this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::DefaultLocaleLongDate));
     }
+
 
 

@@ -4,8 +4,13 @@
 #include <QObject>
 #include "view/viewport.h"
 #include "core/uiobjecthandler.h"
+#include "core/exception.h"
+#include "elements/product.h"
+
+
 
 class ViewPort;
+
 
 class ViewPortInterface : public QObject
 {
@@ -39,10 +44,11 @@ signals:
     void systemTimeChanged(QString new_time);
     void systemDateChanged(QString new_date);
 
-private slots:
+public slots:
 
-    /*connection from qml*/
+    /*connection from qml to c++ logic*/
     void sendCoreAction( int action);
+    void sendProductAction(Product *product);
 
 private:
 

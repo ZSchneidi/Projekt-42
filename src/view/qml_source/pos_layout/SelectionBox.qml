@@ -1,5 +1,5 @@
 import QtQuick 1.0
-
+import Product 0.1
 
 Item{
 
@@ -32,6 +32,18 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
+	    Product{
+		id:product1
+		productName: button1.button_name
+		productCode: 10001
+	    }
+	    MouseArea{
+		anchors.fill: parent
+		onClicked: {
+		    viewportinterface.sendProductAction(product1)
+		}
+	    }
+
 	}
 
 	Button{
@@ -46,6 +58,17 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
+	    Product{
+		id:product2
+		productName: button2.button_name
+		productCode: 10002
+	    }
+	    MouseArea{
+		anchors.fill: parent
+		onClicked: {
+		    viewportinterface.sendProductAction(product2)
+		}
+	    }
 	}
 
 	Button{
@@ -60,6 +83,17 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
+	    Product{
+		id:product3
+		productName: button3.button_name
+		productCode: 10003
+	    }
+	    MouseArea{
+		anchors.fill: parent
+		onClicked: {
+		    viewportinterface.sendProductAction(product3)
+		}
+	    }
 	}
 
     }

@@ -6,8 +6,8 @@ Item {
     property color title_text_color: "#5c5c5c"
     property int menu_width_percent: 25
     property int title_height_percent: 20
-    property int bottom_info_height_percent: 10
-    property int top_info_height_percent: 7
+    property int bottom_info_height_percent: 0
+    property int top_info_height_percent: 0
     property int system_title_size: 90
     property int system_time_size: 60
     property int system_date_size: 20
@@ -103,7 +103,6 @@ Item {
 		}
 		Text {
 		    id: pos_screen_day
-		    text: "Mittwoch, 3. Mai 2011"
 		    smooth: true
 		    font.italic: false
 		    anchors.horizontalCenter: parent.horizontalCenter
@@ -113,6 +112,10 @@ Item {
 		    font.pixelSize: (parent.height/100)*system_date_size
 		    style: Text.Raised
 		    font.family: title_font
+		    Connections{
+			target: viewportinterface
+			onSystemDateChanged: pos_screen_day.text = new_date
+		    }
 		}
 	    }
 

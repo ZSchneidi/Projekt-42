@@ -5,7 +5,10 @@
 #include <QKeyEvent>
 #include <QDebug>
 
-#include "coreengine.h"
+#include "core/coreengine.h"
+#include "core/exception.h"
+#include "elements/product.h"
+
 
 class CoreEngine;
 
@@ -17,6 +20,8 @@ class EventHandler : public QObject
 
 public:
     explicit EventHandler(CoreEngine *parent = 0);
+
+    bool processProductAction(Product *product);
 
 signals:
 

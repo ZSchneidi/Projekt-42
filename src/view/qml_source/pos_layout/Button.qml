@@ -134,6 +134,7 @@ Item {
         }
         onReleased: {
             pressed.opacity = 0.0
+
         }
     }
     Rectangle {

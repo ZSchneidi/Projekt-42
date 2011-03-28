@@ -2,9 +2,11 @@
 #define GLOBAL_DEFINE_H
 
 #include <exception>
+#include <QtCore/qtconcurrentexception.h>
 #include <QDebug>
 
-#define LOG_FILE			"system_log.log"
+#define LOG_FILE			"log/system_log.log"
+#define EVENT_FILE			"log/event_log.log"
 
 /** Core definition **/
 
@@ -95,16 +97,6 @@ toggles the application fullscreen mode*/
 #define SYSTEM_TITLE		"StuffMates"
 #define TITLE_TIME_FORMAT	"hh:mm"
 
-/*Exceptions*/
 
-class eUnsetPointer : public std::exception
-{
-  public: virtual const char* what() const throw() {return "Access to unset Pointer.";}
-};
-
-class eUnexpAttrValue : public std::exception
-{
-  public: virtual const char* what() const throw() {return "Found unexpected attribute value.";}
-};
 
 #endif // GLOBAL_DEFINE_H

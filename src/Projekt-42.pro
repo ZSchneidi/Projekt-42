@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     elements/screenobject.cpp \
     core/uiobjecthandler.cpp \
     elements/buttoncobject.cpp \
-    elements/screenlistwrapper.cpp
+    elements/screenlistwrapper.cpp \
+    elements/product.cpp \
+    core/exception.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -34,7 +36,9 @@ HEADERS  += core/coreengine.h \
     elements/screenobject.h \
     core/uiobjecthandler.h \
     elements/buttoncobject.h \
-    elements/screenlistwrapper.h
+    elements/screenlistwrapper.h \
+    elements/product.h \
+    core/exception.h
 
 FORMS    += coreengine.ui
 
