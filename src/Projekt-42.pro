@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     elements/buttoncobject.cpp \
     elements/screenlistwrapper.cpp \
     elements/product.cpp \
-    core/exception.cpp
+    core/exception.cpp \
+    view/webelementinterface.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -38,7 +39,8 @@ HEADERS  += core/coreengine.h \
     elements/buttoncobject.h \
     elements/screenlistwrapper.h \
     elements/product.h \
-    core/exception.h
+    core/exception.h \
+    view/webelementinterface.h
 
 FORMS    += coreengine.ui
 

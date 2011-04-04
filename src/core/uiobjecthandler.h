@@ -5,6 +5,7 @@
 #include <QList>
 #include <QMetaType>
 
+#include "core/exception.h"
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
@@ -29,9 +30,15 @@ public:
 
 public:
 
+    //GETTER
     MachineConfig *getMachineConfig();
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
+    inline bool getState() { return this->state; }
+
+    //SETTER
+
+    inline void setState(bool state) { this->state = state;}
 
 private:
 
@@ -39,6 +46,8 @@ private:
     MachineConfig *machine_cfg;
     ScreenList screen_list;
     ButtonCList buttonc_list;
+
+    bool state;
 };
 
 

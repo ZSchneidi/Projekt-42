@@ -11,19 +11,16 @@ Item {
 	Loader{
 	    id: sale_loader
 	    anchors.fill: parent
-	    source: "pos_layout/PosScreen.qml"
-
+            //source: "pos_layout/PosScreen.qml"
+            source: viewportinterface.sublayer
 	    }
-
-
 
 	AdminPanel{
 	    id:admin_panal
 	    anchors.fill: parent
+
+
 	}
-
-
-
     }
 }
 

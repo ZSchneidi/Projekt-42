@@ -10,6 +10,7 @@
 #include "core/configparser.h"
 #include "core/loghandler.h"
 #include "core/uiobjecthandler.h"
+#include "core/exception.h"
 #include "view/viewport.h"
 #include "elements/product.h"
 
@@ -43,22 +44,27 @@ public:
 	WEB_UI
 	};
 
-    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,QUrl path = QUrl(""));
+    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI);
     ~CoreEngine();
 
-    inline EventHandler* getEventHandler() { return this->event_handler; }
     bool SystemStartUp();
     bool logSystemMsg(const QString message);
     bool logWarning(const QString message);
     bool logError(const QString message);
     bool logInfo(const QString message);
+    bool configLogInfo(const QString message);
+    bool configLogWarning(const QString message);
+    bool configLogError(const QString message);
+    void startSystemTimer();
 
 
+    //GETTER
     inline CoreEngine *getCore() {return this;}
     inline LogHandler *getLogHandler() {return this->log_handler;}
-    inline UIObjectHandler *getUIObjectHandler() {return this->ui_object_handler;}
+    UIObjectHandler *getUIObjectHandler();
+    inline EventHandler* getEventHandler() { return this->event_handler; }
+    inline InitMode getInitMode() { return this->init_mode; }
 
-    void startSystemTimer();
 
     QTime *system_time;
     QTimer *system_timer;
@@ -76,12 +82,9 @@ private:
 
 
     bool setUpViewport();
-    bool initStartup();
-
+    bool initViewEnvironment();
     void initSystemConnections();
     void registerQmlTypes();
-
-    int stuff;
 
     ViewPort *declarative_viewport;
     ConfigParser *config_parser;
@@ -92,7 +95,6 @@ private:
 
     EventHandler *event_handler;
     InitMode init_mode;
-    QUrl ui_layer_path;
 
 };
 

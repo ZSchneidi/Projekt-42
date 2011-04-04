@@ -55,3 +55,8 @@ bool EventHandler::processProductAction(Product *product)
 	}
     return true;
     }
+
+void EventHandler::showWarning(QString msg = "")
+    {
+    QMessageBox::warning(0,QString(WARNING_TITLE),QString(msg));
+    }

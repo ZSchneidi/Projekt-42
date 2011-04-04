@@ -12,13 +12,14 @@ int main(int argc, char *argv[])
      */
     CoreEngine::InitMode mode = CoreEngine::WEB_UI;
     LogHandler::Log_state log_state = LogHandler::ACTIVE;
+    QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 
     //qmlRegisterType<ScreenObject>("Objects", 1, 0, "ScreenObject");
 
     CoreEngine w(0,mode);
 
     w.getLogHandler()->setLoggerState(log_state);
-    w.getLogHandler()->setLoggerWriteMode(QIODevice::Truncate);
+    w.getLogHandler()->setLoggerWriteMode(open_mode);
     /*call the startup routine*/
     w.SystemStartUp();
 

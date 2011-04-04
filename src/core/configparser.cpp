@@ -40,9 +40,13 @@ bool ConfigParser::buildConfig()
 		    }
 
                 if(!this->validateConfigXMLIntegrity((*this->file_list_it).absoluteFilePath()))
-                    qDebug() << "invalid config xml";
+                    {
+                    //qDebug() << "invalid config xml";
+                    }
 		if(this->buildMachineConfig((*this->file_list_it).absoluteFilePath()))
+                    {
 		    this->machine_cfg_state = true;
+                    }
 		}
 	    else if((*this->file_list_it).fileName() == MOD_CFGV)
 		{
@@ -64,7 +68,7 @@ bool ConfigParser::buildConfig()
 	    else
 		{
 		/*waring message for all unexpected configuration files*/
-		this->core->logWarning(QString(UNEX_CFG_MSG)+" \'"+(*this->file_list_it).fileName()+"\'");
+                this->core->configLogWarning(QString(UNEX_CFG_MSG)+" \'"+(*this->file_list_it).fileName()+"\'");
 		}
 	    }
 	}
@@ -89,7 +93,7 @@ bool ConfigParser::buildMachineConfig(const QString machine_cfg)
     /*if at least 1 tag was found proceed otherwise return false*/
     if(!node_list.count() > 0)
 	{
-	this->core->logError(QString(MISSING_MACH_TAG));
+        this->core->configLogError(QString(MISSING_MACH_TAG));
 	return false;
 	}
     QDomNode node = node_list.item(node_list.count()-1);
@@ -115,10 +119,10 @@ bool ConfigParser::buildMachineConfig(const QString machine_cfg)
 	    this->machine_cfg_ref->setMachineTelNumber(attr.value());
 	else
 	    {
-	    this->core->logWarning(QString(UNHA_ATT_MSG).replace("#_1",attr.name()).replace("#_2",MACHINE_CFG_TAG));
+            this->core->configLogWarning(QString(UNHA_ATT_MSG).replace("#_1",attr.name()).replace("#_2",MACHINE_CFG_TAG));
 	    }
-	}
-    this->core->logInfo(this->machine_cfg_ref->getLogEntryStr());
+        }
+    this->core->configLogInfo(this->machine_cfg_ref->getLogEntryStr());
     return true;
     }
 
@@ -138,7 +142,7 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
     /*if at least 1 tag was found proceed otherwise return false*/
     if(!node_list.count() > 0)
 	{
-	this->core->logError(QString(MISSING_OBJ_TAG));
+        this->core->configLogError(QString(MISSING_OBJ_TAG));
 	return false;
 	}
     /*iterate through the dom nodes*/
@@ -160,7 +164,7 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 		    else if(attr.value() == OBJECT_TYPE_BUTTON_C)
 			this->buildButtonCObject(map);
 		    else
-			this->core->logWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
+                        this->core->configLogWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
 		    }
 		}
 	    }
@@ -193,7 +197,7 @@ bool ConfigParser::buildScreenObject(const QDomNamedNodeMap &map)
 	    temp->setObjDef(attr.value());
 	}
     this->screen_list_ref->append(temp);
-    this->core->logInfo(this->screen_list_ref->last()->getObjLogEntry());
+    this->core->configLogInfo(this->screen_list_ref->last()->getObjLogEntry());
     return true;
     }
 
@@ -235,7 +239,7 @@ bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
 	    temp_buttonc->setObjUrlLink(attr.value());
 	}
     this->buttonc_list_ref->append(temp_buttonc);
-    this->core->logInfo(this->buttonc_list_ref->last()->getObjLogEntry());
+    this->core->configLogInfo(this->buttonc_list_ref->last()->getObjLogEntry());
     return true;
     }
 

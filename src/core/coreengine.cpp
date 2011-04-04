@@ -1,13 +1,12 @@
 #include "coreengine.h"
 #include "ui_coreengine.h"
 
-CoreEngine::CoreEngine(QWidget *parent, InitMode mode, QUrl path) :
+CoreEngine::CoreEngine(QWidget *parent, InitMode mode) :
     QMainWindow(parent),
     ui(new Ui::CoreEngine)
     {
     //ui->setupUi(this);
     this->init_mode = mode;
-    this->ui_layer_path = path;
 
     /** Object instances **/
     /*the config_parser is used to build dynamic object and module handler*/
@@ -26,8 +25,6 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode, QUrl path) :
     this->system_time = new QTime();
     this->system_timer = new QTimer(this);
     this->system_date = new QDate();
-
-    this->initSystemConnections();
     }
 
 void CoreEngine::initSystemConnections()
@@ -44,9 +41,15 @@ bool CoreEngine::SystemStartUp()
     time.start();
     this->startSystemTimer();
     /*startup processes*/
-    this->log_handler->writeToSystemLog(SYSTEM_INIT_MSG,LogHandler::SYSTEM_LOG);
+    if(!this->getLogHandler()->logDirExists())
+        {
+        this->event_handler->showWarning(NO_LOG_DIR);
+        }
 
-    this->initStartup();
+    this->initSystemConnections();
+    this->log_handler->writeToSystemLog(SYSTEM_INIT_MSG,LogHandler::SYSTEM);
+
+    this->initViewEnvironment();
     this->setUpViewport();
 
     this->logSystemMsg("Startup lasts "+QString::number(time.elapsed())+" milliseconds");
@@ -56,7 +59,7 @@ bool CoreEngine::SystemStartUp()
 /**
  * This startup method is used to controll the behavior on the application startup.
  */
-bool CoreEngine::initStartup()
+bool CoreEngine::initViewEnvironment()
     {
     switch(this->init_mode)
 	{
@@ -66,10 +69,12 @@ bool CoreEngine::initStartup()
 	    this->config_parser->buildConfig();
 
 
+            this->declarative_viewport->setSubLayerPath(QUrl(DEFAULT_WEB_LAYER));
 	    this->logSystemMsg(WEB_UI_INIT_MSG);
 
 	    break;
 	case CoreEngine::QML_UI:
+            this->declarative_viewport->setSubLayerPath(QUrl(DEFAULT_QML_LAYER));
 	    this->logSystemMsg(QML_UI_INIT_MSG);
 	    break;
 	default:
@@ -81,7 +86,7 @@ bool CoreEngine::initStartup()
     }
 
 /**
- * This Method is designed to set up the main Viewport of the Application
+ *  is designed to set up the main Viewport of the Application
  *
  */
 bool CoreEngine::setUpViewport()
@@ -92,12 +97,8 @@ bool CoreEngine::setUpViewport()
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     /*define the viewport as main Widget*/
     this->setCentralWidget(declarative_viewport);
+    /*this step is important to ensure that all data and custom types are registered to the qml environment*/
     this->registerQmlTypes();
-    if(this->init_mode == CoreEngine::QML_UI)
-        this->ui_layer_path = DEFAULT_QML_LAYER;
-    else if (this->init_mode == CoreEngine::WEB_UI)
-        this->ui_layer_path = DEFAULT_WEB_LAYER;
-
     this->declarative_viewport->initViewLayer(QUrl(MAIN_VIEW_LAYER));
     this->updateSystemDateTime();
     return true;
@@ -115,13 +116,12 @@ void CoreEngine::registerQmlTypes()
     }
 
 
-
 /**
- * Alternative ways to log messages to system log.
+ * Alternative ways to log messages to log files.
  */
 bool CoreEngine::logSystemMsg(const QString message)
     {
-    return this->log_handler->writeToSystemLog(message,LogHandler::SYSTEM_LOG);
+    return this->log_handler->writeToSystemLog(message,LogHandler::SYSTEM);
     }
 bool CoreEngine::logWarning(const QString message)
     {
@@ -134,6 +134,18 @@ bool CoreEngine::logError(const QString message)
 bool CoreEngine::logInfo(const QString message)
     {
     return this->log_handler->writeToSystemLog(message,LogHandler::INFO);
+    }
+bool CoreEngine::configLogInfo(const QString message)
+    {
+    return this->log_handler->writeToConfigParserLog(message,LogHandler::PARSER_INFO);
+    }
+bool CoreEngine::configLogWarning(const QString message)
+    {
+    return this->log_handler->writeToConfigParserLog(message,LogHandler::PARSER_WARNING);
+    }
+bool CoreEngine::configLogError(const QString message)
+    {
+    return this->log_handler->writeToConfigParserLog(message,LogHandler::PARSER_ERROR);
     }
 
 void CoreEngine::closeEvent(QCloseEvent *)
@@ -160,6 +172,15 @@ void CoreEngine::updateSystemDateTime()
     this->declarative_viewport->getViewPortInterface()->setSystemTime(this->system_time->currentTime().toString(TITLE_TIME_FORMAT));
     this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::DefaultLocaleLongDate));
     }
+
+UIObjectHandler * CoreEngine::getUIObjectHandler()
+    {
+    if(this->ui_object_handler->getState() == false)
+        throw eUnsetObject();
+    else
+        return this->ui_object_handler;
+    }
+
 
 
 

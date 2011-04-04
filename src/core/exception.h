@@ -12,6 +12,11 @@ class eUnsetPointer : public std::exception
     public: virtual const char* what() const throw() {return "Access to unset Pointer.";}
 };
 
+class eUnsetObject : public std::exception
+{
+    public: virtual const char* what() const throw() {return "Access to uninitialized object.";}
+};
+
 class eUnexpAttrValue : public std::exception
 {
     public: virtual const char* what() const throw() {return "Found unexpected attribute value.";}

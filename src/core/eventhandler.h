@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QKeyEvent>
+#include <QMessageBox>
 #include <QDebug>
+
 
 #include "core/coreengine.h"
 #include "core/exception.h"
@@ -22,6 +24,7 @@ public:
     explicit EventHandler(CoreEngine *parent = 0);
 
     bool processProductAction(Product *product);
+    void showWarning(QString msg);
 
 signals:
 

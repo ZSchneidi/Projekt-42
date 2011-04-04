@@ -5,8 +5,10 @@
 #include <QtCore/qtconcurrentexception.h>
 #include <QDebug>
 
-#define LOG_FILE			"log/system_log.log"
-#define EVENT_FILE			"log/event_log.log"
+#define LOG_DIR			"log/"
+#define SYSTEM_LOG_FILE		LOG_DIR"system_log.log"
+#define EVENT_LOG_FILE		LOG_DIR"event_log.log"
+#define CONFIG_LOG_FILE		LOG_DIR"config_log.log"
 
 /** Core definition **/
 
@@ -16,10 +18,14 @@
 toggles the application fullscreen mode*/
 #define TOGGLE_FULLSCREEN_BUTTON 0x41
 
+/*QML type identifiers*/
+#define VIEWPORTINTERFACE           "viewportinterface"
+#define ELEMENTINTERFACE              "elementinterface"
+
 /*define the relative paths to the view layer source files*/
 #define MAIN_VIEW_LAYER 		"view/qml_source/MainViewLayer.qml"
-#define DEFAULT_QML_LAYER		"view/qml_source/QmlSubLayer.qml"
-#define DEFAULT_WEB_LAYER		"view/qml_source/WebSubLayer.qml"
+#define DEFAULT_QML_LAYER		"QmlSubLayer.qml"
+#define DEFAULT_WEB_LAYER		"WebSubLayer.qml"
 
 /*define of the relative path to the machine config*/
 #define DEFAULT_WEB_CFG_DIR		"config/am100002/v/cfg/"
@@ -80,11 +86,16 @@ toggles the application fullscreen mode*/
 #define BUTTON_C_ATTR_VISIBLE		"visible"
 #define BUTTON_C_ATTR_URL_LINK		"urlLink"
 
+/*String definitions*/
+#define WARNING_TITLE           "warning"
+
+//messages
+#define NO_LOG_DIR               "no logfile dir found"
 
 /*LOG messages*/
-#define SYSTEM_INIT_MSG		"Iinitialize system startup"
-#define WEB_UI_INIT_MSG		"Iinitialize UI from config files"
-#define QML_UI_INIT_MSG		"Iinitialize UI from qml files"
+#define SYSTEM_INIT_MSG		"Initialize system startup"
+#define WEB_UI_INIT_MSG		"Initialize UI from config files"
+#define QML_UI_INIT_MSG		"Initialize UI from qml files"
 #define UNEX_CFG_MSG		"Found unexpected config file"
 #define UNHA_ATT_MSG		"Found unhandled attribute \'#_1\' in \'#_2\' tag"
 #define UNHA_OBJ_TYPE_MSG	"Found unhandled object type \'#_1\'"

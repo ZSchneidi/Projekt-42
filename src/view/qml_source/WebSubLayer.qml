@@ -14,7 +14,7 @@ Rectangle {
     Text {
 	id: machine_id
 
-	text: machine_config.type
+        text: machine_config.amid
 	onTextChanged: {
 	    console.log();
 	}

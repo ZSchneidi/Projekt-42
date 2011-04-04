@@ -16,8 +16,6 @@ class ViewPortInterface : public QObject
 {
     Q_OBJECT
 
-    ViewPort *parent;
-
     Q_PROPERTY(QUrl sublayer READ getSubLayer() CONSTANT);
     Q_PROPERTY(QString system_time READ getSystemTime() CONSTANT);
     Q_PROPERTY(QString system_date READ getSystemDate() CONSTANT);
@@ -51,6 +49,8 @@ public slots:
     void sendProductAction(Product *product);
 
 private:
+
+    ViewPort *parent;
 
     QString system_time;
     QString system_date;

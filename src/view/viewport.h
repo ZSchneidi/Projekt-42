@@ -6,11 +6,13 @@
 #include <QObject>
 
 #include "global_define.h"
-#include "viewportinterface.h"
+#include "view/viewportinterface.h"
+#include "view/webelementinterface.h"
 #include "core/coreengine.h"
 
 class CoreEngine;
 class ViewPortInterface;
+class WebElementInterface;
 
 class ViewPort : public QDeclarativeView
 {
@@ -23,6 +25,7 @@ class ViewPort : public QDeclarativeView
     CoreEngine *core;
     /*the interface between C++ and QML layer */
     ViewPortInterface *interface;
+    WebElementInterface *element_interface;
 
     QUrl main_layer_path;
     QUrl sub_layer_path;
@@ -48,6 +51,10 @@ public:
 signals:
 
 public slots:
+
+private:
+
+    QUrl ui_layer_path;
 
 };
 

@@ -61,7 +61,7 @@ Item {
 		fillMode: Image.Stretch
 		smooth: true
 		opacity: 0.5
-		source: "E:/Dev-Labs/Projekte/Qt/Projekt-42/src/view/qml_source/img/schadow_15_bar.png"
+                source: "../img/schadow_15_bar.png"
 		anchors.top: parent.bottom
 		anchors.left: parent.left
 		anchors.right: parent.right
