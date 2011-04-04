@@ -9,7 +9,8 @@ WebElementInterface::WebElementInterface(ViewPort *parent) :
     } catch (...) {
 
     }
-    this->getScreenCount();
+
+    //this->getScreenCount();
     }
 
 int WebElementInterface::getScreenCount()

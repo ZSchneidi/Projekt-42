@@ -11,14 +11,14 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode) :
     /** Object instances **/
     /*the config_parser is used to build dynamic object and module handler*/
     this->config_parser = new ConfigParser(this);
-    /*instantiate the main Viewport for graphical UI as declarative_viewport*/
-    this->declarative_viewport = new ViewPort(this);
     /*instantiate an EventHandler which will catch and process every Event send to the Application*/
     this->event_handler = new EventHandler(this);
     /*instantiate a LogHandler which logs all system information etc.*/
     this->log_handler = new LogHandler(this);
     /*instantiate the ui_object_handler this handler is used for prividing custom QML items*/
     this->ui_object_handler = new UIObjectHandler(this);
+    /*instantiate the main Viewport for graphical UI as declarative_viewport*/
+    this->declarative_viewport = new ViewPort(this);
     /*install the EvenFilter to forward all Events to the EventHandler*/
     this->installEventFilter(this->event_handler);
 
@@ -173,12 +173,12 @@ void CoreEngine::updateSystemDateTime()
     this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::DefaultLocaleLongDate));
     }
 
-UIObjectHandler * CoreEngine::getUIObjectHandler()
+UIObjectHandler *CoreEngine::getUIObjectHandler()
     {
-    if(this->ui_object_handler->getState() == false)
-        throw eUnsetObject();
-    else
-        return this->ui_object_handler;
+    //if(this->ui_object_handler->getState() == false)
+     //   throw eUnsetObject();
+    //else
+    return this->ui_object_handler;
     }
 
 

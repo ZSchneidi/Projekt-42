@@ -6,7 +6,6 @@ UIObjectHandler::UIObjectHandler(QObject *parent) :
     this->object_handler_state = false;
     this->screen_list.clear();
     this->buttonc_list.clear();
-    this->state = false;
     }
 
 bool UIObjectHandler::initUIObjectHandler()
@@ -19,21 +18,21 @@ bool UIObjectHandler::initUIObjectHandler()
 
 MachineConfig *UIObjectHandler::getMachineConfig()
     {
-    if(this->state == false)
-        throw eUnsetObject();
+    //if(this->state == false)
+    //    throw eUnsetObject();
     return this->machine_cfg;
     }
 
 UIObjectHandler::ScreenList *UIObjectHandler::getScreenList()
     {
-    if(this->state == NULL ||this->state == false)
-        throw eUnsetObject();
+    //if(this->state == NULL ||this->state == false)
+    //    throw eUnsetObject();
     return &this->screen_list;
     }
 
 UIObjectHandler::ButtonCList *UIObjectHandler::getButtonCList()
     {
-    if(this->state == false)
-        throw eUnsetObject();
+    //if(this->state == false)
+    //    throw eUnsetObject();
     return &this->buttonc_list;
     }
