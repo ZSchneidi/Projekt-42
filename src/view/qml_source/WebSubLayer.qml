@@ -14,10 +14,23 @@ Rectangle {
     Text {
 	id: machine_id
 
-        text: machine_config.amid
+	text: elementinterface.screen_count
 	onTextChanged: {
 	    console.log();
 	}
     }
+    function foo ()
+    {
+	var i = 0;
+	for (i;i <= 10;i++)
+	{
+	    console.log(i);
+	}
+    }
 
+    Component.onCompleted: foo();
 }
+
+
+
+
