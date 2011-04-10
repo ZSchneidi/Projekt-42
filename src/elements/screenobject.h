@@ -12,7 +12,14 @@ class ScreenObject : public QObject
 {
     Q_OBJECT
 
-   // Q_PROPERTY(int id READ getObjID CONSTANT)
+    Q_PROPERTY(int id READ getObjID CONSTANT)
+    Q_PROPERTY(int iparent READ getObjParent CONSTANT)
+    Q_PROPERTY(QString type READ getObjType CONSTANT)
+    Q_PROPERTY(QString name READ getObjName CONSTANT)
+    Q_PROPERTY(QString aux READ getObjAux CONSTANT)
+    Q_PROPERTY(int timeout READ getObjTimeout CONSTANT)
+    Q_PROPERTY(QString bgimg READ getObjBackgroundImage CONSTANT)
+    Q_PROPERTY(QString def READ getObjDef CONSTANT)
 
 private:
 

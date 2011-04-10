@@ -44,6 +44,7 @@ public:
     inline QDeclarativeContext *getRootContext() {return this->root_context;}
     inline QUrl getSubLayerPath() { return this->sub_layer_path; }
     inline ViewPortInterface *getViewPortInterface() {return this->interface;}
+    inline WebElementInterface *getWebElementInterface() { return this->element_interface; }
 
     //SETTER
     inline void setSubLayerPath(QUrl source) { this->sub_layer_path = source; }

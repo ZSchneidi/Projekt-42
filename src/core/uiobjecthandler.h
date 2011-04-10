@@ -9,11 +9,13 @@
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
+#include "elements/buttontobject.h"
 #include "global_define.h"
 
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
+class ButtonTObject;
 
 class UIObjectHandler : public QObject
 {
@@ -26,6 +28,7 @@ public:
 
     typedef QList<ScreenObject*> ScreenList;
     typedef QList<ButtonCObject*> ButtonCList;
+    typedef QList<ButtonTObject*> ButtonTList;
 
 
 public:
@@ -34,6 +37,7 @@ public:
     MachineConfig *getMachineConfig();
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
+    ButtonTList *getButtonTList();
     inline bool getState() { return this->state; }
 
     //SETTER
@@ -46,6 +50,7 @@ private:
     MachineConfig *machine_cfg;
     ScreenList screen_list;
     ButtonCList buttonc_list;
+    ButtonTList buttont_list;
 
     bool state;
 };

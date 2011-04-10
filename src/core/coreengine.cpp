@@ -112,7 +112,13 @@ void CoreEngine::registerQmlTypes()
     {
     this->declarative_viewport->getRootContext()->setContextProperty("screen_list",QVariant::fromValue(*this->ui_object_handler->getScreenList()));
     this->declarative_viewport->getRootContext()->setContextProperty("machine_config",this->ui_object_handler->getMachineConfig());
+    /*this manifests the viewportinterface in the qml environment*/
+    this->declarative_viewport->getRootContext()->setContextProperty(VIEWPORTINTERFACE, this->declarative_viewport->getViewPortInterface() );
+    if(this->getInitMode() == CoreEngine::WEB_UI)
+	this->declarative_viewport->getRootContext()->setContextProperty(ELEMENTINTERFACE,this->declarative_viewport->getWebElementInterface());
     qmlRegisterType<Product>("Product", 0,1, "Product");
+    qmlRegisterType<ScreenObject>("ScreenObject", 0,1, "ScreenObject");
+    qmlRegisterType<ButtonCObject>("ButtonC", 0,1, "ButtonC");
     }
 
 

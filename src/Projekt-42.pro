@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     elements/screenlistwrapper.cpp \
     elements/product.cpp \
     core/exception.cpp \
-    view/webelementinterface.cpp
+    view/webelementinterface.cpp \
+    elements/buttontobject.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -40,7 +41,8 @@ HEADERS  += core/coreengine.h \
     elements/screenlistwrapper.h \
     elements/product.h \
     core/exception.h \
-    view/webelementinterface.h
+    view/webelementinterface.h \
+    elements/buttontobject.h
 
 FORMS    += coreengine.ui
 
@@ -57,7 +59,10 @@ OTHER_FILES += \
     view/qml_source/pos_layout/Button.qml \
     view/qml_source/pos_layout/SelectionBox.qml \
     view/qml_source/pos_layout/MenuBar.qml \
-    view/qml_source/pos_layout/MenuButton.qml
+    view/qml_source/pos_layout/MenuButton.qml \
+    view/qml_source/web_elements/Screen.qml \
+    view/qml_source/WebUiLogic.js \
+    view/qml_source/web_elements/ButtonC.qml
 
 RESOURCES += \
     main_ressource.qrc

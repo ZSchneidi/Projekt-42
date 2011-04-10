@@ -42,6 +42,7 @@ public:
     bool buildObjects(const QString object_cfgv);
     bool buildScreenObject(const QDomNamedNodeMap &map);
     bool buildButtonCObject(const QDomNamedNodeMap &map);
+    bool buildButtonTObject(const QDomNamedNodeMap &map);
 
 signals:
 
@@ -60,6 +61,7 @@ private:
     MachineConfig *machine_cfg_ref;
     UIObjectHandler::ScreenList *screen_list_ref;
     UIObjectHandler::ButtonCList *buttonc_list_ref;
+    UIObjectHandler::ButtonTList *buttont_list_ref;
 
     bool machine_cfg_state;
     bool object_cfg_state;

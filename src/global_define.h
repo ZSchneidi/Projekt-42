@@ -29,6 +29,7 @@ toggles the application fullscreen mode*/
 
 /*define of the relative path to the machine config*/
 #define DEFAULT_WEB_CFG_DIR		"config/am100002/v/cfg/"
+#define DEFAULT_WEB_CONTENT_DIR		"config/am100002/v/"
 
 
 /*define of the expected config files*/
@@ -58,6 +59,7 @@ toggles the application fullscreen mode*/
 /*these defines represents all supported  object types from the OBJ_CFGV*/
 #define OBJECT_TYPE_SCREEN		"screen"
 #define OBJECT_TYPE_BUTTON_C		"button_c"
+#define OBJECT_TYPE_BUTTON_T		"button_t"
 
 //Screen obj attributes
 #define SCREEN_ATTR_ID			"id"
@@ -86,6 +88,30 @@ toggles the application fullscreen mode*/
 #define BUTTON_C_ATTR_VISIBLE		"visible"
 #define BUTTON_C_ATTR_URL_LINK		"urlLink"
 
+//Button_t obj attributes
+#define BUTTON_T_ATTR_ID		"id"
+#define BUTTON_T_ATTR_PARENT		"parent"
+#define BUTTON_T_ATTR_TYPE		"typ"
+#define BUTTON_T_ATTR_NAME		"name"
+#define BUTTON_T_ATTR_AUX		"aux"
+#define BUTTON_T_ATTR_XPOS		"xPos"
+#define BUTTON_T_ATTR_YPOS		"yPos"
+#define BUTTON_T_ATTR_TEXT		"txt"
+#define BUTTON_T_ATTR_FONTSIZE		"fontSize"
+#define BUTTON_T_ATTR_XPOSTEXT		"xPosText"
+#define BUTTON_T_ATTR_YPOSTEXT		"yPosText"
+#define BUTTON_T_ATTR_FONTCOLOR		"fontColor"
+#define BUTTON_T_ATTR_UPFILE		"upFile"
+#define BUTTON_T_ATTR_DOFILE		"doFile"
+#define BUTTON_T_ATTR_ACT_UPFILE	"actUpFile"
+#define BUTTON_T_ATTR_ACT_DOFILE	"actDoFile"
+#define BUTTON_T_ATTR_TEA_UPFILE	"teaUpFile"
+#define BUTTON_T_ATTR_TEA_DOFILE	"teaDoFile"
+#define BUTTON_T_ATTR_VISIBLE		"visible"
+#define BUTTON_T_ATTR_FONT		"font"
+#define BUTTON_T_ATTR_URL_LINK		"urlLink"
+#define BUTTON_T_ATTR_FALIGN		"fAlign"
+
 /*String definitions*/
 #define WARNING_TITLE           "warning"
 
@@ -102,6 +128,7 @@ toggles the application fullscreen mode*/
 #define MISSING_MACH_TAG	"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
 #define MISSING_OBJ_TAG		"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
 #define ERROR_APP_CLOSE		"Application was closed manually"
+#define RESTORE_LOG_DIR		"Restore missing log directory"
 
 
 /** QML layer definition **/

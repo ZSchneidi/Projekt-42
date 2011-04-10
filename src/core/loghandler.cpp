@@ -8,6 +8,7 @@ LogHandler::LogHandler(QObject *parent) :
     this->config_log = new QFile(CONFIG_LOG_FILE);
     this->system_log_write_mode = QIODevice::Append;
     this->config_log_write_mode = QIODevice::Append;
+    this->system_log_state = LogHandler::ACTIVE;
 
     if(!this->logDirExists())
         {
@@ -21,7 +22,6 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
         return false;
     if (!this->system_log->open(QIODevice::ReadWrite | this->system_log_write_mode))
         return false;
-
     QString date_time = this->getSystemTimeStr();
     QTextStream log_stream(this->system_log);
     if(type == LogHandler::SYSTEM)
@@ -39,8 +39,11 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
 	}
     else if(type == LogHandler::INFO)
 	{
+	qDebug() << message;
 	if(this->system_log_state == ACTIVE)
+	    {
 	    log_stream << "["+date_time+"]" << "[INFO] " << message << endl;
+	    }
 	}
 
     this->system_log->close();

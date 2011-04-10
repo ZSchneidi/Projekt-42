@@ -16,10 +16,6 @@ bool ViewPort::initViewPort()
     {
     /*initialize root_context with the root context of the ViewPort*/
     this->root_context = this->rootContext();
-    /*this manifests the viewportinterface in the qml environment*/
-    this->root_context->setContextProperty(VIEWPORTINTERFACE, this->interface );
-    if(this->core->getInitMode() == CoreEngine::WEB_UI)
-        this->root_context->setContextProperty(ELEMENTINTERFACE,this->element_interface);
     return true;
     }
 
