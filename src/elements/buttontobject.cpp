@@ -1,21 +1,11 @@
-#include "buttoncobject.h"
+#include "buttontobject.h"
 
-ButtonCObject::ButtonCObject() :
-    QObject()
-    {
+ButtonTObject::ButtonTObject(QObject *parent) :
+    QObject(parent)
+{
     }
 
-void ButtonCObject::setObjVisible(QString value)
-    {
-    QList<QString> valid_values;
-    valid_values << "Y" << "y" << "N" << "n" << "J" << "j";
-    if(valid_values.contains(value))
-	this->visible = value;
-    else
-	qDebug() << "invalid value";
-    }
-
-QString ButtonCObject::getObjLogEntry()
+QString ButtonTObject::getObjLogEntry()
     {
     QString temp;
     temp += "Button_C definition:\n";
@@ -37,7 +27,7 @@ QString ButtonCObject::getObjLogEntry()
     return temp;
     }
 
-QSize ButtonCObject::getImageSize(QString file_path)
+QSize ButtonTObject::getImageSize(QString file_path)
     {
     return QImage(file_path).size();
     }
