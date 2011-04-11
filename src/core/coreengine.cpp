@@ -25,6 +25,7 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode) :
     this->system_time = new QTime();
     this->system_timer = new QTimer(this);
     this->system_date = new QDate();
+
     }
 
 void CoreEngine::initSystemConnections()

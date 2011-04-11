@@ -16,13 +16,7 @@ class MachineConfig : public QObject
 
     Q_PROPERTY(QString type READ getMachineType CONSTANT)
 
-    int id;
-    int amid;
-    QString type;
-    QString background_file;
-    QSize background_size;
-    QString mnr;
-    QString mtel;
+
 
 public:
     explicit MachineConfig(QObject *parent = 0);
@@ -55,6 +49,15 @@ public:
 signals:
 
 public slots:
+
+private:
+	int id;
+    int amid;
+    QString type;
+    QString background_file;
+    QSize background_size;
+    QString mnr;
+    QString mtel;
 
 };
 

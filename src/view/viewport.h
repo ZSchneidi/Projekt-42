@@ -18,6 +18,7 @@ class ViewPort : public QDeclarativeView
 {
     Q_OBJECT
 
+
     /**context for the QDeclarative environment*/
     QDeclarativeContext *root_context;
 

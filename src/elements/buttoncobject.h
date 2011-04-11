@@ -9,23 +9,7 @@ class ButtonCObject
 {
     //Q_OBJECT
 
-private:
 
-    int id;
-    int iparent;
-    QString type;
-    QString name;
-    QString aux;
-    int x_pos;
-    int y_pos;
-    QString up_file;
-    QString do_file;
-    QString act_up_file;
-    QString act_do_file;
-    QString tea_up_file;
-    QString tea_do_file;
-    QString visible;
-    QString url_link;
 
 public:
     explicit ButtonCObject();
@@ -66,6 +50,23 @@ public:
     inline void setObjUrlLink(QString link) {this->url_link = link;}
     void setObjVisible(QString value);
 
+private:
+
+    int id;
+    int iparent;
+    QString type;
+    QString name;
+    QString aux;
+    int x_pos;
+    int y_pos;
+    QString up_file;
+    QString do_file;
+    QString act_up_file;
+    QString act_do_file;
+    QString tea_up_file;
+    QString tea_do_file;
+    QString visible;
+    QString url_link;
 };
 
 #endif // BUTTONCOBJECT_H

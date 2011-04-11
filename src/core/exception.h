@@ -33,7 +33,4 @@ public:
     virtual const char* what() const throw() {return "unknown product";}
 };
 
-
-
-
 #endif // EXCEPTION_H

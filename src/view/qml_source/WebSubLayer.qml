@@ -20,4 +20,11 @@ Rectangle {
 	}
     }
 
+    Text {
+		id: scr_cnt
+		text: elementinterface.screen_count
+		anchors.horizontalCenter: parent.horizontalCenter
+		anchors.top: parent.top
+	}
+
 }

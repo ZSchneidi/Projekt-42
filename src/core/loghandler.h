@@ -22,10 +22,10 @@ public:
 
     enum Message_type {
         SYSTEM,
-	WARNING,
-	ERROR,
-	INFO
-	};
+		WARNING,
+		ERROR,
+		INFO
+		};
 
     enum Parser_Message_type {
         PARSER_INFO,
@@ -34,14 +34,14 @@ public:
         };
 
     enum Event_type {
-	PPRODUCT_EVENT
-	};
+		PPRODUCT_EVENT
+		};
 
     enum Log_state {
-	ACTIVE,
-	RESTRICTED,
-	INACTIVE
-	};
+		ACTIVE,
+		RESTRICTED,
+		INACTIVE
+		};
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
     bool writeToEventLog(QString message,LogHandler::Event_type);

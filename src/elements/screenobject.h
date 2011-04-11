@@ -14,16 +14,7 @@ class ScreenObject : public QObject
 
    // Q_PROPERTY(int id READ getObjID CONSTANT)
 
-private:
 
-    int id;
-    int iparent;
-    QString type;
-    QString name;
-    QString aux;
-    int timeout;
-    QString bgimg;
-    QString def;
 
 
 public:
@@ -51,6 +42,16 @@ public:
     inline void setObjBackgroundImage(QString bgimg) {this->bgimg = bgimg;}
     inline void setObjDef(QString def) {this->def = def;}
 
+private:
+
+    int id;
+    int iparent;
+    QString type;
+    QString name;
+    QString aux;
+    int timeout;
+    QString bgimg;
+    QString def;
 };
 
 Q_DECLARE_METATYPE(ScreenObject*)

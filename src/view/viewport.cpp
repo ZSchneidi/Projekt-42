@@ -20,6 +20,8 @@ bool ViewPort::initViewPort()
     this->root_context->setContextProperty(VIEWPORTINTERFACE, this->interface );
     if(this->core->getInitMode() == CoreEngine::WEB_UI)
         this->root_context->setContextProperty(ELEMENTINTERFACE,this->element_interface);
+
+    qDebug() << this->element_interface->getScreenCount();
     return true;
     }
 

@@ -9,17 +9,13 @@ WebElementInterface::WebElementInterface(ViewPort *parent) :
     } catch (...) {
 
     }
-
-    //this->getScreenCount();
     }
 
 int WebElementInterface::getScreenCount()
     {
     try {
-       // qDebug() << this->ui_object_handler->getScreenList()->count();
         return this->ui_object_handler->getScreenList()->count();
     } catch (eUnsetObject &e) {
 
-    }
-
+	}
     }
