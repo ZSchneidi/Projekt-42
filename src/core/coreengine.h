@@ -24,11 +24,20 @@ namespace Ui {
     class CoreEngine;
 }
 
+
+/**
+  * The CoreEngine is the main class which handles all other classes and the entire
+  * application process. The core initializes the hole environment delegates tasks to
+  * all its aggregated objects.
+  *
+  * The main function of this application is to provide a ViewPort which is able to display
+  * qml based layouts with their corresponding logic.
+  * Once the viewport is displayed the application logic and layer is defined in qml files
+  * which are stored in the view subdirectory.
+  */
 class CoreEngine : public QMainWindow
 {
     Q_OBJECT
-
-
 
 public:
     /*declaration of the initial startup modes*/
@@ -44,7 +53,7 @@ public:
 	WEB_UI
 	};
 
-    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI);
+    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE);
     ~CoreEngine();
 
     bool SystemStartUp();

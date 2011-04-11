@@ -1,6 +1,6 @@
 #include "loghandler.h"
 
-LogHandler::LogHandler(QObject *parent) :
+LogHandler::LogHandler(QObject *parent, LogHandler::Log_state log_state) :
     QObject(parent)
     {
     this->system_log = new QFile(SYSTEM_LOG_FILE);
@@ -9,6 +9,7 @@ LogHandler::LogHandler(QObject *parent) :
     this->system_log_write_mode = QIODevice::Append;
     this->config_log_write_mode = QIODevice::Append;
     this->system_log_state = LogHandler::ACTIVE;
+    this->setLoggerState(log_state);
 
     if(!this->logDirExists())
         {
@@ -25,27 +26,21 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
     QString date_time = this->getSystemTimeStr();
     QTextStream log_stream(this->system_log);
     if(type == LogHandler::SYSTEM)
-	{
-	log_stream << "["+date_time+"]" << "[SYSTEM] " << message << endl;
-	}
-    else if(type == LogHandler::WARNING)
-	{
-	if(this->system_log_state == ACTIVE)
-	    log_stream << "["+date_time+"]" << "[WARNING] " << message << endl;
-	}
+		{
+		log_stream << "["+date_time+"]" << "[SYSTEM] " << message << endl;
+		}
+    else if(type == LogHandler::WARNING && !this->isRestricted())
+		{
+		log_stream << "["+date_time+"]" << "[WARNING] " << message << endl;
+		}
     else if(type == LogHandler::ERROR)
-	{
-	log_stream << "["+date_time+"]" << "[ERROR] " << message << endl;
-	}
-    else if(type == LogHandler::INFO)
-	{
-	qDebug() << message;
-	if(this->system_log_state == ACTIVE)
-	    {
-	    log_stream << "["+date_time+"]" << "[INFO] " << message << endl;
-	    }
-	}
-
+		{
+		log_stream << "["+date_time+"]" << "[ERROR] " << message << endl;
+		}
+    else if(type == LogHandler::INFO && !this->isRestricted())
+		{
+		log_stream << "["+date_time+"]" << "[INFO] " << message << endl;
+		}
     this->system_log->close();
     /*this changes the open mode to append, so that the comming lines will be append to the log file*/
     this->system_log_write_mode = QIODevice::Append;
@@ -55,10 +50,12 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
 
 bool LogHandler::writeToEventLog(QString message, LogHandler::Event_type type)
     {
+    if(this->system_log_state == LogHandler::INACTIVE)
+        return false;
     if (!this->event_log->open(QIODevice::ReadWrite | QIODevice::Append))
         {
-	return false;
-	}
+		return false;
+		}
     QString date_time = this->getSystemTimeStr();
     QTextStream log_stream(this->event_log);
     if(type == LogHandler::PPRODUCT_EVENT)
@@ -71,6 +68,8 @@ bool LogHandler::writeToEventLog(QString message, LogHandler::Event_type type)
 
 bool LogHandler::writeToConfigParserLog(QString message,LogHandler::Parser_Message_type type)
     {
+    if(this->system_log_state == LogHandler::INACTIVE)
+        return false;
     if (!this->config_log->open(QIODevice::ReadWrite | this->config_log_write_mode))
         {
         return false;
@@ -121,7 +120,19 @@ bool LogHandler::logDirExists()
 
 bool LogHandler::restoreLogDir()
     {
+    if(this->system_log_state == LogHandler::INACTIVE)
+		{
+		qDebug() << "dont restore log dir";
+        return false;
+        }
     return QDir::current().mkdir(LOG_DIR);
     }
+
+bool LogHandler::isRestricted()
+	{
+	if(this->system_log_state == LogHandler::RESTRICTED)
+		return true;
+	return false;
+	}
 
 

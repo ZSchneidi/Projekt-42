@@ -1,5 +1,10 @@
 import QtQuick 1.0
 
+/**
+  * The MainViewLayer is the central qml file which dynamically loads the
+  * necessary qml file depending on the InitMode
+  *
+  */
 Item {
     id: main_view_layer
     anchors.fill: parent
@@ -8,19 +13,17 @@ Item {
         id: background
         anchors.fill: parent
 
-	Loader{
-	    id: sale_loader
-	    anchors.fill: parent
-            //source: "pos_layout/PosScreen.qml"
-            source: viewportinterface.sublayer
-	    }
+		/*The Loader is used to load the corresponding qml files depending on the InitMode*/
+		Loader{
+			id: sale_loader
+			anchors.fill: parent
+			source: viewportinterface.sublayer
+		}
 
-	AdminPanel{
-	    id:admin_panal
-	    anchors.fill: parent
-
-
-	}
+		AdminPanel{
+			id:admin_panal
+			anchors.fill: parent
+		}
     }
 }
 

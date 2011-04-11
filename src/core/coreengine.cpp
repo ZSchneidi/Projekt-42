@@ -1,7 +1,7 @@
 #include "coreengine.h"
 #include "ui_coreengine.h"
 
-CoreEngine::CoreEngine(QWidget *parent, InitMode mode) :
+CoreEngine::CoreEngine(QWidget *parent, InitMode mode, LogHandler::Log_state log_state) :
     QMainWindow(parent),
     ui(new Ui::CoreEngine)
     {
@@ -14,7 +14,7 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode) :
     /*instantiate an EventHandler which will catch and process every Event send to the Application*/
     this->event_handler = new EventHandler(this);
     /*instantiate a LogHandler which logs all system information etc.*/
-    this->log_handler = new LogHandler(this);
+    this->log_handler = new LogHandler(this,log_state);
     /*instantiate the ui_object_handler this handler is used for prividing custom QML items*/
     this->ui_object_handler = new UIObjectHandler(this);
     /*instantiate the main Viewport for graphical UI as declarative_viewport*/
@@ -42,7 +42,7 @@ bool CoreEngine::SystemStartUp()
     time.start();
     this->startSystemTimer();
     /*startup processes*/
-    if(!this->getLogHandler()->logDirExists())
+    if(!this->getLogHandler()->logDirExists() && !this->getLogHandler()->getLoggerState() == LogHandler::INACTIVE)
         {
         this->event_handler->showWarning(NO_LOG_DIR);
         }
@@ -177,7 +177,7 @@ void CoreEngine::startSystemTimer()
 void CoreEngine::updateSystemDateTime()
     {
     this->declarative_viewport->getViewPortInterface()->setSystemTime(this->system_time->currentTime().toString(TITLE_TIME_FORMAT));
-    this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(Qt::DefaultLocaleLongDate));
+    this->declarative_viewport->getViewPortInterface()->setSystemDate(this->system_date->currentDate().toString(TITLE_DATE_FORMAT));
     }
 
 UIObjectHandler *CoreEngine::getUIObjectHandler()

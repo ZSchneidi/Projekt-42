@@ -4,6 +4,7 @@
 #include <QObject>
 #include "core/uiobjecthandler.h"
 
+/** temporary not used **/
 class ScreenListWrapper : public QObject
 {
     Q_OBJECT

@@ -14,6 +14,15 @@ class CoreEngine;
 class ViewPortInterface;
 class WebElementInterface;
 
+
+/**
+  * The ViewPort is a major widget which represents a customized version of QDeclarativeview.
+  * This widget is designed to paint all qml processes on the screen and is used as the main
+  * widget of the application.
+  *
+  * For communication between QML and C++ layer there are interfaces defined which
+  * provide signals, slots and members.
+  */
 class ViewPort : public QDeclarativeView
 {
     Q_OBJECT

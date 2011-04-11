@@ -8,6 +8,14 @@
 
 class ViewPort;
 
+/**
+  * The WebElementInterface is a class which is designed as an interface for communication
+  * between QML and C++ layer.
+  *
+  * This Interface provides special informations about the objects which were created by the
+  * ConfigParser and stored in the UIObjectHandler. These objects are interpreted by the qml layer
+  * which refers to this interface to get the information about the existing elements.
+  */
 class WebElementInterface : public QObject
 {
     Q_OBJECT

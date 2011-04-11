@@ -7,7 +7,14 @@
 #include "global_define.h"
 
 
-
+/**
+  * A ScreenObject is the respresentation of a screen element.
+  * All kinds of buttons etc. are child objects of a screen.
+  * The config can provide several screens, which have to displayed in
+  * a predefined order. One screen is the default.
+  * On button click events it could be necessary to switch to another screen.
+  * But this is all view layer logic which is implemented in javascript.
+  */
 class ScreenObject : public QObject
 {
     Q_OBJECT

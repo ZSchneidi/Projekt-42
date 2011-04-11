@@ -7,11 +7,14 @@
 #include "core/exception.h"
 #include "elements/product.h"
 
-
-
 class ViewPort;
 
-
+/**
+  * The ViewPortInterface is a class which is designed as an interface for communication
+  * between QML and C++ layer.
+  *
+  * This Interface provides general system information.
+  */
 class ViewPortInterface : public QObject
 {
     Q_OBJECT

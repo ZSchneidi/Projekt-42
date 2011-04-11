@@ -56,11 +56,15 @@ bool ConfigParser::buildConfig()
 	    else if((*this->file_list_it).fileName() == OBJ_CFGV)
 		{
 		try {
+
 		    this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
 		    this->buttonc_list_ref = this->core->getUIObjectHandler()->getButtonCList();
+		    this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
 		} catch (eUnsetPointer &e) {
 		    this->core->getUIObjectHandler()->initUIObjectHandler();
 		    this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
+		    this->buttonc_list_ref = this->core->getUIObjectHandler()->getButtonCList();
+		    this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
 		}
 		if(this->buildObjects((*this->file_list_it).absoluteFilePath()))
 		    this->object_cfg_state = true;
@@ -160,11 +164,21 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 		if(attr.name() == OBJECT_CFG_TYPE_ATTR)
 		    {
 		    if(attr.value() == OBJECT_TYPE_SCREEN)
-			this->buildScreenObject(map);
+				{
+				this->buildScreenObject(map);
+				}
 		    else if(attr.value() == OBJECT_TYPE_BUTTON_C)
-			this->buildButtonCObject(map);
+				{
+				this->buildButtonCObject(map);
+				}
+			else if(attr.value() == OBJECT_TYPE_BUTTON_T)
+				{
+				this->buildButtonTObject(map);
+				}
 		    else
-                        this->core->configLogWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
+				{
+				this->core->configLogWarning(QString(UNHA_OBJ_TYPE_MSG).replace("#_1",attr.value())+"in "+object_cfgv+" on line "+QString::number(node.lineNumber()));
+				}
 		    }
 		}
 	    }
@@ -181,22 +195,22 @@ bool ConfigParser::buildScreenObject(const QDomNamedNodeMap &map)
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == SCREEN_ATTR_ID)
 	    temp->setObjID(attr.value().toInt());
-	if(attr.name() == SCREEN_ATTR_PARENT)
+	else if(attr.name() == SCREEN_ATTR_PARENT)
 	    temp->setObjParent(attr.value().toInt());
-	if(attr.name() == SCREEN_ATTR_TYPE)
+	else if(attr.name() == SCREEN_ATTR_TYPE)
 	    temp->setObjType(attr.value());
-	if(attr.name() == SCREEN_ATTR_NAME)
+	else if(attr.name() == SCREEN_ATTR_NAME)
 	    temp->setObjName(attr.value());
-	if(attr.name() == SCREEN_ATTR_AUX)
+	else if(attr.name() == SCREEN_ATTR_AUX)
 	    temp->setObjAux(attr.value());
-	if(attr.name() == SCREEN_ATTR_TIMEOUT)
+	else if(attr.name() == SCREEN_ATTR_TIMEOUT)
 	    temp->setObjTimeout(attr.value().toInt());
-	if(attr.name() == SCREEN_ATTR_BGIMG)
+	else if(attr.name() == SCREEN_ATTR_BGIMG)
 	    {
 	    temp->setObjBackgroundImage(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
 	    //qDebug() << QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value();
 	    }
-	if(attr.name() == SCREEN_ATTR_DEF)
+	else if(attr.name() == SCREEN_ATTR_DEF)
 	    temp->setObjDef(attr.value());
 	}
     this->screen_list_ref->append(temp);
@@ -212,33 +226,33 @@ bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == BUTTON_C_ATTR_ID)
 	    temp_buttonc->setObjID(attr.value().toInt());
-	if(attr.name() == BUTTON_C_ATTR_PARENT)
+	else if(attr.name() == BUTTON_C_ATTR_PARENT)
 	    temp_buttonc->setObjParent(attr.value().toInt());
-	if(attr.name() == BUTTON_C_ATTR_TYPE)
+	else if(attr.name() == BUTTON_C_ATTR_TYPE)
 	    temp_buttonc->setObjType(attr.value());
-	if(attr.name() == BUTTON_C_ATTR_NAME)
+	else if(attr.name() == BUTTON_C_ATTR_NAME)
 	    temp_buttonc->setObjName(attr.value());
-	if(attr.name() == BUTTON_C_ATTR_AUX)
+	else if(attr.name() == BUTTON_C_ATTR_AUX)
 	    temp_buttonc->setObjAux(attr.value());
-	if(attr.name() == BUTTON_C_ATTR_XPOS)
+	else if(attr.name() == BUTTON_C_ATTR_XPOS)
 	    temp_buttonc->setObjXPos(attr.value().toInt());
-	if(attr.name() == BUTTON_C_ATTR_YPOS)
+	else if(attr.name() == BUTTON_C_ATTR_YPOS)
 	    temp_buttonc->setObjYPos(attr.value().toInt());
-	if(attr.name() == BUTTON_C_ATTR_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_UPFILE && attr.value() != "")
 	    temp_buttonc->setObjUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_DOFILE && attr.value() != "")
 	    temp_buttonc->setObjDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_ACT_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_ACT_UPFILE && attr.value() != "")
 	    temp_buttonc->setObjActUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_ACT_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_ACT_DOFILE && attr.value() != "")
 	    temp_buttonc->setObjActDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_TEA_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_TEA_UPFILE && attr.value() != "")
 	    temp_buttonc->setObjTeaUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_TEA_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_C_ATTR_TEA_DOFILE && attr.value() != "")
 	    temp_buttonc->setObjTeaDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_C_ATTR_VISIBLE)
+	else if(attr.name() == BUTTON_C_ATTR_VISIBLE)
 	    temp_buttonc->setObjVisible(attr.value());
-	if(attr.name() == BUTTON_C_ATTR_URL_LINK)
+	else if(attr.name() == BUTTON_C_ATTR_URL_LINK)
 	    temp_buttonc->setObjUrlLink(attr.value());
 	}
     this->buttonc_list_ref->append(temp_buttonc);
@@ -254,72 +268,53 @@ bool ConfigParser::buildButtonTObject(const QDomNamedNodeMap &map)
 	QDomAttr attr = map.item(i-1).toAttr();
 	if(attr.name() == BUTTON_T_ATTR_ID)
 	    temp_buttont->setObjID(attr.value().toInt());
-	if(attr.name() == BUTTON_T_ATTR_PARENT)
+	else if(attr.name() == BUTTON_T_ATTR_PARENT)
 	    temp_buttont->setObjParent(attr.value().toInt());
-	if(attr.name() == BUTTON_T_ATTR_TYPE)
+	else if(attr.name() == BUTTON_T_ATTR_TYPE)
 	    temp_buttont->setObjType(attr.value());
-	if(attr.name() == BUTTON_T_ATTR_NAME)
+	else if(attr.name() == BUTTON_T_ATTR_NAME)
 	    temp_buttont->setObjName(attr.value());
-	if(attr.name() == BUTTON_T_ATTR_AUX)
+	else if(attr.name() == BUTTON_T_ATTR_AUX)
 	    temp_buttont->setObjAux(attr.value());
-	if(attr.name() == BUTTON_T_ATTR_XPOS)
+	else if(attr.name() == BUTTON_T_ATTR_XPOS)
 	    temp_buttont->setObjXPos(attr.value().toInt());
-	if(attr.name() == BUTTON_T_ATTR_YPOS)
+	else if(attr.name() == BUTTON_T_ATTR_YPOS)
 	    temp_buttont->setObjYPos(attr.value().toInt());
-
-	if(attr.name() == BUTTON_T_ATTR_TEXT)
-	    temp_buttont->seto(attr.value().toInt());
-
-
-	if(attr.name() == BUTTON_T_ATTR_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_TEXT)
+	    temp_buttont->setObjText(attr.value());
+	else if(attr.name() == BUTTON_T_ATTR_FONTSIZE)
+	    temp_buttont->setObjFontSize(attr.value().toInt());
+	else if(attr.name() == BUTTON_T_ATTR_XPOSTEXT)
+	    temp_buttont->setObjXPosText(attr.value().toInt());
+	else if(attr.name() == BUTTON_T_ATTR_YPOSTEXT)
+	    temp_buttont->setObjYPosText(attr.value().toInt());
+	else if(attr.name() == BUTTON_T_ATTR_FONTCOLOR)
+	    temp_buttont->setObjFontColor(attr.value());
+	else if(attr.name() == BUTTON_T_ATTR_FONT)
+	    temp_buttont->setObjFont(attr.value());
+	else if(attr.name() == BUTTON_T_ATTR_FALIGN)
+	    temp_buttont->setObjFAlign(attr.value());
+	else if(attr.name() == BUTTON_T_ATTR_UPFILE && attr.value() != "")
 	    temp_buttont->setObjUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_DOFILE && attr.value() != "")
 	    temp_buttont->setObjDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_ACT_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_ACT_UPFILE && attr.value() != "")
 	    temp_buttont->setObjActUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_ACT_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_ACT_DOFILE && attr.value() != "")
 	    temp_buttont->setObjActDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_TEA_UPFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_TEA_UPFILE && attr.value() != "")
 	    temp_buttont->setObjTeaUpFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_TEA_DOFILE && attr.value() != "")
+	else if(attr.name() == BUTTON_T_ATTR_TEA_DOFILE && attr.value() != "")
 	    temp_buttont->setObjTeaDoFile(QDir::currentPath()+QString("/")+QString(DEFAULT_WEB_CONTENT_DIR)+attr.value());
-	if(attr.name() == BUTTON_T_ATTR_VISIBLE)
+	else if(attr.name() == BUTTON_T_ATTR_VISIBLE)
 	    temp_buttont->setObjVisible(attr.value());
-	if(attr.name() == BUTTON_T_ATTR_URL_LINK)
+	else if(attr.name() == BUTTON_T_ATTR_URL_LINK)
 	    temp_buttont->setObjUrlLink(attr.value());
 	}
-    this->buttonc_list_ref->append(temp_buttonc);
-    this->core->configLogInfo(this->buttonc_list_ref->last()->getObjLogEntry());
+    this->buttont_list_ref->append(temp_buttont);
+    this->core->configLogInfo(this->buttont_list_ref->last()->getObjLogEntry());
     return true;
     }
-
-
-#define BUTTON_T_ATTR_TEXT		"txt"
-#define BUTTON_T_ATTR_FONTSIZE		"fontSize"
-#define BUTTON_T_ATTR_XPOSTEXT		"xPosText"
-#define BUTTON_T_ATTR_YPOSTEXT		"yPosText"
-#define BUTTON_T_ATTR_FONTCOLOR		"fontColor"
-
-#define BUTTON_T_ATTR_FONT		"font"
-#define BUTTON_T_ATTR_FALIGN		"fAlign"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 bool ConfigParser::validateConfigXMLIntegrity(QString path)
     {

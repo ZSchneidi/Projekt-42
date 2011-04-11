@@ -8,6 +8,10 @@
 #include <QDebug>
 #include "global_define.h"
 
+/**
+  * The MachineConfig represents the configuration of a machine.
+  *
+  */
 class MachineConfig : public QObject
 {
     Q_OBJECT

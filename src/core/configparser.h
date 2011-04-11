@@ -25,6 +25,14 @@ class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
 
+
+/**
+  * The ConfigParser was designed to read a hole XML based config.
+  * This config format was defined externally and there is no definition available.
+  * What the Config parser does is to search for well known types and parses their
+  * attributes to build the corresponding object and store them to the UIObjectHandler.
+  *
+  */
 class ConfigParser : public QObject
 {
     Q_OBJECT

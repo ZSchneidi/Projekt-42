@@ -10,6 +10,14 @@
 
 #include "global_define.h"
 
+/**
+  * The LogHandler is designed to write all kinds of logs.
+  * System logs are part of the core application.
+  * Event logs are written by the EventHandler every time an event was emitted
+  * by the view layer.
+  * Config logs are written by the ConfigHandler for each object that was created
+  * based an the XML config.
+  */
 class LogHandler : public QObject
 {
     Q_OBJECT
@@ -18,9 +26,8 @@ class LogHandler : public QObject
     QIODevice::OpenModeFlag config_log_write_mode;
 
 public:
-    explicit LogHandler(QObject *parent = 0);
 
-    enum Message_type {
+	enum Message_type {
         SYSTEM,
 		WARNING,
 		ERROR,
@@ -43,15 +50,22 @@ public:
 		INACTIVE
 		};
 
+    explicit LogHandler(QObject *parent = 0,Log_state log_state = LogHandler::ACTIVE);
+
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
     bool writeToEventLog(QString message,LogHandler::Event_type);
     bool writeToConfigParserLog(QString message,LogHandler::Parser_Message_type);
 
+    //GETTER
+    inline LogHandler::Log_state getLoggerState() { return this->system_log_state; }
+
+	//SETTER
     void setLoggerState(Log_state state);
     void setLoggerWriteMode(QIODevice::OpenModeFlag);
 
     bool logDirExists();
     bool restoreLogDir();
+    bool isRestricted();
 
 private:
 

@@ -4,7 +4,9 @@
 #include <QString>
 
 
-/*Exceptions*/
+/**
+  * This is the assembly point for exception.
+  */
 
 
 class eUnsetPointer : public std::exception

@@ -8,6 +8,13 @@
 
 #include "global_define.h"
 
+/**
+  * This is the representation of a Button_C type object.
+  * This type is a basic Button which displays images for various states.
+  *
+  * This ButtonCObject has a corresponding ButtonC.qml implementation
+  * which is used to present a ButtonC in the ViewPort.
+  */
 class ButtonCObject : public QObject
 {
     Q_OBJECT

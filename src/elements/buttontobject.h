@@ -5,9 +5,16 @@
 #include <QMetaType>
 #include <QImage>
 
-
 #include "global_define.h"
 
+/**
+  * This is the representation of a Button_T type object.
+  * This type is a basic Button which displays images for various states and
+  * also can take a text attribute which will be displayed on the Button.
+  *
+  * This ButtonTObject has a corresponding ButtonT.qml implementation
+  * which is used to present a ButtonT in the ViewPort.
+  */
 class ButtonTObject : public QObject
 {
     Q_OBJECT
