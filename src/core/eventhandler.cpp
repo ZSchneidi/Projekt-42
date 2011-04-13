@@ -18,15 +18,17 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         if (keyEvent->modifiers() == Qt::ControlModifier)
             {
+            qDebug() << "control was pressed on " << keyEvent->key();
             switch(keyEvent->key())
                 {
                 case TOGGLE_FULLSCREEN_BUTTON:
-                    qDebug() << "control A was pressed on " << obj;
                     if(!this->core->isFullScreen())
                         this->core->showFullScreen();
                     else
                         this->core->showNormal();
                     return true;
+				case TERM_SYSTEM_BUTTON:
+					this->core->close();
                 default:
                     qDebug() << "unhandled modified key";
                     return false;

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
 	QStringList arguments = a.arguments();
 
-qDebug() << arguments;
+	qDebug() << arguments;
 
 
 	/* ARGUMENTS */
@@ -44,9 +44,27 @@ qDebug() << arguments;
 		{
 		log_state = LogHandler::INACTIVE;
 		}
+	/*display size*/
+	Qt::WindowState windows_state;
+	QSize window_size = QSize(0,0);
 
+	if(arguments.contains(ARG_FULLSCREEN))
+		{
+		windows_state = Qt::WindowFullScreen;
+		}
+	/*getting a size if available*/
+	for (int i = 0; i < arguments.size(); i++)
+		{
+		if(arguments.at(i).contains(ARG_SCREEN_SIZE))
+			{
 
-
+			window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
+			QString size_str =  arguments.at(i);
+			QStringList size_list =  size_str.remove(ARG_SCREEN_SIZE).split("x");
+			window_size.setWidth(size_list.at(0).toInt());
+			window_size.setHeight(size_list.at(1).toInt());
+			}
+		}
 
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
@@ -56,10 +74,11 @@ qDebug() << arguments;
     w.getLogHandler()->setLoggerState(log_state);
     w.getLogHandler()->setLoggerWriteMode(open_mode);
     /*call the startup routine*/
-    w.SystemStartUp();
+    w.SystemStartUp(window_size,windows_state);
 
     w.show();
-	a.exit();
+	a.setGraphicsSystem("raster");
+
     return a.exec();
 }
 

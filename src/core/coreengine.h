@@ -56,7 +56,7 @@ public:
     explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE);
     ~CoreEngine();
 
-    bool SystemStartUp();
+    bool SystemStartUp(const QSize size, const Qt::WindowState window_state);
     bool logSystemMsg(const QString message);
     bool logWarning(const QString message);
     bool logError(const QString message);
@@ -67,6 +67,7 @@ public:
     void startSystemTimer();
 
 
+
     //GETTER
     inline CoreEngine *getCore() {return this;}
     inline LogHandler *getLogHandler() {return this->log_handler;}
@@ -74,6 +75,7 @@ public:
     inline EventHandler* getEventHandler() { return this->event_handler; }
     inline InitMode getInitMode() { return this->init_mode; }
 
+	//SETTER
 
     QTime *system_time;
     QTimer *system_timer;
@@ -90,10 +92,12 @@ private slots:
 private:
 
 
-    bool setUpViewport();
+    bool setUpViewport(const QSize size, const Qt::WindowState window_state);
     bool initViewEnvironment();
     void initSystemConnections();
     void registerQmlTypes();
+
+
 
     ViewPort *declarative_viewport;
     ConfigParser *config_parser;
@@ -104,6 +108,7 @@ private:
 
     EventHandler *event_handler;
     InitMode init_mode;
+
 
 };
 

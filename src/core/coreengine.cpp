@@ -36,7 +36,7 @@ void CoreEngine::initSystemConnections()
 /**
  *This is the main startup routine.
  */
-bool CoreEngine::SystemStartUp()
+bool CoreEngine::SystemStartUp(const QSize size, const Qt::WindowState window_state)
     {
     QTime time;
     time.start();
@@ -51,7 +51,7 @@ bool CoreEngine::SystemStartUp()
     this->log_handler->writeToSystemLog(SYSTEM_INIT_MSG,LogHandler::SYSTEM);
 
     this->initViewEnvironment();
-    this->setUpViewport();
+    this->setUpViewport(size,window_state);
 
     this->logSystemMsg("Startup lasts "+QString::number(time.elapsed())+" milliseconds");
     return true;
@@ -90,9 +90,17 @@ bool CoreEngine::initViewEnvironment()
  *  is designed to set up the main Viewport of the Application
  *
  */
-bool CoreEngine::setUpViewport()
+bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_state)
     {
-    this->resize(QSize(800,600));
+	if(size.width() > 0 || size.height() > 0)
+		{
+		this->resize(QSize(size.width(),size.height()));
+		}
+	else
+		{
+		this->setWindowState(window_state);
+		}
+
     this->declarative_viewport->initViewPort();
     /*this fills the parent application window with the qml view*/
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);

@@ -18,19 +18,26 @@
 #define ARG_LOG_STATE_ACTIVE									"--ls_active"
 #define ARG_LOG_STATE_RESTRICTED							"--ls_restrict"
 #define ARG_LOG_STATE_INACTIVE								"--ls_inactive"
+#define ARG_FULLSCREEN												"--fullscreen"
+#define ARG_SCREEN_SIZE											"-S="
+
 
 #define LOG_DIR															"log/"
 #define SYSTEM_LOG_FILE												LOG_DIR"system_log.log"
 #define EVENT_LOG_FILE												LOG_DIR"event_log.log"
 #define CONFIG_LOG_FILE												LOG_DIR"config_log.log"
 
+
 /** Core definition **/
 
+#define SYSTEM_VIEWPORT_WIDTH								800
+#define SYSTEM_VIEWPORT_HEIGHT								600
 #define SYSTEM_TIMER_INTERVAL									60000 //milliseconds
 
 /*define the hex representation of the button which
 toggles the application fullscreen mode*/
 #define TOGGLE_FULLSCREEN_BUTTON							0x41
+#define TERM_SYSTEM_BUTTON										0x43
 
 /*QML type identifiers*/
 #define VIEWPORTINTERFACE											"viewportinterface"
