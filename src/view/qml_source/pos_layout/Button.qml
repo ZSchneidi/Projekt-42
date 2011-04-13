@@ -1,10 +1,14 @@
 import QtQuick 1.0
+import Product 0.1
+
 Item {
     id: button_item
     property string button_name: "empty"
     property int button_with: 130
     property int button_height: 140
     property int lable_size_percent: 10
+
+    property alias product: product
 
     width: button_with
     height: button_height
@@ -32,6 +36,7 @@ Item {
 	}
 	/*shadow declaration*/
 	BorderImage {
+	    id:shadow
 	    anchors.fill: button_base
 	    anchors { leftMargin: -10; topMargin: -10; rightMargin: -10; bottomMargin: -10 }
 	    border { left: 30; top: 30; right: 30; bottom: 30 }
@@ -118,23 +123,32 @@ Item {
 
 
     }
+
+    /*product definition is used to link product information to a Button*/
+    Product{
+	id:product
+	productName: ""
+	productCode: 0
+    }
+
     MouseArea{
         id:button_mouse_area
         hoverEnabled: true
         anchors.fill: parent
-        onEntered: {
-            console.log('hover button')
+	onEntered: {
             highlight.opacity = 0.3
         }
         onExited: {
              highlight.opacity = 0.0
         }
-        onPressed: {
-            pressed.opacity = 0.5
+	onPressed: {
+	    viewportinterface.sendProductAction(product)
+	    pressed.opacity = 0.2
+	    shadow.opacity = 0.5
         }
-        onReleased: {
+	onReleased: {
             pressed.opacity = 0.0
-
+	    shadow.opacity = 1.0
         }
     }
     Rectangle {
