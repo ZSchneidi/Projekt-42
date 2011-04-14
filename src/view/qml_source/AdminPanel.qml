@@ -46,18 +46,7 @@ Item {
     Rectangle{
 		id: admin_screen
 		anchors { right: parent.right; top: parent.top; bottom: parent.bottom}
-		width: 0
-		gradient: Gradient {
-			GradientStop {
-				position: 0.00;
-				color: "#494848";
-			}
-			GradientStop {
-				position: 1.00;
-				color: "#2f2d2d";
-			}
-		}
-		opacity: 1
+		color: "#535353"
 		MouseArea{
 			anchors.fill: parent
 			onClicked: {
@@ -70,12 +59,10 @@ Item {
 				name: "shown_admin_screen"
 				PropertyChanges {
 					target: admin_screen
-					width: 500
-					opacity: 1.0
+					width: (admin_switch.parent.width/100)*40
 				}
 				PropertyChanges {
 					target: admin_trigger
-					opacity: 0.0
 				}
 			}
 		]
@@ -85,18 +72,9 @@ Item {
 				from: ""
 				to: "shown_admin_screen"
 				reversible: true
-				NumberAnimation { target: admin_screen; property: "width"; duration: 400; easing.type: "OutBack" }
-				NumberAnimation { properties: "opacity"; duration: 6 }
+				NumberAnimation { target: admin_screen; property: "width"; duration: 700; easing.type: "OutBack" }
 			}
 		]
-
-		//Content section
-		KeyPad{
-			id:keypad
-			x: 40
-			y: 40
-		}
-
 
     }
 
