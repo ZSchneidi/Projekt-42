@@ -36,6 +36,9 @@ public:
     bool processProductAction(Product *product);
     void showWarning(QString msg);
 
+    //Getter
+    inline CoreEngine *getCore() { return this->core; }
+
 signals:
 
 public slots:
@@ -44,6 +47,7 @@ protected:
 
     void keyPressEvent(QKeyEvent *event);
     bool eventFilter(QObject *, QEvent *);
+
 
 };
 

@@ -41,20 +41,36 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
 
 bool EventHandler::processProductAction(Product *product)
     {
+    bool product_serve_state = false;
+
+    qDebug() << product->productCode() << product->productName();
     /*this is an example of a product which emits an unhandled error*/
     if(product->productCode() == 10003)
 	return false;
     /*just an temporary example of a product which couldn't served*/
-    if(product->productCode() == 10002)
-	{
-	UnkownProductExpetion myEx;
-	myEx.product_code = product->productCode();
-	throw myEx;
-	}
+
     else
 	{
 	/*add product serve logic here*/
 	}
+
+    if(product->productCode() == 0)
+	{
+	QString err = QString("ERROR: ") + " invalid product code "+ QString::number(product->productCode());
+	this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
+	}
+    else if(product->productCode() > 0 )
+	{
+	QString success = QString("SUCCESS: ") + QString::number(product->productCode());
+	this->getCore()->getLogHandler()->writeToEventLog(success,LogHandler::PPRODUCT_EVENT);
+	}
+    /*if something unhandled went wrong*/
+    else
+	{
+	QString err = QString("ERROR: an unhandled error occurred : product ") + QString::number(product->productCode());
+	this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
+	}
+
     return true;
     }
 

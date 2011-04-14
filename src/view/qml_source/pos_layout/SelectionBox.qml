@@ -1,5 +1,4 @@
 import QtQuick 1.0
-import Product 0.1
 
 Item{
 
@@ -32,17 +31,8 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
-	    Product{
-		id:product1
-		productName: button1.button_name
-		productCode: 10001
-	    }
-	    MouseArea{
-		anchors.fill: parent
-		onClicked: {
-		    viewportinterface.sendProductAction(product1)
-		}
-	    }
+	    product.productCode: 33214
+	    product.productName: "Kaffe"
 
 	}
 
@@ -58,24 +48,15 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
-	    Product{
-		id:product2
-		productName: button2.button_name
-		productCode: 10002
-	    }
-	    MouseArea{
-		anchors.fill: parent
-		onClicked: {
-		    viewportinterface.sendProductAction(product2)
-		}
-	    }
+	    product.productCode: 32234
+	    product.productName: "Kaffe schwarz"
 	}
 
 	Button{
 	    id: button3
 	    x: 58
 	    y: 74
-	    button_name: "Kaffe schwarz"
+	    button_name: "Kaffe + Zucker"
 	    anchors.verticalCenter: parent.verticalCenter
 	    anchors.left: button2.right
 	    anchors.leftMargin: (parent.width/100)*margin_percentage
@@ -83,17 +64,8 @@ Item{
 	    button_with: (parent.width/100)*button_width_percent
 	    button_height: (parent.height/100)*button_height_percent
 
-	    Product{
-		id:product3
-		productName: button3.button_name
-		productCode: 10003
-	    }
-	    MouseArea{
-		anchors.fill: parent
-		onClicked: {
-		    viewportinterface.sendProductAction(product3)
-		}
-	    }
+	    product.productCode: 43321
+	    product.productName: "Kaffe + Zucker"
 	}
 
     }

@@ -6,7 +6,7 @@
 QString getHelpText();
 
 int main(int argc, char *argv[])
-{
+    {
     QApplication a(argc, argv);
 
 	QStringList arguments = a.arguments();
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		mode = CoreEngine::QML_UI;
 		}
 	/*init LogHandler state*/
-    LogHandler::Log_state log_state = LogHandler::ACTIVE;
+	LogHandler::Log_state log_state = LogHandler::ACTIVE;
 	if(arguments.contains(ARG_LOG_STATE_ACTIVE))
 		{
 		log_state = LogHandler::ACTIVE;
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		}
 	/*display size*/
 	Qt::WindowState windows_state;
-	QSize window_size = QSize(0,0);
+	QSize window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
 
 	if(arguments.contains(ARG_FULLSCREEN))
 		{
@@ -57,8 +57,6 @@ int main(int argc, char *argv[])
 		{
 		if(arguments.at(i).contains(ARG_SCREEN_SIZE))
 			{
-
-			window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
 			QString size_str =  arguments.at(i);
 			QStringList size_list =  size_str.remove(ARG_SCREEN_SIZE).split("x");
 			window_size.setWidth(size_list.at(0).toInt());
@@ -66,6 +64,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
+    qDebug() << window_size;
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 
@@ -80,22 +79,22 @@ int main(int argc, char *argv[])
 	a.setGraphicsSystem("raster");
 
     return a.exec();
-}
+    }
 
 QString getHelpText()
-{
-	QString ret_str;
-	ret_str += QString("valid arguments are: \n");
-	ret_str += QString(ARG_HELP" - shows this message\n");
-	ret_str += QString("\nUI mode \n");
-	ret_str += QString(ARG_WEB_UI" - application will start with Web style interface \n");
-	ret_str += QString(ARG_QML_UI" - application will start with QML interface \n");
-	ret_str += QString("\nLogger state \n");
-	ret_str += QString(ARG_LOG_STATE_ACTIVE" - log everything\n");
-	ret_str += QString(ARG_LOG_STATE_RESTRICTED" - log only SYSTEM and ERROR messages\n");
-	ret_str += QString(ARG_LOG_STATE_INACTIVE" - disable log \n");
-	return ret_str;
-}
+    {
+    QString ret_str;
+    ret_str += QString("valid arguments are: \n");
+    ret_str += QString(ARG_HELP" - shows this message\n");
+    ret_str += QString("\nUI mode \n");
+    ret_str += QString(ARG_WEB_UI" - application will start with Web style interface \n");
+    ret_str += QString(ARG_QML_UI" - application will start with QML interface \n");
+    ret_str += QString("\nLogger state \n");
+    ret_str += QString(ARG_LOG_STATE_ACTIVE" - log everything\n");
+    ret_str += QString(ARG_LOG_STATE_RESTRICTED" - log only SYSTEM and ERROR messages\n");
+    ret_str += QString(ARG_LOG_STATE_INACTIVE" - disable log \n");
+    return ret_str;
+    }
 
 
 
