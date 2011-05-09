@@ -1,4 +1,4 @@
 The XML format isn't valid.
-There hast to be at least one single root element which contains all data. !! This is important for the config parser.
+There has to be at least one single root element which contains all data. !! This is important for the config parser.
 
 Application runs into error when use Exception.
