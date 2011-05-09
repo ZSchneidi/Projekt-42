@@ -153,7 +153,7 @@ toggles the application fullscreen mode*/
 
 
 /** QML layer definition **/
-#define SYSTEM_TITLE													"StuffMates"
+#define SYSTEM_TITLE													"StuffMate"
 #define TITLE_TIME_FORMAT											"hh:mm"
 #define TITLE_DATE_FORMAT											Qt::DefaultLocaleLongDate
 

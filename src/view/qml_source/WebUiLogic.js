@@ -48,9 +48,7 @@ function createButtoncObjects(obj,index)
     object.visible_str = obj.visible;
     object.prepareObject();
     a_buttonc[index] = object;
-
     }
-
 
 function showDefaultScreen()
     {

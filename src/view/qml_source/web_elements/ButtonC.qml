@@ -15,30 +15,29 @@ Item {
     property bool default_screen: false
     property string visible_str: ""
 
-
     Image {
-	id: bgImage
-	anchors.fill: parent
-	source: button_image_up
-	fillMode: Image.PreserveAspectFit
+		id: bgImage
+		anchors.fill: parent
+		source: button_image_up
+		fillMode: Image.PreserveAspectFit
     }
 
     MouseArea{
-	id: button_mouse_area
-	anchors.fill: parent
-	onPressed: {
-	    bgImage.source = button_image_do
-	    console.log("press button "+button_name);
-	}
-	onReleased: {
-	    bgImage.source = button_image_up
-	}
+		id: button_mouse_area
+		anchors.fill: parent
+		onPressed: {
+			bgImage.source = button_image_do
+			console.log("press button "+button_name);
+		}
+		onReleased: {
+			bgImage.source = button_image_up
+		}
     }
 
     function prepareObject()
 	{
-	console.log(visible_str);
-	if(visible_str == "N" || visible_str == "n")
-	    buttonc.opacity = 0;
+		console.log(visible_str);
+		if(visible_str == "N" || visible_str == "n")
+			buttonc.opacity = 0;
 	}
 }

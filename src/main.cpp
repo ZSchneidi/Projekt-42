@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 		QMessageBox::information(0,"Help",getHelpText());
 		return 0;
 		}
+
 	/*initialize InitMode depending on the argument QML_UI is default */
 	CoreEngine::InitMode mode = CoreEngine::QML_UI;
 	if(arguments.contains(ARG_WEB_UI))
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
 		{
 		mode = CoreEngine::QML_UI;
 		}
+
 	/*init LogHandler state*/
 	LogHandler::Log_state log_state = LogHandler::ACTIVE;
 	if(arguments.contains(ARG_LOG_STATE_ACTIVE))
@@ -44,14 +46,15 @@ int main(int argc, char *argv[])
 		{
 		log_state = LogHandler::INACTIVE;
 		}
+
 	/*display size*/
 	Qt::WindowState windows_state;
 	QSize window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
-
 	if(arguments.contains(ARG_FULLSCREEN))
 		{
 		windows_state = Qt::WindowFullScreen;
 		}
+
 	/*getting a size if available*/
 	for (int i = 0; i < arguments.size(); i++)
 		{
@@ -64,7 +67,9 @@ int main(int argc, char *argv[])
 			}
 		}
 
-    qDebug() << window_size;
+	/* ARGUMENTS FINISHED */
+
+	a.setGraphicsSystem("raster");
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 
@@ -76,11 +81,14 @@ int main(int argc, char *argv[])
     w.SystemStartUp(window_size,windows_state);
 
     w.show();
-	a.setGraphicsSystem("raster");
 
     return a.exec();
     }
 
+
+/**
+ *builds the command argument help text.
+ */
 QString getHelpText()
     {
     QString ret_str;
@@ -93,6 +101,8 @@ QString getHelpText()
     ret_str += QString(ARG_LOG_STATE_ACTIVE" - log everything\n");
     ret_str += QString(ARG_LOG_STATE_RESTRICTED" - log only SYSTEM and ERROR messages\n");
     ret_str += QString(ARG_LOG_STATE_INACTIVE" - disable log \n");
+    ret_str += QString("\nDisplay options \n");
+    ret_str += QString(ARG_SCREEN_SIZE"WidthxHeight - used to init the viewport with the defined size \n");
     return ret_str;
     }
 

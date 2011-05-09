@@ -4,6 +4,7 @@ import Product 0.1
 Item {
     id: button_item
     property string button_name: "empty"
+    property string button_image: "../img/Coffee.png"
     property int button_with: 130
     property int button_height: 140
     property int lable_size_percent: 10
@@ -113,7 +114,7 @@ Item {
                     smooth: true
                     fillMode: Image.PreserveAspectFit
                     anchors.fill: parent
-		    source: "../img/Coffee.png"
+		    source: button_image
                 }
 
 
@@ -129,6 +130,7 @@ Item {
 	id:product
 	productName: ""
 	productCode: 0
+
     }
 
     MouseArea{

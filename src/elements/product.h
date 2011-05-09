@@ -6,7 +6,7 @@
 
 /**
   * A Product is a respresentation of the product which
-  * can be selected in die view layer.
+  * can be selected in a view layer.
   * The information of a product are passed to the EventHandler
   * so it knows everything about a selected product.
   */
