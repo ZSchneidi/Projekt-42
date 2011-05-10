@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<object id="107534" parent="0" typ="screen" name="eins" aux=""  timeout="0" bgImg="stat/media/100316.png" Def="Y" />
+<object id="107535" parent="0" typ="screen" name="zwei" aux=""  timeout="0" bgImg="stat/media/100680.png" Def="N" />
+<object id="107536" parent="107534" typ="button_c" name="A" aux=""  xPos="10" yPos="10" upFile="stat/media/101347.jpg" doFile="stat/media/100250.png" actUpFile="" actDoFile="" teaUpFile="" teaDoFile="" visible="Y" urlLink="" />
+<object id="107537" parent="107534" typ="button_c" name="B" aux=""  xPos="10" yPos="100" upFile="stat/media/100454.png" doFile="stat/media/100250.png" actUpFile="" actDoFile="" teaUpFile="" teaDoFile="" visible="Y" urlLink="" />
+<object id="107538" parent="107534" typ="button_c" name="C" aux=""  xPos="100" yPos="10" upFile="stat/media/100242.png" doFile="stat/media/100250.png" actUpFile="" actDoFile="" teaUpFile="" teaDoFile="" visible="N" urlLink="" />
+<object id="107539" parent="107534" typ="button_c" name="D" aux=""  xPos="100" yPos="100" upFile="stat/media/100242.png" doFile="stat/media/100250.png" actUpFile="" actDoFile="" teaUpFile="" teaDoFile="" visible="Y" urlLink="" />
