@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <QDir>
+#include <QDirIterator>
 #include <QUrl>
 #include <QFileInfoList>
 #include <QFile>
@@ -18,12 +19,14 @@
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
+#include "elements/module.h"
 
 class CoreEngine;
 class UIObjectHandler;
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
+class Module;
 
 
 /**
@@ -52,6 +55,9 @@ public:
     bool buildButtonCObject(const QDomNamedNodeMap &map);
     bool buildButtonTObject(const QDomNamedNodeMap &map);
 
+	bool buildModuleConfig(const QString mod_cfgv);
+
+
 signals:
 
 public slots:
@@ -61,12 +67,14 @@ private:
 
     /*config_dir represents the directory with all configuration files*/
     QDir *config_dir;
+    QDir *config_base_dir;
 
     QFileInfoList *file_list;
     QFileInfoList::Iterator file_list_it;
 
     CoreEngine *core;
     MachineConfig *machine_cfg_ref;
+    UIObjectHandler::ModuleList *module_list_ref;
     UIObjectHandler::ScreenList *screen_list_ref;
     UIObjectHandler::ButtonCList *buttonc_list_ref;
     UIObjectHandler::ButtonTList *buttont_list_ref;
@@ -76,6 +84,9 @@ private:
     bool module_cfg_state;
 
     bool validateConfigXMLIntegrity(QString path);
+    int getModIndexByAdr(int adr, QList<Module*> *mod_list);
+    int getModAdrFromTag(QDomNamedNodeMap map);
+
 };
 
 #endif // CONFIGPARSER_H

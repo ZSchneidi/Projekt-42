@@ -53,7 +53,7 @@ public:
 	WEB_UI
 	};
 
-    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE);
+    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE,QString config_path = "");
     ~CoreEngine();
 
     bool SystemStartUp(const QSize size, const Qt::WindowState window_state);
@@ -108,6 +108,7 @@ private:
 
     EventHandler *event_handler;
     InitMode init_mode;
+    QString config_path;
 
 
 };

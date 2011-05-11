@@ -13,10 +13,10 @@ ScreenObject::ScreenObject() :
     this->bgimg = QString("");
     this->type = QString("");
 
-}
+	}
 
 QString ScreenObject::getObjLogEntry()
-{
+	{
     QString temp;
     temp += "Screen definition:\n";
     temp += "\t"+QString(SCREEN_ATTR_ID)+": " + QString::number(this->id)+"\n";
@@ -28,5 +28,5 @@ QString ScreenObject::getObjLogEntry()
     temp += "\t"+QString(SCREEN_ATTR_BGIMG)+": " + this->bgimg+"\n";
     temp += "\t"+QString(SCREEN_ATTR_DEF)+": " + this->def;
     return temp;
-}
+	}
 

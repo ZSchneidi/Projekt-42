@@ -1,12 +1,13 @@
 #include "coreengine.h"
 #include "ui_coreengine.h"
 
-CoreEngine::CoreEngine(QWidget *parent, InitMode mode, LogHandler::Log_state log_state) :
+CoreEngine::CoreEngine(QWidget *parent, InitMode mode, LogHandler::Log_state log_state, QString config_path) :
     QMainWindow(parent),
     ui(new Ui::CoreEngine)
     {
     //ui->setupUi(this);
     this->init_mode = mode;
+    this->config_path = config_path;
 
     /** Object instances **/
     /*the config_parser is used to build dynamic object and module handler*/
@@ -65,7 +66,18 @@ bool CoreEngine::initViewEnvironment()
     switch(this->init_mode)
 	{
 	case CoreEngine::WEB_UI:
-	    this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+
+		/*change the directory of the config_parser to*/
+		if(this->config_path != "")
+			{
+			QString custom_dir = QString(DEFAULT_WEB_CFG_SUBDIR+this->config_path);
+			qDebug() << custom_dir;
+			this->config_parser->initConfigPath(custom_dir);
+			}
+		else
+			{
+			this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+			}
 	    /*parse the config files and build all objects for the UIObjectHandler*/
 	    this->config_parser->buildConfig();
 
@@ -125,6 +137,7 @@ void CoreEngine::registerQmlTypes()
     this->declarative_viewport->getRootContext()->setContextProperty(VIEWPORTINTERFACE, this->declarative_viewport->getViewPortInterface() );
     if(this->getInitMode() == CoreEngine::WEB_UI)
 	this->declarative_viewport->getRootContext()->setContextProperty(ELEMENTINTERFACE,this->declarative_viewport->getWebElementInterface());
+    qmlRegisterType<Module>("Module", 0,1, "Module");
     qmlRegisterType<Product>("Product", 0,1, "Product");
     qmlRegisterType<ScreenObject>("ScreenObject", 0,1, "ScreenObject");
     qmlRegisterType<ButtonCObject>("ButtonC", 0,1, "ButtonC");
@@ -190,12 +203,6 @@ void CoreEngine::updateSystemDateTime()
 
 UIObjectHandler *CoreEngine::getUIObjectHandler()
     {
-    //if(this->ui_object_handler->getState() == false)
-     //   throw eUnsetObject();
-    //else
     return this->ui_object_handler;
     }
-
-
-
 

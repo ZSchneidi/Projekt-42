@@ -14,6 +14,7 @@
 /* VALID STARTUP ARGUMENTS */
 #define ARG_HELP															"--help"
 #define ARG_WEB_UI														"--web"
+#define ARG_WEB_CONFIG												"-C="
 #define ARG_QML_UI														"--qml"
 #define ARG_LOG_STATE_ACTIVE									"--ls_active"
 #define ARG_LOG_STATE_RESTRICTED							"--ls_restrict"
@@ -49,6 +50,8 @@ toggles the application fullscreen mode*/
 #define DEFAULT_WEB_LAYER											"WebSubLayer.qml"
 
 /*define of the relative path to the machine config*/
+#define DEFAULT_WEB_CFG_SUBDIR								"config/"
+#define DEFAULT_CFG_DIR												"cfg"
 #define DEFAULT_WEB_CFG_DIR										"config/am100002/v/cfg/"
 #define DEFAULT_WEB_CONTENT_DIR								"config/am100002/v/"
 
@@ -62,6 +65,7 @@ toggles the application fullscreen mode*/
 #define REQ_ROOT_TAG													"root"
 #define MACHINE_CFG_TAG											"machine"
 #define OBJECT_CFG_TAG												"object"
+#define MODULE_CFG_TAG												"line"
 #define OBJECT_CFG_TYPE_ATTR									"typ"	    //used to get the type of the object
 
 
@@ -75,6 +79,13 @@ toggles the application fullscreen mode*/
 #define MACHINE_ATTR_BGHEIGHT									"bgHeight"
 #define MACHINE_ATTR_MNR											"mnr"
 #define MACHINE_ATTR_MTEL											"mtel"
+
+#define MODULE_ATTR_MOD_ADR									"mod_adr"
+#define MODULE_ATTR_SEQ											"seq"
+#define MODULE_ATTR_SOURCE										"source"
+#define MODULE_ATTR_EVENT_IN									"event_in"
+#define MODULE_ATTR_TARGET										"target"
+#define MODULE_ATTR_EVENT_OUT									"event_out"
 
 //Object types
 /*these defines represents all supported  object types from the OBJ_CFGV*/
@@ -146,8 +157,11 @@ toggles the application fullscreen mode*/
 #define UNEX_CFG_MSG													"Found unexpected config file"
 #define UNHA_ATT_MSG													"Found unhandled attribute \'#_1\' in \'#_2\' tag"
 #define UNHA_OBJ_TYPE_MSG										"Found unhandled object type \'#_1\'"
+
+
 #define MISSING_MACH_TAG											"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
 #define MISSING_OBJ_TAG												"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
+#define MISSING_MOD_TAG											"Missing \"" MODULE_CFG_TAG "\" tag in " MOD_CFGV " file"
 #define ERROR_APP_CLOSE											"Application was closed manually"
 #define RESTORE_LOG_DIR											"Restore missing log directory"
 

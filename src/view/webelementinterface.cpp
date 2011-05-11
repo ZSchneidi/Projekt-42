@@ -13,10 +13,19 @@ WebElementInterface::WebElementInterface(ViewPort *parent) :
     //this->getScreenCount();
     }
 
+int WebElementInterface::getModuleCount()
+	{
+	try {
+        return this->ui_object_handler->getModuleList()->count();
+    } catch (eUnsetObject &e) {
+
+	}
+    return 0;
+	}
+
 int WebElementInterface::getScreenCount()
     {
     try {
-       // qDebug() << this->ui_object_handler->getScreenList()->count();
         return this->ui_object_handler->getScreenList()->count();
     } catch (eUnsetObject &e) {
 
@@ -54,5 +63,13 @@ ButtonTObject * WebElementInterface::getButtontObjectAt(int index)
 	return this->ui_object_handler->getButtonTList()->at(index);
     return NULL;
     }
+
+Module * WebElementInterface::getModuleAt(int index)
+	{
+    if(index >= 0 && index < this->getModuleCount())
+	return this->ui_object_handler->getModuleList()->at(index);
+    return NULL;
+    }
+
 
 

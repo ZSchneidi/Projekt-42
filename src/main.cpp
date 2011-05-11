@@ -23,9 +23,19 @@ int main(int argc, char *argv[])
 
 	/*initialize InitMode depending on the argument QML_UI is default */
 	CoreEngine::InitMode mode = CoreEngine::QML_UI;
+	QString conf_path = "";
 	if(arguments.contains(ARG_WEB_UI))
 		{
 		mode = CoreEngine::WEB_UI;
+		/*search for specific config path*/
+		for (int i = 0; i < arguments.size(); i++)
+			{
+			if(arguments.at(i).contains(ARG_WEB_CONFIG))
+				{
+				conf_path =  arguments.at(i);
+				conf_path =  conf_path.remove(ARG_WEB_CONFIG);
+				}
+			}
 		}
 	else 	if(arguments.contains(ARG_QML_UI))
 		{
@@ -73,7 +83,7 @@ int main(int argc, char *argv[])
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 
-    CoreEngine w(0,mode,log_state);
+    CoreEngine w(0,mode,log_state,conf_path);
 
     w.getLogHandler()->setLoggerState(log_state);
     w.getLogHandler()->setLoggerWriteMode(open_mode);
@@ -96,6 +106,7 @@ QString getHelpText()
     ret_str += QString(ARG_HELP" - shows this message\n");
     ret_str += QString("\nUI mode \n");
     ret_str += QString(ARG_WEB_UI" - application will start with Web style interface \n");
+    ret_str += QString(ARG_WEB_CONFIG"source - you can use this argument to specify the content directory you wanna use \n");
     ret_str += QString(ARG_QML_UI" - application will start with QML interface \n");
     ret_str += QString("\nLogger state \n");
     ret_str += QString(ARG_LOG_STATE_ACTIVE" - log everything\n");

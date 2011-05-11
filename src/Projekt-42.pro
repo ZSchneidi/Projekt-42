@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     elements/product.cpp \
     core/exception.cpp \
     view/webelementinterface.cpp \
-    elements/buttontobject.cpp
+    elements/buttontobject.cpp \
+    elements/module.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -42,7 +43,8 @@ HEADERS  += core/coreengine.h \
     elements/product.h \
     core/exception.h \
     view/webelementinterface.h \
-    elements/buttontobject.h
+    elements/buttontobject.h \
+    elements/module.h
 
 FORMS    += coreengine.ui
 

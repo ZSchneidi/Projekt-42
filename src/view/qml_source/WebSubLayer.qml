@@ -24,9 +24,10 @@ Item {
 		interval: 300;
 		onTriggered: {
 			console.log('switch screen');
-			//WebUiLogic.showScreenByID('205594');
+			WebUiLogic.showScreenByID('107535');
 		}
     }
+
     MouseArea {
 		id: sw_screen_mouse_area
 		opacity: 1
@@ -64,6 +65,10 @@ Item {
 	    {
 			WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i);
 	    }
+	    for (var i = 0; i < elementinterface.module_count; i++)
+		{
+			WebUiLogic.createEventhandling(elementinterface.getModuleAt(i),i);
+		}
 	}
 
 }

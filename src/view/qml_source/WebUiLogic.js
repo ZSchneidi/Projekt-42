@@ -50,6 +50,8 @@ function createButtoncObjects(obj,index)
     a_buttonc[index] = object;
     }
 
+
+
 function showDefaultScreen()
     {
     for(var i = 0; i < a_screen.length; i++)
@@ -80,6 +82,10 @@ function getParentScreenByID(id)
     return false;
     }
 
+function createEventhandling(obj,index)
+	{
+	console.log(obj.mod_adr);
+	}
 
 
 
