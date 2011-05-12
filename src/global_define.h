@@ -152,6 +152,7 @@ toggles the application fullscreen mode*/
 
 /*LOG messages*/
 #define SYSTEM_INIT_MSG												"Initialize system startup"
+#define SYSTEM_ARG_MSG												"Initialize with arguments : "
 #define WEB_UI_INIT_MSG												"Initialize WEB_UI"
 #define QML_UI_INIT_MSG												"Initialize QML_UI"
 #define UNEX_CFG_MSG													"Found unexpected config file"

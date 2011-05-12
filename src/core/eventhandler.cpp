@@ -4,6 +4,8 @@ EventHandler::EventHandler(CoreEngine *parent):
         QObject()
 {
     this->core = parent;
+    this->mapper = new EventMapper(this);
+
 }
 
 void EventHandler::keyPressEvent(QKeyEvent *event)
@@ -78,3 +80,55 @@ void EventHandler::showWarning(QString msg = "")
     {
     QMessageBox::warning(0,QString(WARNING_TITLE),QString(msg));
     }
+
+bool EventHandler::processUiObjectEvent(Event *event)
+	{
+	//qDebug() << "source" << event->getSourceID();
+	//qDebug() << "in event" <<this->getEventMapper()->getEventDefintion()->getEventStr(event->getEventType());
+
+
+	QList<int> module_adr_list = this->getEventMapper()->getModuleAdrBySource(event->getSourceID());
+	//qDebug() << "match mod" << module_adr_list;
+	/*interate through all matching modules*/
+	for(int i = 0; i < module_adr_list.count() ; i++)
+		{
+
+		Module *temp_module = this->getEventMapper()->getModuleByAdr(module_adr_list.at(i));
+
+		QList<QString> event_in_list = temp_module->getModEventInList();
+
+		//qDebug() << event_in_list;
+		QString in_event = this->getEventMapper()->getEventDefintion()->getEventStr(event->getEventType());
+
+		/*if the module has an event_in directive matching the incomming event*/
+		if(event_in_list.contains(in_event))
+			{
+			for(int j = 0; j < temp_module->getModSeqList().count(); j++)
+				{
+				if(temp_module->getModEventIn(j) == in_event)
+					{
+					//qDebug() << "target" << temp_module->getModTarget(j);
+					//qDebug() << "out event" << this->getEventMapper()->getEventDefintion()->getEventTypeByStr(temp_module->getModEventOut(j));
+					Event *out_event = new Event(this);
+
+					out_event->setTargetID(temp_module->getModTarget(j));
+					out_event->setEventType(this->getEventMapper()->getEventDefintion()->getEventTypeByStr(temp_module->getModEventOut(j)));
+
+					this->getCore()->getCore()->getViewPort()->getViewPortInterface()->emitOutEventOnTarget(out_event);
+
+					}
+				}
+			}
+		}
+	return true;
+	}
+
+
+
+
+
+
+
+
+
+

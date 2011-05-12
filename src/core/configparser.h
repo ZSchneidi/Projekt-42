@@ -16,6 +16,7 @@
 #include "global_define.h"
 #include "core/coreengine.h"
 #include "core/uiobjecthandler.h"
+#include "core/eventmapper.h"
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
@@ -23,6 +24,7 @@
 
 class CoreEngine;
 class UIObjectHandler;
+class EventMapper;
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
@@ -74,7 +76,7 @@ private:
 
     CoreEngine *core;
     MachineConfig *machine_cfg_ref;
-    UIObjectHandler::ModuleList *module_list_ref;
+    EventMapper::ModuleList *module_list_ref;
     UIObjectHandler::ScreenList *screen_list_ref;
     UIObjectHandler::ButtonCList *buttonc_list_ref;
     UIObjectHandler::ButtonTList *buttont_list_ref;

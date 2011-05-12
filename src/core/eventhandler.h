@@ -9,10 +9,14 @@
 
 #include "core/coreengine.h"
 #include "core/exception.h"
+#include "core/eventmapper.h"
 #include "elements/product.h"
+#include "elements/event.h"
+
 
 
 class CoreEngine;
+
 
 /**
   * The EventHandler is the main contact point for alle kinds of events.
@@ -29,17 +33,23 @@ class EventHandler : public QObject
     Q_OBJECT
 
     CoreEngine *core;
+    EventMapper *mapper;
 
 public:
     explicit EventHandler(CoreEngine *parent = 0);
 
     bool processProductAction(Product *product);
+    bool processUiObjectEvent(Event *event);
+
     void showWarning(QString msg);
 
     //Getter
     inline CoreEngine *getCore() { return this->core; }
+    inline EventMapper *getEventMapper() { return this->mapper; }
 
 signals:
+
+
 
 public slots:
 

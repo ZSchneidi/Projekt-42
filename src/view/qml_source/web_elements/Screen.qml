@@ -1,4 +1,6 @@
 import QtQuick 1.0
+import EventDefinition 0.1
+import "generic_func.js" as Generic_func
 
 /**
   *Representation of a screen object.
@@ -6,12 +8,13 @@ import QtQuick 1.0
 Item {
     id: screen
     anchors.fill: parent
-    z:0
+    opacity: 0
 
     property string background_image: ""
     property string identifier: ""
     property string screen_name: ""
     property bool default_screen: false
+    property string objectType: "Screen"
 
     Rectangle{
 	id:bgColor
@@ -39,5 +42,15 @@ Item {
     function hideScreen()
 	{
 	screen.z = 1;
+	}
+
+
+	Connections{
+		target: viewportinterface
+		onOutEventOnTarget: {
+
+			Generic_func.performActions(event);
+
+		}
 	}
 }

@@ -26,7 +26,10 @@ SOURCES += main.cpp\
     core/exception.cpp \
     view/webelementinterface.cpp \
     elements/buttontobject.cpp \
-    elements/module.cpp
+    elements/module.cpp \
+    core/eventmapper.cpp \
+    elements/event.cpp \
+    core/ext/eventdefinition.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -44,7 +47,10 @@ HEADERS  += core/coreengine.h \
     core/exception.h \
     view/webelementinterface.h \
     elements/buttontobject.h \
-    elements/module.h
+    elements/module.h \
+    core/eventmapper.h \
+    elements/event.h \
+    core/ext/eventdefinition.h
 
 FORMS    += coreengine.ui
 
@@ -64,7 +70,8 @@ OTHER_FILES += \
     view/qml_source/pos_layout/MenuButton.qml \
     view/qml_source/web_elements/Screen.qml \
     view/qml_source/WebUiLogic.js \
-    view/qml_source/web_elements/ButtonC.qml
+    view/qml_source/web_elements/ButtonC.qml \
+    view/qml_source/web_elements/generic_func.js
 
 RESOURCES += \
     main_ressource.qrc

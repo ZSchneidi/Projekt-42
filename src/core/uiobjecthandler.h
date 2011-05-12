@@ -10,14 +10,12 @@
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
 #include "elements/buttontobject.h"
-#include"elements/module.h"
 #include "global_define.h"
 
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
 class ButtonTObject;
-class Module;
 
 /**
   * The UIObjectHandler is designed to store and provide a complete range
@@ -39,8 +37,6 @@ public:
     explicit UIObjectHandler(QObject *parent = 0);
 
     bool initUIObjectHandler();
-
-	typedef QList<Module*> ModuleList;
     typedef QList<ScreenObject*> ScreenList;
     typedef QList<ButtonCObject*> ButtonCList;
     typedef QList<ButtonTObject*> ButtonTList;
@@ -50,7 +46,6 @@ public:
 
     //GETTER
     MachineConfig *getMachineConfig();
-    ModuleList *getModuleList();
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
     ButtonTList *getButtonTList();
@@ -65,7 +60,6 @@ private:
     bool object_handler_state;
 
     MachineConfig *machine_cfg;
-    ModuleList mod_list;
     ScreenList screen_list;
     ButtonCList buttonc_list;
     ButtonTList buttont_list;

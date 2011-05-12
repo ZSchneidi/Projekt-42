@@ -6,6 +6,7 @@ WebElementInterface::WebElementInterface(ViewPort *parent) :
     this->parent = parent;
     try {
         this->ui_object_handler = this->parent->getCore()->getUIObjectHandler();
+        this->event_handler = this->parent->getCore()->getEventHandler();
     } catch (...) {
 
     }
@@ -16,7 +17,7 @@ WebElementInterface::WebElementInterface(ViewPort *parent) :
 int WebElementInterface::getModuleCount()
 	{
 	try {
-        return this->ui_object_handler->getModuleList()->count();
+        return this->event_handler->getEventMapper()->getModuleList()->count();
     } catch (eUnsetObject &e) {
 
 	}
@@ -67,7 +68,7 @@ ButtonTObject * WebElementInterface::getButtontObjectAt(int index)
 Module * WebElementInterface::getModuleAt(int index)
 	{
     if(index >= 0 && index < this->getModuleCount())
-	return this->ui_object_handler->getModuleList()->at(index);
+		return this->event_handler->getEventMapper()->getModuleList()->at(index);
     return NULL;
     }
 

@@ -6,6 +6,7 @@
 #include "core/uiobjecthandler.h"
 #include "core/exception.h"
 #include "elements/product.h"
+#include "elements/event.h"
 
 class ViewPort;
 
@@ -19,10 +20,10 @@ class ViewPortInterface : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QUrl sublayer READ getSubLayer() CONSTANT);
-    Q_PROPERTY(QString system_time READ getSystemTime() CONSTANT);
-    Q_PROPERTY(QString system_date READ getSystemDate() CONSTANT);
-    Q_PROPERTY(QString system_title READ getSystemTitle() CONSTANT);
+    Q_PROPERTY(QUrl sublayer READ getSubLayer() CONSTANT)
+    Q_PROPERTY(QString system_time READ getSystemTime() CONSTANT)
+    Q_PROPERTY(QString system_date READ getSystemDate() CONSTANT)
+    Q_PROPERTY(QString system_title READ getSystemTitle() CONSTANT)
 
 
 public:
@@ -39,17 +40,21 @@ public:
     void setSystemTime(QString time);
     void setSystemDate(QString date);
 
+	//Signal caller
+	void emitOutEventOnTarget(Event *event);
 
 signals:
 
     void systemTimeChanged(QString new_time);
     void systemDateChanged(QString new_date);
+    void outEventOnTarget(Event *event);
 
 public slots:
 
     /*connection from qml to c++ logic*/
     void sendCoreAction( int action);
     void sendProductAction(Product *product);
+    void sendUiObjectEvent(Event *event);
 
 private:
 

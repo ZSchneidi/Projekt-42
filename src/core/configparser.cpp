@@ -64,7 +64,7 @@ bool ConfigParser::buildConfig()
 				}
 			else if((*this->file_list_it).fileName() == MOD_CFGV)
 				{
-				this->module_list_ref = this->core->getUIObjectHandler()->getModuleList();
+				this->module_list_ref = this->core->getEventHandler()->getEventMapper()->getModuleList();
 				qDebug() << this->module_list_ref->count();
 				//qDebug() << "found module config";
 				if(this->buildModuleConfig((*this->file_list_it).absoluteFilePath()))

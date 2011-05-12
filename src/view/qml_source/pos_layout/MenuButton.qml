@@ -59,37 +59,37 @@ Item {
 
     }
     MouseArea{
-	id:button_mouse_area
-	hoverEnabled: true
-	anchors.fill: parent
-	onEntered: {
-	    console.log('hover button')
-	    highlight.opacity = 0.3
-	}
-	onExited: {
-	     highlight.opacity = 0.0
-	}
-	onPressed: {
-	    pressed.opacity = 0.5
-	}
-	onReleased: {
-	    pressed.opacity = 0.0
-	}
+		id:button_mouse_area
+		hoverEnabled: true
+		anchors.fill: parent
+		onEntered: {
+			console.log('hover button')
+			highlight.opacity = 0.3
+		}
+		onExited: {
+			highlight.opacity = 0.0
+		}
+		onPressed: {
+			pressed.opacity = 0.5
+		}
+		onReleased: {
+			pressed.opacity = 0.0
+		}
     }
     Rectangle {
-	id: highlight
-	color: "#e5f4fb"
-	radius: 20
-	opacity: 0
-	anchors.fill: parent
-	z: 1
+		id: highlight
+		color: "#e5f4fb"
+		radius: 20
+		opacity: 0
+		anchors.fill: parent
+		z: 1
     }
     Rectangle {
-	id: pressed
-	color: "#1f1f20"
-	radius: 20
-	opacity: 0
-	anchors.fill: parent
-	z: 1
+		id: pressed
+		color: "#1f1f20"
+		radius: 20
+		opacity: 0
+		anchors.fill: parent
+		z: 1
     }
 }

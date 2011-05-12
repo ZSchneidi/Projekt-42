@@ -65,6 +65,7 @@ Item {
 	    {
 			WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i);
 	    }
+	    /* for each module create the eventHandling */
 	    for (var i = 0; i < elementinterface.module_count; i++)
 		{
 			WebUiLogic.createEventhandling(elementinterface.getModuleAt(i),i);

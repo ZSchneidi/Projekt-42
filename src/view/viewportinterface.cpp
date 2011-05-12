@@ -17,8 +17,10 @@ void ViewPortInterface::sendCoreAction(int action)
     /*for definition of coreAction take a look at the enum definition in the qmlinterface header*/
     qDebug() << action;
     if(action == 0)
-	this->parent->getCore()->close();
+		this->parent->getCore()->close();
     }
+
+
 
 QUrl ViewPortInterface::getSubLayer()
     {
@@ -41,3 +43,16 @@ void ViewPortInterface::sendProductAction(Product *product)
     {
     this->parent->getCore()->getEventHandler()->processProductAction(product);
     }
+
+void ViewPortInterface::sendUiObjectEvent(Event *event)
+	{
+	this->parent->getCore()->getEventHandler()->processUiObjectEvent(event);
+	}
+
+void ViewPortInterface::emitOutEventOnTarget(Event *event)
+	{
+	qDebug() << "emit out event" << event->getEventType();
+	emit this->outEventOnTarget(event);
+	}
+
+

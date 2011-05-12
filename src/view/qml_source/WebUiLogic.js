@@ -1,3 +1,4 @@
+
 /**
   *This file provides all javascript logic necessary for the creation of the WebUI interface.
   */
@@ -8,8 +9,9 @@ var a_screen = new Array();
 /*contains all ButtonC objects provided by the elementinterface*/
 var a_buttonc = new Array();
 
-/*creates a screen object and store it in the a_screen array
- *these objects are created in the context of the web_ui_layer
+/*
+ * creates a screen object and store it in the a_screen array
+ * these objects are created in the context of the web_ui_layer
  */
 function createScreenObjects(obj,index)
     {
@@ -26,8 +28,9 @@ function createScreenObjects(obj,index)
     a_screen[index] = object;
     }
 
-/*creates all ButtonC object provided by the elementinterface
- *all ButtonC object will be stored in the a_buttonc array
+/*
+ * creates all ButtonC object provided by the elementinterface
+ * all ButtonC object will be stored in the a_buttonc array
  */
 function createButtoncObjects(obj,index)
     {
@@ -50,14 +53,13 @@ function createButtoncObjects(obj,index)
     a_buttonc[index] = object;
     }
 
-
-
 function showDefaultScreen()
     {
     for(var i = 0; i < a_screen.length; i++)
 	{
 	if(a_screen[i].default_screen == true)
-	    a_screen[i].showScreen();
+	    //a_screen[i].showScreen();
+	    a_screen[i].opacity = 1;
 	}
     }
 
@@ -82,9 +84,10 @@ function getParentScreenByID(id)
     return false;
     }
 
+
 function createEventhandling(obj,index)
 	{
-	console.log(obj.mod_adr);
+	//console.log(obj.mod_adr);
 	}
 
 

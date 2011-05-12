@@ -4,9 +4,12 @@
 #include <QObject>
 #include "view/viewport.h"
 #include "core/uiobjecthandler.h"
+#include "core/eventhandler.h"
+#include "core/eventmapper.h"
 #include "core/exception.h"
 
 class ViewPort;
+class EventHandler;
 
 /**
   * The WebElementInterface is a class which is designed as an interface for communication
@@ -47,6 +50,7 @@ public slots:
 private:
     ViewPort *parent;
     UIObjectHandler *ui_object_handler;
+    EventHandler *event_handler;
 
 
 };

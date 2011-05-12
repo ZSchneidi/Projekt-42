@@ -13,6 +13,7 @@
 #include "core/exception.h"
 #include "view/viewport.h"
 #include "elements/product.h"
+#include "elements/event.h"
 
 class ViewPort;
 class EventHandler;
@@ -70,6 +71,7 @@ public:
 
     //GETTER
     inline CoreEngine *getCore() {return this;}
+    inline ViewPort *getViewPort() {return this->declarative_viewport;}
     inline LogHandler *getLogHandler() {return this->log_handler;}
     UIObjectHandler *getUIObjectHandler();
     inline EventHandler* getEventHandler() { return this->event_handler; }
