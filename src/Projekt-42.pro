@@ -69,9 +69,10 @@ OTHER_FILES += \
     view/qml_source/pos_layout/MenuBar.qml \
     view/qml_source/pos_layout/MenuButton.qml \
     view/qml_source/web_elements/Screen.qml \
-    view/qml_source/WebUiLogic.js \
+    view/js_source/WebUiLogic.js \
     view/qml_source/web_elements/ButtonC.qml \
-    view/qml_source/web_elements/generic_func.js
+    view/js_source/generic_func.js \
+    view/js_source/GlobalVar.js
 
 RESOURCES += \
     main_ressource.qrc

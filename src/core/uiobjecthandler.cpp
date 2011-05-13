@@ -6,7 +6,7 @@ UIObjectHandler::UIObjectHandler(QObject *parent) :
     this->object_handler_state = false;
     this->screen_list.clear();
     this->buttonc_list.clear();
-    this->buttont_list.clear();
+    //this->buttont_list.clear();
     }
 
 bool UIObjectHandler::initUIObjectHandler()
@@ -38,7 +38,9 @@ UIObjectHandler::ButtonCList *UIObjectHandler::getButtonCList()
     return &this->buttonc_list;
     }
 
+/*
 UIObjectHandler::ButtonTList * UIObjectHandler::getButtonTList()
     {
     return &this->buttont_list;
     }
+*/

@@ -17,16 +17,18 @@
       <data key="d2"><![CDATA[UMLClass]]></data>
       <data key="d3">
         <y:UMLClassNode>
-          <y:Geometry height="311.88808139534893" width="390.0" x="-95.18778550664462" y="-291.2065554055923"/>
+          <y:Geometry height="369.5483166894666" width="390.0" x="-95.18778550664462" y="-291.2065554055923"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="90.6962890625" x="149.65185546875" y="3.0">ConfigParser</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QDir *config_dir
+- QDir *config_base_dir
 - QFileInfoList *file_list
 - QFileInfoList::Iterator file_list_it
 - CoreEngine *core
 - MachineConfig *machine_cfg_ref
+- EventMapper::ModuleList *module_list_ref
 - UIObjectHandler::ScreenList *screen_list_ref
 - UIObjectHandler::ButtonCList *buttonc_list_ref
 - bool machine_cfg_state
@@ -39,7 +41,10 @@
 + bool buildObjects(const QString object_cfgv)
 + bool buildScreenObject(const QDomNamedNodeMap &amp;map)
 + bool buildButtonCObject(const QDomNamedNodeMap &amp;map)
-- bool validateConfigXMLIntegrity(QString path)</y:MethodLabel>
++ bool buildModuleConfig(const QString mod_cfgv)
+- bool validateConfigXMLIntegrity(QString path)
+- int getModIndexByAdr(int adr, QList&lt;Module*&gt; *mod_list)
+- int getModAdrFromTag(QDomNamedNodeMap map)</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -49,15 +54,19 @@
       <data key="d2"><![CDATA[UMLClass]]></data>
       <data key="d3">
         <y:UMLClassNode>
-          <y:Geometry height="159.25" width="302.5" x="407.05159883720927" y="-290.9294712070876"/>
+          <y:Geometry height="190.73431895424835" width="302.5" x="407.0515988372092" y="-278.1160855861726"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="93.63525390625" x="104.432373046875" y="3.0">EventHandler</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>- CoreEngine *core;</y:AttributeLabel>
+            <y:AttributeLabel>- CoreEngine *core
+- EventMapper *mapper</y:AttributeLabel>
             <y:MethodLabel>+ EventHandler(CoreEngine *parent = 0)
 + bool processProductAction(Product *product)
++ bool processUiObjectEvent(Event *event)
 + void showWarning(QString msg)
++ CoreEngine *getCore()
++ EventMapper *getEventMapper() 
 # void keyPressEvent(QKeyEvent *event)
 # bool eventFilter(QObject *, QEvent *)</y:MethodLabel>
           </y:UML>
@@ -69,10 +78,10 @@
       <data key="d2"><![CDATA[UMLClass]]></data>
       <data key="d3">
         <y:UMLClassNode>
-          <y:Geometry height="275.0833333333333" width="515.0" x="745.4397840531562" y="-290.81412652270205"/>
+          <y:Geometry height="275.0833333333333" width="496.6951633986928" x="770.4659278440059" y="-573.252035019434"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="81.13037109375" x="216.934814453125" y="3.0">LogHandler</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="81.13037109375" x="207.7823961524714" y="3.0">LogHandler</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QIODevice::OpenModeFlag system_log_write_mode
 - QIODevice::OpenModeFlag config_log_write_mode
@@ -88,6 +97,7 @@
 + void setLoggerWriteMode(QIODevice::OpenModeFlag)
 + bool logDirExists()
 + bool restoreLogDir()
++ bool isRestricted()
 - QString getSystemTimeStr()</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
@@ -500,10 +510,10 @@ public slots
       <data key="d2"><![CDATA[UMLClass]]></data>
       <data key="d3">
         <y:UMLClassNode>
-          <y:Geometry height="515.9166666666666" width="370.75" x="-566.9392779277408" y="-502.5365967607974"/>
+          <y:Geometry height="515.9166666666666" width="461.6640217864922" x="-599.8879838100935" y="-502.5365967607974"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="80.39404296875" x="145.177978515625" y="3.0">CoreEngine</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="80.39404296875" x="190.6349894088711" y="3.0">CoreEngine</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>+ QTime *system_time
 + QTimer *system_timer
@@ -514,9 +524,10 @@ public slots
 - UIObjectHandler *ui_object_handler
 - Ui::CoreEngine *ui
 - EventHandler *event_handler
-- InitMode init_mode</y:AttributeLabel>
-            <y:MethodLabel>+ CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI)
-+ bool SystemStartUp()
+- InitMode init_mode
+- QString config_path</y:AttributeLabel>
+            <y:MethodLabel>+ CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE,QString config_path = "")
++ bool SystemStartUp(const QSize size, const Qt::WindowState window_state)
 + bool logSystemMsg(const QString message)
 + bool logWarning(const QString message)
 + bool logError(const QString message)
@@ -526,13 +537,14 @@ public slots
 + bool configLogError(const QString message)
 + void startSystemTimer()
 + CoreEngine *getCore() 
++ ViewPort *getViewPort()
 + LogHandler *getLogHandler()
 + UIObjectHandler *getUIObjectHandler()
 + EventHandler* getEventHandler() 
 + InitMode getInitMode()
 # void closeEvent(QCloseEvent *)
 - void updateSystemDateTime()
-- bool setUpViewport()
+- bool setUpViewport(const QSize size, const Qt::WindowState window_state)
 - bool initViewEnvironment()
 - void initSystemConnections()
 - void registerQmlTypes()</y:MethodLabel>
@@ -760,13 +772,35 @@ public slots
         </y:ShapeNode>
       </data>
     </node>
+    <node id="n39">
+      <data key="d1"/>
+      <data key="d2"><![CDATA[UMLClass]]></data>
+      <data key="d3">
+        <y:UMLClassNode>
+          <y:Geometry height="166.02278954248368" width="302.5" x="768.0398512691896" y="-279.11564829652815"/>
+          <y:Fill color="#E5E8F4" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.12646484375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="91.140625" x="105.6796875" y="3.0">EventMapper</y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>- ModuleList mod_list
+- EventDefinition *event_def</y:AttributeLabel>
+            <y:MethodLabel>+ EventMapper(CoreEngine *parent = 0)
++ ModuleList *getModuleList()
++ Module *getModuleByAdr(int adr)
++ int getModuleCountBySource(int source)
++ QList&lt;int&gt; getModuleAdrBySource(int source)
++ EventDefinition *getEventDefintion()</y:MethodLabel>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
     <edge id="e0" source="n18" target="n17">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="-11.72445949594362" sy="-227.72065421959485" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="2.1080029041434614" y="-50.96486118861617"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.99999361259961" y="-50.975450788225544"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -779,7 +813,7 @@ public slots
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="126.98976241710562" y="-123.61796524199929"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="127.02060042980094" y="-123.59904434356179"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -787,10 +821,10 @@ public slots
     <edge id="e2" source="n1" target="n15">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-8.868822674418823" sy="-6.150224079457189" tx="70.37219684385366" ty="2.2747223836515897"/>
+          <y:Path sx="-8.868822674418823" sy="-7.366146318438217" tx="70.37219684385366" ty="2.2747223836515897"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999758698216965" y="-56.61554678307556"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="1.9999758698215828" y="-62.974906218711794"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -798,12 +832,10 @@ public slots
     <edge id="e3" source="n2" target="n15">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="93.06051918884816" ty="4.1252922549833215">
-            <y:Point x="1002.6823177948504" y="-417.05691289451835"/>
-          </y:Path>
+          <y:Path sx="-215.16693882171134" sy="6.257981689598864" tx="112.21581636271844" ty="-8.270181513666785"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-203.25967483064278" y="-124.2571692421746"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-91.61451287247132" y="2.000005914956546"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -914,12 +946,12 @@ public slots
     <edge id="e11" source="n18" target="n0">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-2.1933791928503297" sy="-162.09174332087423" tx="-102.70665317540823" ty="-124.19774536267991">
+          <y:Path sx="-2.731231987792565" sy="-162.09174332087423" tx="-102.70665317540823" ty="-147.1587741668984">
             <y:Point x="-2.8944386820528507" y="-406.42703747923565"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="99.18270529373598" y="2.0658169052777"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="70.21545785029792" y="2.0488921557400204"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -927,12 +959,12 @@ public slots
     <edge id="e12" source="n18" target="n12">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-168.41532302590736" sy="-181.0551984703759" tx="-109.22546575327544" ty="-128.06443463628113">
+          <y:Path sx="-209.71354108863576" sy="-181.0551984703759" tx="-109.22546575327544" ty="-128.06443463628113">
             <y:Point x="-822.287557452817" y="-425.63346189784"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-253.3219202457858" y="322.3564751238819"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-220.38265022625455" y="322.3564751238819"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -940,14 +972,10 @@ public slots
     <edge id="e13" source="n18" target="n2">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="-7.260177365608115" sy="-152.89150453349885" tx="-65.9224204096281" ty="-110.8012532876518">
-            <y:Point x="-157.82586725348165" y="-397.46976796096294"/>
-            <y:Point x="-157.82586725348165" y="-480.6719274294014"/>
-            <y:Point x="937.0173636435281" y="-480.3756234426905"/>
-          </y:Path>
+          <y:Path sx="209.72361082589782" sy="-236.09366400193733" tx="-87.71594554647139" ty="-44.665255089923164"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="583.7991936295936" y="-81.05347708397863"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="452.3222768555148" y="2.1240103390447302"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -955,13 +983,12 @@ public slots
     <edge id="e14" source="n18" target="n7">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="10.959851081235115" sy="-113.52737174695358" tx="-16.40296968288453" ty="-11.111415213177338">
-            <y:Point x="-159.4653172119542" y="-358.10563517441767"/>
-            <y:Point x="-159.38946339135617" y="35.101607350499194"/>
+          <y:Path sx="207.95816174286256" sy="-113.52737174695358" tx="-150.0958179207734" ty="75.0">
+            <y:Point x="-159.38946339135617" y="122.96482303677368"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="311.90076323049567" y="395.2072286883898"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="275.48645658987067" y="110.75360049871996"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -969,14 +996,14 @@ public slots
     <edge id="e15" source="n18" target="n1">
       <data key="d7">
         <y:PolyLineEdge>
-          <y:Path sx="167.24538887193293" sy="-93.81723055094045" tx="103.19483602724858" ty="-64.27457758859265">
+          <y:Path sx="208.25671976227238" sy="-93.81723055094045" tx="103.19483602724858" ty="-76.98190130255705">
             <y:Point x="-107.7087146372034" y="-338.39549397840455"/>
             <y:Point x="-107.7087146372034" y="-471.1396800249162"/>
             <y:Point x="661.4964348644578" y="-469.65816009136125"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="471.0713198304241" y="-129.99956016551545"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="413.1140749573772" y="-129.99956016551545"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -1047,6 +1074,20 @@ public slots
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="diamond"/>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="237.4136246163912" y="55.50832632541656"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="n39" target="n15">
+      <data key="d7">
+        <y:PolyLineEdge>
+          <y:Path sx="-133.86935453716342" sy="-31.102554971445784" tx="91.2780873477301" ty="8.638926064534303">
+            <y:Point x="737.3703006535949" y="-227.2068084967321"/>
+            <y:Point x="737.3703006535949" y="-412.54327908496737"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="4.0" modelName="six_pos" modelPosition="tail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-28.64135706124887" y="-94.6682414226857"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

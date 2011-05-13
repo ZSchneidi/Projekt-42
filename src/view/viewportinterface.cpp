@@ -51,7 +51,7 @@ void ViewPortInterface::sendUiObjectEvent(Event *event)
 
 void ViewPortInterface::emitOutEventOnTarget(Event *event)
 	{
-	qDebug() << "emit out event" << event->getEventType();
+	//qDebug() << "emit out event" << event->getEventType();
 	emit this->outEventOnTarget(event);
 	}
 

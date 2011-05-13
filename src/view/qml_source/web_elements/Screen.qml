@@ -1,6 +1,6 @@
 import QtQuick 1.0
 import EventDefinition 0.1
-import "generic_func.js" as Generic_func
+import "../../js_source/generic_func.js" as Generic_func
 
 /**
   *Representation of a screen object.
@@ -49,7 +49,8 @@ Item {
 		target: viewportinterface
 		onOutEventOnTarget: {
 
-			Generic_func.performActions(event);
+			Generic_func.performActions(event,screen,EventDefinition);
+			//console.log();
 
 		}
 	}

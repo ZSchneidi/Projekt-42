@@ -53,6 +53,7 @@ ButtonCObject * WebElementInterface::getButtoncObjectAt(int index)
     return NULL;
     }
 
+/*
 int WebElementInterface::getButtontCount()
     {
     return this->ui_object_handler->getButtonTList()->count();
@@ -64,13 +65,14 @@ ButtonTObject * WebElementInterface::getButtontObjectAt(int index)
 	return this->ui_object_handler->getButtonTList()->at(index);
     return NULL;
     }
-
+*/
 Module * WebElementInterface::getModuleAt(int index)
 	{
     if(index >= 0 && index < this->getModuleCount())
 		return this->event_handler->getEventMapper()->getModuleList()->at(index);
     return NULL;
     }
+
 
 
 

@@ -1,7 +1,7 @@
 import QtQuick 1.0
 import Event 0.1
 import EventDefinition 0.1
-import "generic_func.js" as Generic_func
+import "../../js_source/generic_func.js" as Generic_func
 
 /**
   *Representation of a ButtonC object.
@@ -34,6 +34,7 @@ Item {
 			console.log(EventDefinition.ButtonDown);
 			event.setEventType(EventDefinition.ButtonDown)
 			viewportinterface.sendUiObjectEvent(event)
+			Generic_func.clicked();
 		}
 		onReleased: {
 			bgImage.source = button_image_up
@@ -53,7 +54,7 @@ Item {
 		target: viewportinterface
 		onOutEventOnTarget: {
 
-			Generic_func.performActions(event);
+			Generic_func.performActions(event,buttonc,EventDefinition);
 
 		}
 	}
@@ -62,6 +63,7 @@ Item {
 	{
 		if(visible_str == "N" || visible_str == "n")
 			opacity = 0;
+			//console.log(parent.parent.WebUiLogic.test());
 	}
 
 }

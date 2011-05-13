@@ -15,7 +15,7 @@
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
-class ButtonTObject;
+//class ButtonTObject;
 
 /**
   * The UIObjectHandler is designed to store and provide a complete range
@@ -39,7 +39,7 @@ public:
     bool initUIObjectHandler();
     typedef QList<ScreenObject*> ScreenList;
     typedef QList<ButtonCObject*> ButtonCList;
-    typedef QList<ButtonTObject*> ButtonTList;
+   // typedef QList<ButtonTObject*> ButtonTList;
 
 
 public:
@@ -48,12 +48,12 @@ public:
     MachineConfig *getMachineConfig();
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
-    ButtonTList *getButtonTList();
-    inline bool getState() { return this->state; }
+   // ButtonTList *getButtonTList();
+   // inline bool getState() { return this->state; }
 
     //SETTER
 
-    inline void setState(bool state) { this->state = state;}
+    //inline void setState(bool state) { this->state = state;}
 
 private:
 
@@ -62,9 +62,9 @@ private:
     MachineConfig *machine_cfg;
     ScreenList screen_list;
     ButtonCList buttonc_list;
-    ButtonTList buttont_list;
+   // ButtonTList buttont_list;
 
-    bool state;
+    //bool state;
 };
 
 

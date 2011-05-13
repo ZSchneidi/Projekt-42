@@ -76,12 +76,12 @@ bool ConfigParser::buildConfig()
 				try {
 				this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
 				this->buttonc_list_ref = this->core->getUIObjectHandler()->getButtonCList();
-				this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
+				//this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
 				} catch (eUnsetPointer &e) {
 					this->core->getUIObjectHandler()->initUIObjectHandler();
 					this->screen_list_ref = this->core->getUIObjectHandler()->getScreenList();
 					this->buttonc_list_ref = this->core->getUIObjectHandler()->getButtonCList();
-					this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
+					//this->buttont_list_ref = this->core->getUIObjectHandler()->getButtonTList();
 					}
 				if(this->buildObjects((*this->file_list_it).absoluteFilePath()))
 					this->object_cfg_state = true;
@@ -291,7 +291,7 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 						}
 					else if(attr.value() == OBJECT_TYPE_BUTTON_T)
 						{
-						this->buildButtonTObject(map);
+						//this->buildButtonTObject(map);
 						}
 					else
 						{
@@ -377,6 +377,7 @@ bool ConfigParser::buildButtonCObject(const QDomNamedNodeMap &map)
     return true;
     }
 
+/*
 bool ConfigParser::buildButtonTObject(const QDomNamedNodeMap &map)
     {
     ButtonTObject *temp_buttont = new ButtonTObject();
@@ -432,7 +433,7 @@ bool ConfigParser::buildButtonTObject(const QDomNamedNodeMap &map)
     this->core->configLogInfo(this->buttont_list_ref->last()->getObjLogEntry());
     return true;
     }
-
+*/
 bool ConfigParser::validateConfigXMLIntegrity(QString path)
     {
     /*QFile file(path);
