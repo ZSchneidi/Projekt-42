@@ -122,7 +122,6 @@ bool LogHandler::restoreLogDir()
     {
     if(this->system_log_state == LogHandler::INACTIVE)
 		{
-		qDebug() << "dont restore log dir";
         return false;
         }
     return QDir::current().mkdir(LOG_DIR);

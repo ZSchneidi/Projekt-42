@@ -55,7 +55,6 @@ bool ConfigParser::buildConfig()
 					}
 				if(!this->validateConfigXMLIntegrity((*this->file_list_it).absoluteFilePath()))
 					{
-					//qDebug() << "invalid config xml";
 					}
 				if(this->buildMachineConfig((*this->file_list_it).absoluteFilePath()))
 					{
@@ -65,8 +64,6 @@ bool ConfigParser::buildConfig()
 			else if((*this->file_list_it).fileName() == MOD_CFGV)
 				{
 				this->module_list_ref = this->core->getEventHandler()->getEventMapper()->getModuleList();
-				qDebug() << this->module_list_ref->count();
-				//qDebug() << "found module config";
 				if(this->buildModuleConfig((*this->file_list_it).absoluteFilePath()))
 					this->object_cfg_state = true;
 				}
@@ -447,7 +444,6 @@ bool ConfigParser::validateConfigXMLIntegrity(QString path)
         {
         line = t.readLine();
         if(line.contains("version") && !line.contains("encoding"))
-            qDebug() << line;
         }
     file.close();
     return false;*/

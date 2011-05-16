@@ -28,13 +28,14 @@ Item {
 	source: background_image
     }
 
+	/*
     Text {
 	id: name
 	text: screen_name
 	anchors.centerIn: parent
 	color: "white"
     }
-
+	*/
     function showScreen()
 	{
 	screen.z = 1;

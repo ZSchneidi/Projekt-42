@@ -10,7 +10,7 @@ Item {
 
     Rectangle {
 		anchors.fill: parent
-		color: "#d7d7d7"
+		color: "lightgray"
 		z: -1
 		Text {
 			id: main_test

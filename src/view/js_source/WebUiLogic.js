@@ -24,6 +24,7 @@ function createScreenObjects(obj,index,web_ui_layer,elementinterface)
 		{
 		object.default_screen = true;
 		}
+
     object.background_image = obj.bgimg;
     object.screen_name = obj.name;
     a_screen[index] = object;

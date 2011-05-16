@@ -70,13 +70,23 @@ bool CoreEngine::initViewEnvironment()
 		/*change the directory of the config_parser to*/
 		if(this->config_path != "")
 			{
-			QString custom_dir = QString(DEFAULT_WEB_CFG_SUBDIR+this->config_path);
-			qDebug() << custom_dir;
-			this->config_parser->initConfigPath(custom_dir);
+			this->config_parser->initConfigPath(this->config_path);
 			}
 		else
 			{
-			this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+			/*change to the first directory below the config directory*/
+			QDir dir(QDir::current());
+			dir.cd(DEFAULT_WEB_CFG_SUBDIR);
+			QFileInfoList file_inf_list = dir.entryInfoList(QDir::AllDirs,QDir::Reversed);
+			foreach (QFileInfo info, file_inf_list)
+				{
+				 if (info.fileName() != "." && info.fileName() != "..")
+					 {
+					 dir.cd(info.fileName());
+					 break;
+					 }
+				}
+			this->config_parser->initConfigPath(dir.absolutePath());
 			}
 	    /*parse the config files and build all objects for the UIObjectHandler*/
 	    this->config_parser->buildConfig();
@@ -104,13 +114,13 @@ bool CoreEngine::initViewEnvironment()
  */
 bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_state)
     {
-	if(size.width() > 0 || size.height() > 0)
+    if(window_state)
 		{
-		this->resize(QSize(size.width(),size.height()));
+		this->setWindowState(window_state);
 		}
 	else
 		{
-		this->setWindowState(window_state);
+		this->resize(QSize(size.width(),size.height()));
 		}
 
     this->declarative_viewport->initViewPort();

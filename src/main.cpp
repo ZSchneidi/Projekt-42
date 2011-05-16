@@ -12,8 +12,6 @@ int main(int argc, char *argv[])
 	QStringList arguments = a.arguments();
 	QString used_arguments = "";
 	qDebug() << arguments;
-
-
 	/* ARGUMENTS */
 	if(arguments.contains(ARG_HELP))
 		{
@@ -23,6 +21,7 @@ int main(int argc, char *argv[])
 		}
 
 	/*initialize InitMode depending on the argument QML_UI is default */
+
 	CoreEngine::InitMode mode = CoreEngine::QML_UI;
 	QString conf_path = "";
 	if(arguments.contains(ARG_WEB_UI))
@@ -123,6 +122,7 @@ QString getHelpText()
     ret_str += QString(ARG_LOG_STATE_RESTRICTED" - log only SYSTEM and ERROR messages\n");
     ret_str += QString(ARG_LOG_STATE_INACTIVE" - disable log \n");
     ret_str += QString("\nDisplay options \n");
+    ret_str += QString(ARG_FULLSCREEN" - is used to init the viewport in FullScreen mode\n");
     ret_str += QString(ARG_SCREEN_SIZE"WidthxHeight - used to init the viewport with the defined size \n");
     return ret_str;
     }

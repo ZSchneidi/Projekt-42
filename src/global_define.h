@@ -52,8 +52,6 @@ toggles the application fullscreen mode*/
 /*define of the relative path to the machine config*/
 #define DEFAULT_WEB_CFG_SUBDIR								"config/"
 #define DEFAULT_CFG_DIR												"cfg"
-#define DEFAULT_WEB_CFG_DIR										"config/am100002/v/cfg/"
-#define DEFAULT_WEB_CONTENT_DIR								"config/am100002/v/"
 
 
 /*define of the expected config files*/

@@ -10,7 +10,6 @@ EventHandler::EventHandler(CoreEngine *parent):
 
 void EventHandler::keyPressEvent(QKeyEvent *event)
 {
-    //qDebug() << "Key pressed";
 }
 
 bool EventHandler::eventFilter(QObject *obj, QEvent *event)
@@ -20,7 +19,6 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         if (keyEvent->modifiers() == Qt::ControlModifier)
             {
-            qDebug() << "control was pressed on " << keyEvent->key();
             switch(keyEvent->key())
                 {
                 case TOGGLE_FULLSCREEN_BUTTON:
@@ -32,7 +30,6 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
 				case TERM_SYSTEM_BUTTON:
 					this->core->close();
                 default:
-                    qDebug() << "unhandled modified key";
                     return false;
 
                 }
@@ -44,8 +41,6 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
 bool EventHandler::processProductAction(Product *product)
     {
     bool product_serve_state = false;
-
-    qDebug() << product->productCode() << product->productName();
     /*this is an example of a product which emits an unhandled error*/
     if(product->productCode() == 10003)
 	return false;
@@ -83,12 +78,7 @@ void EventHandler::showWarning(QString msg = "")
 
 bool EventHandler::processUiObjectEvent(Event *event)
 	{
-	//qDebug() << "source" << event->getSourceID();
-	//qDebug() << "in event" <<this->getEventMapper()->getEventDefintion()->getEventStr(event->getEventType());
-
-
 	QList<int> module_adr_list = this->getEventMapper()->getModuleAdrBySource(event->getSourceID());
-	//qDebug() << "match mod" << module_adr_list;
 	/*interate through all matching modules*/
 	for(int i = 0; i < module_adr_list.count() ; i++)
 		{
@@ -97,7 +87,6 @@ bool EventHandler::processUiObjectEvent(Event *event)
 
 		QList<QString> event_in_list = temp_module->getModEventInList();
 
-		//qDebug() << event_in_list;
 		QString in_event = this->getEventMapper()->getEventDefintion()->getEventStr(event->getEventType());
 
 		/*if the module has an event_in directive matching the incomming event*/
@@ -107,8 +96,6 @@ bool EventHandler::processUiObjectEvent(Event *event)
 				{
 				if(temp_module->getModEventIn(j) == in_event)
 					{
-					//qDebug() << "target" << temp_module->getModTarget(j);
-					//qDebug() << "out event" << this->getEventMapper()->getEventDefintion()->getEventTypeByStr(temp_module->getModEventOut(j));
 					Event *out_event = new Event(this);
 
 					out_event->setTargetID(temp_module->getModTarget(j));
