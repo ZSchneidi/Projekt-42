@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 
 	QStringList arguments = a.arguments();
 	QString used_arguments = "";
-	qDebug() << arguments;
+	//qDebug() << arguments;
+
 	/* ARGUMENTS */
 	if(arguments.contains(ARG_HELP))
 		{

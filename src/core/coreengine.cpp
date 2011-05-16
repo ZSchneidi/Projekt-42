@@ -75,7 +75,7 @@ bool CoreEngine::initViewEnvironment()
 		else
 			{
 			/*change to the first directory below the config directory*/
-			QDir dir(QDir::current());
+			QDir dir(QCoreApplication::applicationDirPath ());
 			dir.cd(DEFAULT_WEB_CFG_SUBDIR);
 			QFileInfoList file_inf_list = dir.entryInfoList(QDir::AllDirs,QDir::Reversed);
 			foreach (QFileInfo info, file_inf_list)
@@ -130,7 +130,7 @@ bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_st
     this->setCentralWidget(declarative_viewport);
     /*this step is important to ensure that all data and custom types are registered to the qml environment*/
     this->registerQmlTypes();
-    this->declarative_viewport->initViewLayer(QUrl(MAIN_VIEW_LAYER));
+    this->declarative_viewport->initViewLayer(QUrl(QCoreApplication::applicationDirPath ()+"/"+MAIN_VIEW_LAYER));
     this->updateSystemDateTime();
     return true;
     }

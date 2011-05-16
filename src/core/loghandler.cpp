@@ -124,7 +124,7 @@ bool LogHandler::restoreLogDir()
 		{
         return false;
         }
-    return QDir::current().mkdir(LOG_DIR);
+    return this->.mkdir(LOG_DIR);
     }
 
 bool LogHandler::isRestricted()

@@ -77,6 +77,8 @@ public:
     inline EventHandler* getEventHandler() { return this->event_handler; }
     inline InitMode getInitMode() { return this->init_mode; }
 
+	inline QString getCoreAppDirPath() { return QCoreApplication::applicationDirPath(); }
+
 	//SETTER
 
     QTime *system_time;

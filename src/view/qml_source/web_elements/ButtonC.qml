@@ -31,14 +31,14 @@ Item {
 		anchors.fill: parent
 		onPressed: {
 			bgImage.source = button_image_do
-			console.log(EventDefinition.ButtonDown);
+			//console.log(EventDefinition.ButtonDown);
 			event.setEventType(EventDefinition.ButtonDown)
 			viewportinterface.sendUiObjectEvent(event)
 			Generic_func.clicked();
 		}
 		onReleased: {
 			bgImage.source = button_image_up
-			console.log(EventDefinition.ButtonUp);
+			//console.log(EventDefinition.ButtonUp);
 			event.setEventType(EventDefinition.ButtonUp)
 			viewportinterface.sendUiObjectEvent(event)
 		}

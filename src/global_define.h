@@ -22,6 +22,7 @@
 #define ARG_FULLSCREEN												"--fullscreen"
 #define ARG_SCREEN_SIZE											"-S="
 
+#define APP_DIR															QCoreApplication::applicationDirPath()
 
 #define LOG_DIR															"log/"
 #define SYSTEM_LOG_FILE												LOG_DIR"system_log.log"

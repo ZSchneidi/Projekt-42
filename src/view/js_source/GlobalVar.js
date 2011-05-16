@@ -13,14 +13,14 @@ var clicks = 0;
 
 function isScreenReady()
 {
-console.log(screens_ready);
+//console.log(screens_ready);
 }
 
 function clicked()
 	{
 	clicks++;
-	console.log(clicks+'clicks');
+	//console.log(clicks+'clicks');
 
-	console.log('screen count '+a_screen.length);
-	console.log('button count '+a_buttonc.length);
+	//console.log('screen count '+a_screen.length);
+	//console.log('button count '+a_buttonc.length);
 	}
