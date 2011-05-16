@@ -28,12 +28,12 @@ class LogHandler : public QObject
 
 public:
 
-	enum Message_type {
+    enum Message_type {
         SYSTEM,
-		WARNING,
-		ERROR,
-		INFO
-		};
+	WARNING,
+	ERROR,
+	INFO
+	};
 
     enum Parser_Message_type {
         PARSER_INFO,
@@ -42,16 +42,16 @@ public:
         };
 
     enum Event_type {
-		PPRODUCT_EVENT
-		};
+	PPRODUCT_EVENT
+	};
 
     enum Log_state {
-		ACTIVE,
-		RESTRICTED,
-		INACTIVE
-		};
+	ACTIVE,
+	RESTRICTED,
+	INACTIVE
+	};
 
-    explicit LogHandler(QObject *parent = 0,Log_state log_state = LogHandler::ACTIVE);
+    explicit LogHandler(CoreEngine *parent = 0,Log_state log_state = LogHandler::ACTIVE);
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
     bool writeToEventLog(QString message,LogHandler::Event_type);
@@ -59,7 +59,7 @@ public:
 
     //GETTER
     inline LogHandler::Log_state getLoggerState() { return this->system_log_state; }
-    inline CoreEngine *getCore() {  }
+    inline CoreEngine *getCore() { return this->core; }
 
 	//SETTER
     void setLoggerState(Log_state state);
@@ -70,6 +70,8 @@ public:
     bool isRestricted();
 
 private:
+
+    CoreEngine *core;
 
     QFile *system_log;
     QFile *event_log;

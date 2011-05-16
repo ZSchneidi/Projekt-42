@@ -2,6 +2,7 @@
 #define COREENGINE_H
 
 #include <QMainWindow>
+#include <QCoreApplication>
 #include <QTime>
 #include <QTimer>
 

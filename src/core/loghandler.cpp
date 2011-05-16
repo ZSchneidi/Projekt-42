@@ -1,8 +1,9 @@
 #include "loghandler.h"
 
-LogHandler::LogHandler(QObject *parent, LogHandler::Log_state log_state) :
+LogHandler::LogHandler(CoreEngine *parent, LogHandler::Log_state log_state) :
     QObject(parent)
     {
+    this->core = parent;
     this->system_log = new QFile(SYSTEM_LOG_FILE);
     this->event_log = new QFile(EVENT_LOG_FILE);
     this->config_log = new QFile(CONFIG_LOG_FILE);
@@ -124,7 +125,7 @@ bool LogHandler::restoreLogDir()
 		{
         return false;
         }
-    return this->.mkdir(LOG_DIR);
+    return QDir(this->getCore()->getCoreAppDirPath()).mkdir(LOG_DIR);
     }
 
 bool LogHandler::isRestricted()
