@@ -71,7 +71,6 @@ bool CoreEngine::initViewEnvironment()
 		if(this->config_path != "")
 			{
 			QString custom_dir = QString(DEFAULT_WEB_CFG_SUBDIR+this->config_path);
-			qDebug() << custom_dir;
 			this->config_parser->initConfigPath(custom_dir);
 			}
 		else

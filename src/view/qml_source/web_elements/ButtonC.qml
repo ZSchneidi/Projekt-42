@@ -36,7 +36,6 @@ Item {
 
     function prepareObject()
 	{
-		console.log(visible_str);
 		if(visible_str == "N" || visible_str == "n")
 			buttonc.opacity = 0;
 	}
