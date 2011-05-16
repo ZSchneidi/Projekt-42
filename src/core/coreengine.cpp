@@ -70,12 +70,23 @@ bool CoreEngine::initViewEnvironment()
 		/*change the directory of the config_parser to*/
 		if(this->config_path != "")
 			{
-			QString custom_dir = QString(DEFAULT_WEB_CFG_SUBDIR+this->config_path);
-			this->config_parser->initConfigPath(custom_dir);
+			this->config_parser->initConfigPath(this->config_path);
 			}
 		else
 			{
-			this->config_parser->initConfigPath(DEFAULT_WEB_CFG_DIR);
+			/*change to the first directory below the config directory*/
+			QDir dir(QCoreApplication::applicationDirPath ());
+			dir.cd(DEFAULT_WEB_CFG_SUBDIR);
+			QFileInfoList file_inf_list = dir.entryInfoList(QDir::AllDirs,QDir::Reversed);
+			foreach (QFileInfo info, file_inf_list)
+				{
+				 if (info.fileName() != "." && info.fileName() != "..")
+					 {
+					 dir.cd(info.fileName());
+					 break;
+					 }
+				}
+			this->config_parser->initConfigPath(dir.absolutePath());
 			}
 	    /*parse the config files and build all objects for the UIObjectHandler*/
 	    this->config_parser->buildConfig();
@@ -103,13 +114,13 @@ bool CoreEngine::initViewEnvironment()
  */
 bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_state)
     {
-	if(size.width() > 0 || size.height() > 0)
+    if(window_state)
 		{
-		this->resize(QSize(size.width(),size.height()));
+		this->setWindowState(window_state);
 		}
 	else
 		{
-		this->setWindowState(window_state);
+		this->resize(QSize(size.width(),size.height()));
 		}
 
     this->declarative_viewport->initViewPort();
@@ -119,7 +130,7 @@ bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_st
     this->setCentralWidget(declarative_viewport);
     /*this step is important to ensure that all data and custom types are registered to the qml environment*/
     this->registerQmlTypes();
-    this->declarative_viewport->initViewLayer(QUrl(MAIN_VIEW_LAYER));
+    this->declarative_viewport->initViewLayer(QUrl(QCoreApplication::applicationDirPath ()+"/"+MAIN_VIEW_LAYER));
     this->updateSystemDateTime();
     return true;
     }
@@ -140,6 +151,8 @@ void CoreEngine::registerQmlTypes()
     qmlRegisterType<Product>("Product", 0,1, "Product");
     qmlRegisterType<ScreenObject>("ScreenObject", 0,1, "ScreenObject");
     qmlRegisterType<ButtonCObject>("ButtonC", 0,1, "ButtonC");
+    qmlRegisterType<Event>("Event",0,1,"Event");
+    qmlRegisterType<EventDefinition>("EventDefinition",0,1,"EventDefinition");
     }
 
 

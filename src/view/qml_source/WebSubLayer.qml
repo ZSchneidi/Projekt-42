@@ -1,6 +1,6 @@
 import Qt 4.7
 import QtQuick 1.0
-import "WebUiLogic.js" as WebUiLogic
+import "../js_source/WebUiLogic.js" as WebUiLogic
 import "web_elements"
 
 
@@ -10,7 +10,7 @@ Item {
 
     Rectangle {
 		anchors.fill: parent
-		color: "#d7d7d7"
+		color: "lightgray"
 		z: -1
 		Text {
 			id: main_test
@@ -35,6 +35,7 @@ Item {
 		onPressed: {
 			console.log('switch pressed');
 			screen_timer.start()
+			getArr();
 		}
 		onReleased: {
 			console.log('switch released');
@@ -59,16 +60,29 @@ Item {
 	{
 		for (var i = 0;i < elementinterface.screen_count;i++)
 	    {
-			WebUiLogic.createScreenObjects(elementinterface.getScreenObjectAt(i),i);
+			WebUiLogic.createScreenObjects(elementinterface.getScreenObjectAt(i),i,web_ui_layer,elementinterface);
 	    }
 		for (var i = 0;i < elementinterface.buttonc_count;i++)
 	    {
-			WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i);
+			WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i,web_ui_layer,elementinterface);
 	    }
+	    /* for each module create the eventHandling */
 	    for (var i = 0; i < elementinterface.module_count; i++)
 		{
 			WebUiLogic.createEventhandling(elementinterface.getModuleAt(i),i);
 		}
+	}
+
+	function getArr()
+	{
+		console.log(WebUiLogic.a_screen);
+		console.log(web_ui_layer.children.length);
+		for(var i = 0; i < web_ui_layer.children.length; i++ )
+			{
+			console.log(web_ui_layer.children[i]);
+			if(web_ui_layer.children[i].objectType == "Screen")
+				console.log(web_ui_layer.children[i].children[0].color);
+			}
 	}
 
 }

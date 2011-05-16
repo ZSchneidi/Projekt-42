@@ -1,4 +1,7 @@
 import QtQuick 1.0
+import Event 0.1
+import EventDefinition 0.1
+import "../../js_source/generic_func.js" as Generic_func
 
 /**
   *Representation of a ButtonC object.
@@ -14,6 +17,7 @@ Item {
     property string button_name: ""
     property bool default_screen: false
     property string visible_str: ""
+    property string objectType: "ButtonC"
 
     Image {
 		id: bgImage
@@ -27,16 +31,39 @@ Item {
 		anchors.fill: parent
 		onPressed: {
 			bgImage.source = button_image_do
-			console.log("press button "+button_name);
+			//console.log(EventDefinition.ButtonDown);
+			event.setEventType(EventDefinition.ButtonDown)
+			viewportinterface.sendUiObjectEvent(event)
+			Generic_func.clicked();
 		}
 		onReleased: {
 			bgImage.source = button_image_up
+			//console.log(EventDefinition.ButtonUp);
+			event.setEventType(EventDefinition.ButtonUp)
+			viewportinterface.sendUiObjectEvent(event)
 		}
     }
 
-    function prepareObject()
+	Event {
+		id: event
+		sourceID: identifier
+
+	}
+
+	Connections{
+		target: viewportinterface
+		onOutEventOnTarget: {
+
+			Generic_func.performActions(event,buttonc,EventDefinition);
+
+		}
+	}
+
+   function prepareObject()
 	{
 		if(visible_str == "N" || visible_str == "n")
-			buttonc.opacity = 0;
+			opacity = 0;
+			//console.log(parent.parent.WebUiLogic.test());
 	}
+
 }

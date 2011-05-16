@@ -22,6 +22,7 @@
 #define ARG_FULLSCREEN												"--fullscreen"
 #define ARG_SCREEN_SIZE											"-S="
 
+#define APP_DIR															QCoreApplication::applicationDirPath()
 
 #define LOG_DIR															"log/"
 #define SYSTEM_LOG_FILE												LOG_DIR"system_log.log"
@@ -52,8 +53,6 @@ toggles the application fullscreen mode*/
 /*define of the relative path to the machine config*/
 #define DEFAULT_WEB_CFG_SUBDIR								"config/"
 #define DEFAULT_CFG_DIR												"cfg"
-#define DEFAULT_WEB_CFG_DIR										"config/am100002/v/cfg/"
-#define DEFAULT_WEB_CONTENT_DIR								"config/am100002/v/"
 
 
 /*define of the expected config files*/
@@ -152,6 +151,7 @@ toggles the application fullscreen mode*/
 
 /*LOG messages*/
 #define SYSTEM_INIT_MSG												"Initialize system startup"
+#define SYSTEM_ARG_MSG												"Initialize with arguments : "
 #define WEB_UI_INIT_MSG												"Initialize WEB_UI"
 #define QML_UI_INIT_MSG												"Initialize QML_UI"
 #define UNEX_CFG_MSG													"Found unexpected config file"

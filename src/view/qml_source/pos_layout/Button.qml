@@ -127,9 +127,9 @@ Item {
 
     /*product definition is used to link product information to a Button*/
     Product{
-	id:product
-	productName: ""
-	productCode: 0
+		id:product
+		productName: ""
+		productCode: 0
 
     }
 

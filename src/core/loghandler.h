@@ -8,6 +8,7 @@
 #include <QTime>
 #include <QDate>
 
+#include "core/coreengine.h"
 #include "global_define.h"
 
 /**
@@ -58,6 +59,7 @@ public:
 
     //GETTER
     inline LogHandler::Log_state getLoggerState() { return this->system_log_state; }
+    inline CoreEngine *getCore() {  }
 
 	//SETTER
     void setLoggerState(Log_state state);

@@ -44,7 +44,7 @@ void ButtonTObject::setObjVisible(QString value)
 	QList<QString> valid_values;
     valid_values << "Y" << "y" << "N" << "n" << "J" << "j";
     if(valid_values.contains(value))
-	this->visible = value;
-    else
-	qDebug() << "invalid value";
+		{
+		this->visible = value;
+		}
 	}

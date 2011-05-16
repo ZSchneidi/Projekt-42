@@ -10,28 +10,31 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 	QStringList arguments = a.arguments();
-
-	qDebug() << arguments;
-
+	QString used_arguments = "";
+	//qDebug() << arguments;
 
 	/* ARGUMENTS */
 	if(arguments.contains(ARG_HELP))
 		{
 		QMessageBox::information(0,"Help",getHelpText());
+		used_arguments += ARG_HELP;
 		return 0;
 		}
 
 	/*initialize InitMode depending on the argument QML_UI is default */
+
 	CoreEngine::InitMode mode = CoreEngine::QML_UI;
 	QString conf_path = "";
 	if(arguments.contains(ARG_WEB_UI))
 		{
+		used_arguments += ARG_WEB_UI;
 		mode = CoreEngine::WEB_UI;
 		/*search for specific config path*/
 		for (int i = 0; i < arguments.size(); i++)
 			{
 			if(arguments.at(i).contains(ARG_WEB_CONFIG))
 				{
+				used_arguments += arguments.at(i);
 				conf_path =  arguments.at(i);
 				conf_path =  conf_path.remove(ARG_WEB_CONFIG);
 				}
@@ -39,6 +42,7 @@ int main(int argc, char *argv[])
 		}
 	else 	if(arguments.contains(ARG_QML_UI))
 		{
+		used_arguments += ARG_QML_UI;
 		mode = CoreEngine::QML_UI;
 		}
 
@@ -46,14 +50,17 @@ int main(int argc, char *argv[])
 	LogHandler::Log_state log_state = LogHandler::ACTIVE;
 	if(arguments.contains(ARG_LOG_STATE_ACTIVE))
 		{
+		used_arguments += ARG_LOG_STATE_ACTIVE;
 		log_state = LogHandler::ACTIVE;
 		}
 	else 	if(arguments.contains(ARG_LOG_STATE_RESTRICTED))
 		{
+		used_arguments += ARG_LOG_STATE_RESTRICTED;
 		log_state = LogHandler::RESTRICTED;
 		}
 	else 	if(arguments.contains(ARG_LOG_STATE_INACTIVE))
 		{
+		used_arguments += ARG_LOG_STATE_INACTIVE;
 		log_state = LogHandler::INACTIVE;
 		}
 
@@ -62,6 +69,7 @@ int main(int argc, char *argv[])
 	QSize window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
 	if(arguments.contains(ARG_FULLSCREEN))
 		{
+		used_arguments += ARG_FULLSCREEN;
 		windows_state = Qt::WindowFullScreen;
 		}
 
@@ -70,6 +78,7 @@ int main(int argc, char *argv[])
 		{
 		if(arguments.at(i).contains(ARG_SCREEN_SIZE))
 			{
+			used_arguments += arguments.at(i);
 			QString size_str =  arguments.at(i);
 			QStringList size_list =  size_str.remove(ARG_SCREEN_SIZE).split("x");
 			window_size.setWidth(size_list.at(0).toInt());
@@ -87,6 +96,7 @@ int main(int argc, char *argv[])
 
     w.getLogHandler()->setLoggerState(log_state);
     w.getLogHandler()->setLoggerWriteMode(open_mode);
+    w.getLogHandler()->writeToSystemLog(QString(SYSTEM_ARG_MSG+used_arguments),LogHandler::SYSTEM);
     /*call the startup routine*/
     w.SystemStartUp(window_size,windows_state);
 
@@ -113,6 +123,7 @@ QString getHelpText()
     ret_str += QString(ARG_LOG_STATE_RESTRICTED" - log only SYSTEM and ERROR messages\n");
     ret_str += QString(ARG_LOG_STATE_INACTIVE" - disable log \n");
     ret_str += QString("\nDisplay options \n");
+    ret_str += QString(ARG_FULLSCREEN" - is used to init the viewport in FullScreen mode\n");
     ret_str += QString(ARG_SCREEN_SIZE"WidthxHeight - used to init the viewport with the defined size \n");
     return ret_str;
     }

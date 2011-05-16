@@ -28,6 +28,12 @@ public:
     inline QList<QString> getModEventOutList() { return this->event_out; }
     inline QList<int> getModTargetList() { return this->target; }
 
+	Q_INVOKABLE inline int getSeqCount() { return this->seq.count(); }
+	Q_INVOKABLE inline int getModSource(int index) { return this->source.at(index); }
+	Q_INVOKABLE inline QString getModEventIn(int index) { return this->event_in.at(index); }
+	Q_INVOKABLE inline QString getModEventOut(int index) { return this->event_out.at(index); }
+	Q_INVOKABLE inline int getModTarget(int index) { return this->target.at(index); }
+
 	QString getModLogEntry();
 
     //SETTER
@@ -37,13 +43,6 @@ public:
 	inline void addModEventIn(QString event) { this->event_in.append(event); }
 	inline void addModEventOut(QString event) { this->event_out.append(event); }
 	inline void addModTarget(int target) { this->target.append(target); }
-
-	Q_INVOKABLE inline int getSeqCount() { return this->seq.count(); }
-	Q_INVOKABLE inline int getModSource(int index) { return this->source.at(index); }
-	Q_INVOKABLE inline QString getModEventIn(int index) { return this->event_in.at(index); }
-	Q_INVOKABLE inline QString getModEventOut(int index) { return this->event_out.at(index); }
-	Q_INVOKABLE inline int getModTarget(int index) { return this->target.at(index); }
-
 
 signals:
 
