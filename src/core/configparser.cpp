@@ -269,20 +269,7 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 
 bool ConfigParser::validateConfigXMLIntegrity(QString path)
     {
-    /*QFile file(path);
-    QFile temp_file("config/temp_file.xml");
-    file.open(QIODevice::ReadOnly);
-    temp_file.open(QIODevice::ReadWrite);
 
-    QString line;
-    QTextStream t( &file );
-    while ( !t.atEnd() )
-        {
-        line = t.readLine();
-        if(line.contains("version") && !line.contains("encoding"))
-        }
-    file.close();
-    return false;*/
     return true;
     }
 
@@ -328,14 +315,13 @@ int ConfigParser::getModAdrFromTag(QDomNamedNodeMap map)
   */
 bool ConfigParser::getNodeList(QString file, QString tag)
 	{
+	//this->validateConfigXMLIntegrity(file);
 	QFile config_file(file);
     if (!config_file.open(QIODevice::ReadOnly))
 		return false;
-
     QByteArray data = config_file.readAll();
     QDomDocument doc;
     doc.setContent(data);
-
     *this->temp_node_list = doc.elementsByTagName(QString(tag));
 	return true;
 	}

@@ -32,19 +32,19 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
     QTextStream log_stream(this->system_log);
     if(type == LogHandler::SYSTEM)
 		{
-		log_stream << "["+date_time+"]" << "[SYSTEM] " << message << endl;
+		log_stream << "["+date_time+"]" << "[" << SYS_LOG_SYSTEM << "] " << message << endl;
 		}
     else if(type == LogHandler::WARNING && !this->isRestricted())
 		{
-		log_stream << "["+date_time+"]" << "[WARNING] " << message << endl;
+		log_stream << "["+date_time+"]" << "[" << SYS_LOG_WARNING << "] " << message << endl;
 		}
     else if(type == LogHandler::ERROR)
 		{
-		log_stream << "["+date_time+"]" << "[ERROR] " << message << endl;
+		log_stream << "["+date_time+"]" << "[" << SYS_LOG_ERROR << "] " << message << endl;
 		}
     else if(type == LogHandler::INFO && !this->isRestricted())
 		{
-		log_stream << "["+date_time+"]" << "[INFO] " << message << endl;
+		log_stream << "["+date_time+"]" << "[" << SYS_LOG_INFO << "] " << message << endl;
 		}
     this->system_log->close();
     /*this changes the open mode to append, so that the comming lines will be append to the log file*/
@@ -58,7 +58,7 @@ bool LogHandler::writeToSystemLog(QString message, LogHandler::Message_type type
   * will always be written to the end of the log file instead of deleting the file and
   * write a new one.
   */
-bool LogHandler::writeToEventLog(QString message, LogHandler::Event_type type)
+bool LogHandler::writeToEventLog(QString message, LogHandler::Event_Message_type type)
     {
     if(this->system_log_state == Base::LS_Inactive)
         return false;
@@ -70,7 +70,7 @@ bool LogHandler::writeToEventLog(QString message, LogHandler::Event_type type)
     QTextStream log_stream(this->event_log);
     if(type == LogHandler::PPRODUCT_EVENT)
 	{
-	log_stream << "["+date_time+"]" << "[PRODUCT] " << message << endl;
+	log_stream << "["+date_time+"]" << "["<< EVENT_LOG_PRODUCT << "] " << message << endl;
 	}
     this->event_log->close();
     return true;
@@ -92,13 +92,13 @@ bool LogHandler::writeToConfigParserLog(QString message,LogHandler::Parser_Messa
     switch(type)
         {
         case LogHandler::PARSER_INFO:
-            log_stream << "["+date_time+"]" << "[INFO] " << message << endl;
+            log_stream << "["+date_time+"]" << "[" << CONF_LOG_INFO << "] " << message << endl;
             break;
         case LogHandler::PARSER_WARNING:
-            log_stream << "["+date_time+"]" << "[WARNING] " << message << endl;
+            log_stream << "["+date_time+"]" << "[" << CONF_LOG_WARNING << "] " << message << endl;
             break;
         case LogHandler::PARSER_ERROR:
-            log_stream << "["+date_time+"]" << "[ERROR] " << message << endl;
+            log_stream << "["+date_time+"]" << "[" << CONF_LOG_ERROR << "] " << message << endl;
             break;
         }
     this->config_log->close();

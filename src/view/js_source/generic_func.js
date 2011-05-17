@@ -12,12 +12,6 @@ function performActions(event,object,EventDefinition)
 	/*if the current object is the target*/
 	if(event.targetID == object.identifier)
 		{
-
-		/*
-		console.debug(event.eventTypeInt);
-		console.log(object.identifier);
-		console.log(event.targetID);
-		*/
 		switch(event.eventType)
 			{
 			case EventDefinition.Hide:
@@ -26,7 +20,7 @@ function performActions(event,object,EventDefinition)
 			case EventDefinition.Show:
 				if(object.objectType == "Screen")
 					{
-					showScreen(object);
+					screenControl(object,event);
 					}
 				else
 					show(object);
@@ -41,7 +35,6 @@ function performActions(event,object,EventDefinition)
 function hide(object)
 	{
 	object.opacity = 0;
-
 	}
 
 function show(object)
@@ -59,7 +52,29 @@ function hideScreen(object)
 	object.opacity = 0;
 	}
 
-
+/**
+  * This function is called to control the visibility of the screens
+  * according to the event passed to this function
+  */
+function screenControl(object,event)
+	{
+	/* this is an important step which is used to get the
+	 * array of screens that is stored in the context of
+	 * the WebSubLayer.
+	 */
+	var screen_arr = object.parent.getScreenArray();
+	for(var i = 0; i < screen_arr.length; i++)
+		{
+		if(screen_arr[i].identifier == event.targetID)
+			{
+			showScreen(screen_arr[i]);
+			}
+		else
+			{
+			hideScreen(screen_arr[i]);
+			}
+		}
+	}
 
 
 

@@ -159,6 +159,19 @@ toggles the application fullscreen mode*/
 #define UNHA_OBJ_TYPE_MSG										"Found unhandled object type \'#_1\'"
 
 
+#define SYS_LOG_SYSTEM												"SYSTEM"
+#define SYS_LOG_INFO													"INFO"
+#define SYS_LOG_WARNING											"WARNING"
+#define SYS_LOG_ERROR												"ERROR"
+
+#define CONF_LOG_INFO												"INFO"
+#define CONF_LOG_WARNING											"WARNING"
+#define CONF_LOG_ERROR												"ERROR"
+
+#define EVENT_LOG_PRODUCT										"PRODUCT"
+
+
+
 #define MISSING_MACH_TAG											"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
 #define MISSING_OBJ_TAG												"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
 #define MISSING_MOD_TAG											"Missing \"" MODULE_CFG_TAG "\" tag in " MOD_CFGV " file"

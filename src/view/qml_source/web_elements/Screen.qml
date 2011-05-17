@@ -17,32 +17,24 @@ Item {
     property string objectType: "Screen"
 
     Rectangle{
-	id:bgColor
-	anchors.fill: parent
-	color: "red"
+		id:bgColor
+		anchors.fill: parent
+		color: "red"
     }
 
     Image {
-	id: bgImage
-	anchors.fill: parent
-	source: background_image
+		id: bgImage
+		anchors.fill: parent
+		source: background_image
     }
 
-	/*
-    Text {
-	id: name
-	text: screen_name
-	anchors.centerIn: parent
-	color: "white"
-    }
-	*/
     function showScreen()
 	{
-	screen.z = 1;
+		screen.z = 1;
 	}
     function hideScreen()
 	{
-	screen.z = 1;
+		screen.z = 1;
 	}
 
 

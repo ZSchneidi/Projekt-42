@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/qml">
         <file>view/qml_source/AdminPanel.qml</file>
-        <file>view/qml_source/KeyPad.qml</file>
         <file>view/qml_source/MainViewLayer.qml</file>
         <file>view/qml_source/QmlSubLayer.qml</file>
         <file>view/qml_source/WebSubLayer.qml</file>

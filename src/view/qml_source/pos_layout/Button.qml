@@ -16,12 +16,12 @@ Item {
 
     Rectangle {
         id:button_base
-	anchors.fill: parent
+		anchors.fill: parent
         radius: 20
         opacity: 1
         border.width: 0
         border.color: "#ffffff"
-	z: 1
+		z: 1
         smooth: true
         gradient:
             Gradient {
@@ -33,48 +33,47 @@ Item {
             GradientStop {
                 position: 0.99
                 color: "#212b31"
-	    }
-	}
-	/*shadow declaration*/
-	BorderImage {
-	    id:shadow
-	    anchors.fill: button_base
-	    anchors { leftMargin: -10; topMargin: -10; rightMargin: -10; bottomMargin: -10 }
-	    border { left: 30; top: 30; right: 30; bottom: 30 }
-	    horizontalTileMode: BorderImage.Stretch
-	    verticalTileMode: BorderImage.Stretch
-	    z:-1
-	    source: "../img/r_20_shadow.png"
-	 }
+			}
+		}
+		/*shadow declaration*/
+		BorderImage {
+			id:shadow
+			anchors.fill: button_base
+			anchors { leftMargin: -10; topMargin: -10; rightMargin: -10; bottomMargin: -10 }
+			border { left: 30; top: 30; right: 30; bottom: 30 }
+			horizontalTileMode: BorderImage.Stretch
+			verticalTileMode: BorderImage.Stretch
+			z:-1
+			source: "../img/r_20_shadow.png"
+		}
 
 
-	Text {
+		Text {
             id: text1
-	    y: 11
-	    color: "#c4c0c0"
-	    text: button_name
-	    anchors.right: parent.right
-	    anchors.rightMargin: 5
-	    anchors.left: parent.left
-	    anchors.leftMargin: 5
-	    anchors.bottom: parent.bottom
-	    anchors.bottomMargin: 10
-	    z: 2
-	    wrapMode: Text.WordWrap
-	    smooth: true
+			y: 11
+			text: button_name
+			anchors.right: parent.right
+			anchors.rightMargin: 5
+			anchors.left: parent.left
+			anchors.leftMargin: 5
+			anchors.bottom: parent.bottom
+			anchors.bottomMargin: 10
+			z: 2
+			wrapMode: Text.WordWrap
+			smooth: true
             style: Text.Sunken
             styleColor: "#000000"
             verticalAlignment: Text.AlignTop
-	    horizontalAlignment: Text.AlignHCenter
-	    font.pixelSize: (button_item.height/100)*lable_size_percent;
+			horizontalAlignment: Text.AlignHCenter
+			font.pixelSize: (button_item.height/100)*lable_size_percent;
 
         }
         Item {
             id: picture
-	    x: 0
-	    y: 0
-	    anchors.fill: parent
-	    anchors.bottomMargin: 40
+			x: 0
+			y: 0
+			anchors.fill: parent
+			anchors.bottomMargin: 40
             anchors.rightMargin: 0
             anchors.leftMargin: 0
             anchors.topMargin: 0
@@ -82,8 +81,8 @@ Item {
             Rectangle {
                 id: rectangle1
                 radius: 20
-		anchors.fill: parent
-		anchors.bottomMargin: 0
+				anchors.fill: parent
+				anchors.bottomMargin: 0
                 gradient: Gradient {
                     GradientStop {
                         position: 0
@@ -103,18 +102,18 @@ Item {
 
                 Image {
                     id: image1
-		    x: 0
-		    y: 0
-		    anchors.rightMargin: 0
-		    anchors.leftMargin: 0
-		    anchors.topMargin: 0
-		    anchors.bottomMargin: 0
+					x: 0
+					y: 0
+					anchors.rightMargin: 0
+					anchors.leftMargin: 0
+					anchors.topMargin: 0
+					anchors.bottomMargin: 0
                     scale: 1
                     z: 1
                     smooth: true
                     fillMode: Image.PreserveAspectFit
                     anchors.fill: parent
-		    source: button_image
+					source: button_image
                 }
 
 
@@ -137,20 +136,20 @@ Item {
         id:button_mouse_area
         hoverEnabled: true
         anchors.fill: parent
-	onEntered: {
+		onEntered: {
             highlight.opacity = 0.3
         }
         onExited: {
-             highlight.opacity = 0.0
+			highlight.opacity = 0.0
         }
-	onPressed: {
-	    viewportinterface.sendProductAction(product)
-	    pressed.opacity = 0.2
-	    shadow.opacity = 0.5
+		onPressed: {
+			viewportinterface.sendProductAction(product)
+			pressed.opacity = 0.2
+			shadow.opacity = 0.5
         }
-	onReleased: {
+		onReleased: {
             pressed.opacity = 0.0
-	    shadow.opacity = 1.0
+			shadow.opacity = 1.0
         }
     }
     Rectangle {

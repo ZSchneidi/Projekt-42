@@ -62,7 +62,6 @@ OTHER_FILES += \
     view/qml_source/QmlSubLayer.qml \
     view/qml_source/MainViewLayer.qml \
     view/qml_source/AdminPanel.qml \
-    view/qml_source/KeyPad.qml \
     view/qml_source/pos_layout/PosScreen.qml\
     view/qml_source/pos_layout/Button.qml \
     view/qml_source/pos_layout/SelectionBox.qml \

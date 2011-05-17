@@ -3,6 +3,17 @@ import QtQuick 1.0
 import "../js_source/WebUiLogic.js" as WebUiLogic
 import "web_elements"
 
+/**
+  * This complex componen is designed to visualize dynamically created objects.
+  * These objects are created by the ConfigParser of the core application.
+  * After initializing this Layer, a JavaScript funktion will be called to create all
+  * necessary QML objects to represent the complete layout defined by an xml
+  * based configuration.
+  * In addition to that the modules also parsed from the xml config will define
+  * the eventhandling. This will happen by passing qml layer events to the c++
+  * layer and back.
+  *
+  */
 
 Item {
     id: web_ui_layer
@@ -11,7 +22,6 @@ Item {
     Rectangle {
 		anchors.fill: parent
 		color: "lightgray"
-		z: -1
 		Text {
 			id: main_test
 			anchors.centerIn: parent
@@ -19,33 +29,9 @@ Item {
 		}
     }
 
-    Timer {
-		id: screen_timer
-		interval: 300;
-		onTriggered: {
-			console.log('switch screen');
-			WebUiLogic.showScreenByID('107535');
-		}
-    }
-
-    MouseArea {
-		id: sw_screen_mouse_area
-		opacity: 1
-		anchors.fill: parent
-		onPressed: {
-			console.log('switch pressed');
-			screen_timer.start()
-			getArr();
-		}
-		onReleased: {
-			console.log('switch released');
-			screen_timer.stop()
-		}
-    }
-
+	/*as soon as the Item is finished call ...*/
     Component.onCompleted:
 		setUpUiElements();
-
 
 
     /*JAVASCRIPT DEFINITION*/
@@ -54,6 +40,7 @@ Item {
 	{
 		initElements();
 		WebUiLogic.showDefaultScreen();
+		/*additional processes could be placed here*/
 	}
 
     function initElements ()
@@ -73,18 +60,16 @@ Item {
 		}
 	}
 
-	function getArr()
-	{
-		console.log(WebUiLogic.a_screen);
-		console.log(web_ui_layer.children.length);
-		for(var i = 0; i < web_ui_layer.children.length; i++ )
-			{
-			console.log(web_ui_layer.children[i]);
-			if(web_ui_layer.children[i].objectType == "Screen")
-				console.log(web_ui_layer.children[i].children[0].color);
-			}
-	}
 
+	/**
+	  * This function returns the array of screens stored in the
+	  * WebUiLogic javascript environment which aren't accessable
+	  * from other contexts.
+	  */
+	function getScreenArray()
+	{
+		return WebUiLogic.a_screen;
+	}
 }
 
 

@@ -45,7 +45,7 @@ public:
         PARSER_ERROR
         };
 
-    enum Event_type {
+    enum Event_Message_type {
 		PPRODUCT_EVENT
 		};
 
@@ -54,7 +54,7 @@ public:
     explicit LogHandler(CoreEngine *parent = 0,  Base::Log_state log_state = Base::LS_Active);
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
-    bool writeToEventLog(QString message,LogHandler::Event_type);
+    bool writeToEventLog(QString message,LogHandler::Event_Message_type);
     bool writeToConfigParserLog(QString message,LogHandler::Parser_Message_type);
 
     //GETTER

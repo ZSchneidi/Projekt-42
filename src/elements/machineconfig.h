@@ -21,10 +21,7 @@ class MachineConfig : public QObject
     Q_OBJECT
 
     Q_PROPERTY(int amid READ getMachineID CONSTANT)
-
     Q_PROPERTY(QString type READ getMachineType CONSTANT)
-
-
 
 public:
     explicit MachineConfig(QObject *parent = 0);

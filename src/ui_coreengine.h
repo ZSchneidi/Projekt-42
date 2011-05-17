@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'coreengine.ui'
 **
-** Created: Tue May 17 10:44:30 2011
+** Created: Tue May 17 13:17:47 2011
 **      by: Qt User Interface Compiler version 4.7.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
