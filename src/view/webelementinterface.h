@@ -7,9 +7,14 @@
 #include "core/eventhandler.h"
 #include "core/eventmapper.h"
 #include "core/exception.h"
+#include "elements/buttoncobject.h"
+#include "elements/screenobject.h"
 
 class ViewPort;
 class EventHandler;
+class ButtonCObject;
+class ScreenObject;
+class UIObjectHandler;
 
 /**
   * The WebElementInterface is a class which is designed as an interface for communication
@@ -23,11 +28,9 @@ class WebElementInterface : public QObject
 {
     Q_OBJECT
 
-
     Q_PROPERTY(int module_count READ getModuleCount CONSTANT)
     Q_PROPERTY(int screen_count READ getScreenCount CONSTANT)
     Q_PROPERTY(int buttonc_count READ getButtoncCount CONSTANT)
-    //Q_PROPERTY(int buttont_count READ getButtontCount CONSTANT)
 
 public:
     explicit WebElementInterface(ViewPort *parent = 0);
@@ -35,13 +38,11 @@ public:
 	int getModuleCount();
     int getScreenCount();
     int getButtoncCount();
-    //int getButtontCount();
 
     //register Q_INVOKABLE methods as public to provide them directly to the qml layer
     Q_INVOKABLE Module *getModuleAt(int index);
     Q_INVOKABLE ScreenObject *getScreenObjectAt(int index);
     Q_INVOKABLE ButtonCObject *getButtoncObjectAt(int index);
-    //Q_INVOKABLE ButtonTObject *getButtontObjectAt(int index);
 
 signals:
 

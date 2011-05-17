@@ -1,19 +1,21 @@
 #include "eventhandler.h"
 
 EventHandler::EventHandler(CoreEngine *parent):
-        QObject()
+    QObject()
 {
     this->core = parent;
     this->mapper = new EventMapper(this);
 
-}
+	}
 
 void EventHandler::keyPressEvent(QKeyEvent *event)
-{
-}
+	{
+	qDebug() << event->key();
+	}
 
 bool EventHandler::eventFilter(QObject *obj, QEvent *event)
-{
+	{
+
     if (event->type() == QEvent::KeyPress)
         {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
@@ -31,7 +33,6 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
 					this->core->close();
                 default:
                     return false;
-
                 }
             }
         }
@@ -42,30 +43,30 @@ bool EventHandler::processProductAction(Product *product)
     {
     /*this is an example of a product which emits an unhandled error*/
     if(product->productCode() == 10003)
-	return false;
+		return false;
     /*just an temporary example of a product which couldn't served*/
 
     else
-	{
-	/*add product serve logic here*/
-	}
+		{
+		/*add product serve logic here*/
+		}
 
     if(product->productCode() == 0)
-	{
-	QString err = QString("ERROR: ") + " invalid product code "+ QString::number(product->productCode());
-	this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
-	}
+		{
+		QString err = QString("ERROR: ") + " invalid product code "+ QString::number(product->productCode());
+		this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
+		}
     else if(product->productCode() > 0 )
-	{
-	QString success = QString("SUCCESS: ") + QString::number(product->productCode());
-	this->getCore()->getLogHandler()->writeToEventLog(success,LogHandler::PPRODUCT_EVENT);
-	}
+		{
+		QString success = QString("SUCCESS: ") + QString::number(product->productCode());
+		this->getCore()->getLogHandler()->writeToEventLog(success,LogHandler::PPRODUCT_EVENT);
+		}
     /*if something unhandled went wrong*/
     else
-	{
-	QString err = QString("ERROR: an unhandled error occurred : product ") + QString::number(product->productCode());
-	this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
-	}
+		{
+		QString err = QString("ERROR: an unhandled error occurred : product ") + QString::number(product->productCode());
+		this->getCore()->getLogHandler()->writeToEventLog(err,LogHandler::PPRODUCT_EVENT);
+		}
 
     return true;
     }

@@ -4,9 +4,13 @@
 #include <QObject>
 #include <QSize>
 #include <QMetaType>
+#include <QDomNamedNodeMap>
 
 #include <QDebug>
 #include "global_define.h"
+#include "core/configparser.h"
+
+class ConfigParser;
 
 /**
   * The MachineConfig represents the configuration of a machine.
@@ -25,6 +29,7 @@ class MachineConfig : public QObject
 public:
     explicit MachineConfig(QObject *parent = 0);
 
+	bool buildMachineConfig(ConfigParser *parser,const QDomNamedNodeMap &map);
 
     //Getter
     inline int getID() {return this->id;}

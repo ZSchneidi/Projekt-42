@@ -28,3 +28,5 @@ QString Module::getModLogEntry()
 		}
     return temp;
 	}
+
+

@@ -1,11 +1,10 @@
 #include "coreengine.h"
 #include "ui_coreengine.h"
 
-CoreEngine::CoreEngine(QWidget *parent, InitMode mode, LogHandler::Log_state log_state, QString config_path) :
+CoreEngine::CoreEngine(QWidget *parent, InitMode mode, Base::Log_state log_state, QString config_path) :
     QMainWindow(parent),
     ui(new Ui::CoreEngine)
-    {
-    //ui->setupUi(this);
+{
     this->init_mode = mode;
     this->config_path = config_path;
 
@@ -29,13 +28,9 @@ CoreEngine::CoreEngine(QWidget *parent, InitMode mode, LogHandler::Log_state log
 
     }
 
-void CoreEngine::initSystemConnections()
-    {
-    connect(this->system_timer,SIGNAL(timeout()),this,SLOT(updateSystemDateTime()));
-    }
 
 /**
- *This is the main startup routine.
+ * The main startup routine.
  */
 bool CoreEngine::SystemStartUp(const QSize size, const Qt::WindowState window_state)
     {
@@ -43,19 +38,24 @@ bool CoreEngine::SystemStartUp(const QSize size, const Qt::WindowState window_st
     time.start();
     this->startSystemTimer();
     /*startup processes*/
-    if(!this->getLogHandler()->logDirExists() && !this->getLogHandler()->getLoggerState() == LogHandler::INACTIVE)
+    if(!this->getLogHandler()->logDirExists() && !this->getLogHandler()->getLoggerState() == Base::LS_Inactive)
         {
         this->event_handler->showWarning(NO_LOG_DIR);
         }
-
     this->initSystemConnections();
     this->log_handler->writeToSystemLog(SYSTEM_INIT_MSG,LogHandler::SYSTEM);
-
     this->initViewEnvironment();
     this->setUpViewport(size,window_state);
-
     this->logSystemMsg("Startup lasts "+QString::number(time.elapsed())+" milliseconds");
     return true;
+    }
+
+/**
+  * Used to connect all SIGNAL SLOT relations for the application
+  */
+void CoreEngine::initSystemConnections()
+    {
+    connect(this->system_timer,SIGNAL(timeout()),this,SLOT(updateSystemDateTime()));
     }
 
 /**
@@ -64,46 +64,28 @@ bool CoreEngine::SystemStartUp(const QSize size, const Qt::WindowState window_st
 bool CoreEngine::initViewEnvironment()
     {
     switch(this->init_mode)
-	{
-	case CoreEngine::WEB_UI:
-
-		/*change the directory of the config_parser to*/
-		if(this->config_path != "")
-			{
-			this->config_parser->initConfigPath(this->config_path);
-			}
-		else
-			{
-			/*change to the first directory below the config directory*/
-			QDir dir(QCoreApplication::applicationDirPath ());
-			dir.cd(DEFAULT_WEB_CFG_SUBDIR);
-			QFileInfoList file_inf_list = dir.entryInfoList(QDir::AllDirs,QDir::Reversed);
-			foreach (QFileInfo info, file_inf_list)
+		{
+		case CoreEngine::WEB_UI:
+			/*change the directory of the config_parser to*/
+			if(this->config_path != "")
 				{
-				 if (info.fileName() != "." && info.fileName() != "..")
-					 {
-					 dir.cd(info.fileName());
-					 break;
-					 }
+				this->config_parser->initConfigPath(this->config_path);
 				}
-			this->config_parser->initConfigPath(dir.absolutePath());
-			}
-	    /*parse the config files and build all objects for the UIObjectHandler*/
-	    this->config_parser->buildConfig();
-
-
+			else
+				{
+				this->config_parser->initConfigPath("");
+				}
+			this->config_parser->buildConfig();
             this->declarative_viewport->setSubLayerPath(QUrl(DEFAULT_WEB_LAYER));
-	    this->logSystemMsg(WEB_UI_INIT_MSG);
-
-	    break;
-	case CoreEngine::QML_UI:
+			this->logSystemMsg(WEB_UI_INIT_MSG);
+			break;
+		case CoreEngine::QML_UI:
             this->declarative_viewport->setSubLayerPath(QUrl(DEFAULT_QML_LAYER));
-	    this->logSystemMsg(QML_UI_INIT_MSG);
-	    break;
-	default:
-
-	    break;
-	}
+			this->logSystemMsg(QML_UI_INIT_MSG);
+			break;
+		default:
+			break;
+		}
 
     return true;
     }
@@ -114,7 +96,7 @@ bool CoreEngine::initViewEnvironment()
  */
 bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_state)
     {
-    if(window_state)
+    if(window_state != Qt::WindowNoState)
 		{
 		this->setWindowState(window_state);
 		}
@@ -122,7 +104,6 @@ bool CoreEngine::setUpViewport(const QSize size, const Qt::WindowState window_st
 		{
 		this->resize(QSize(size.width(),size.height()));
 		}
-
     this->declarative_viewport->initViewPort();
     /*this fills the parent application window with the qml view*/
     this->declarative_viewport->setResizeMode(QDeclarativeView::SizeRootObjectToView);
@@ -146,7 +127,7 @@ void CoreEngine::registerQmlTypes()
     /*this manifests the viewportinterface in the qml environment*/
     this->declarative_viewport->getRootContext()->setContextProperty(VIEWPORTINTERFACE, this->declarative_viewport->getViewPortInterface() );
     if(this->getInitMode() == CoreEngine::WEB_UI)
-	this->declarative_viewport->getRootContext()->setContextProperty(ELEMENTINTERFACE,this->declarative_viewport->getWebElementInterface());
+		this->declarative_viewport->getRootContext()->setContextProperty(ELEMENTINTERFACE,this->declarative_viewport->getWebElementInterface());
     qmlRegisterType<Module>("Module", 0,1, "Module");
     qmlRegisterType<Product>("Product", 0,1, "Product");
     qmlRegisterType<ScreenObject>("ScreenObject", 0,1, "ScreenObject");
@@ -196,7 +177,13 @@ void CoreEngine::closeEvent(QCloseEvent *)
 CoreEngine::~CoreEngine()
     {
     delete ui;
+    delete this->config_parser;
+    delete this->event_handler;
+    delete this->log_handler;
+    delete this->ui_object_handler;
+    delete this->declarative_viewport;
     }
+
 /**
  * starts the system timer with an interval of one minute
  */

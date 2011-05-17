@@ -14,6 +14,7 @@
 #include <QList>
 
 #include "global_define.h"
+#include "ext/base.h"
 #include "core/coreengine.h"
 #include "core/uiobjecthandler.h"
 #include "core/eventmapper.h"
@@ -22,6 +23,7 @@
 #include "elements/buttoncobject.h"
 #include "elements/module.h"
 
+class Base;
 class CoreEngine;
 class UIObjectHandler;
 class EventMapper;
@@ -45,7 +47,14 @@ class ConfigParser : public QObject
 public:
     explicit ConfigParser(CoreEngine *parent = 0);
 
+	bool getNodeList(QString file, QString tag);
+	QDir getFirstConfigDir();
+
     //GETTER
+
+	inline CoreEngine *getCore() { return this->core; }
+    inline QDir *getConfigBaseDir() { return this->config_base_dir; }
+    inline QDir *getConfigDir() { return this->config_dir; }
 
     //SETTER
     void initConfigPath(const QString path);
@@ -53,9 +62,6 @@ public:
     bool buildConfig();
     bool buildMachineConfig(const QString machine_cfg);
     bool buildObjects(const QString object_cfgv);
-    bool buildScreenObject(const QDomNamedNodeMap &map);
-    bool buildButtonCObject(const QDomNamedNodeMap &map);
-    //bool buildButtonTObject(const QDomNamedNodeMap &map);
 	bool buildModuleConfig(const QString mod_cfgv);
 
 signals:
@@ -68,15 +74,17 @@ private:
     QDir *config_dir;
     QDir *config_base_dir;
 
+    QDomNodeList *temp_node_list;
+
     QFileInfoList *file_list;
     QFileInfoList::Iterator file_list_it;
 
     CoreEngine *core;
     MachineConfig *machine_cfg_ref;
     EventMapper::ModuleList *module_list_ref;
-    UIObjectHandler::ScreenList *screen_list_ref;
-    UIObjectHandler::ButtonCList *buttonc_list_ref;
-    //UIObjectHandler::ButtonTList *buttont_list_ref;
+    //UIObjectHandler::ButtonCList *buttonc_list_ref;
+    QList<ButtonCObject*> *buttonc_list_ref;
+    QList<ScreenObject*> *screen_list_ref;
 
     bool machine_cfg_state;
     bool object_cfg_state;

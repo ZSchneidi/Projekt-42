@@ -5,17 +5,18 @@
 #include <QList>
 #include <QMetaType>
 
+#include "ext/base.h"
 #include "core/exception.h"
 #include "elements/machineconfig.h"
 #include "elements/screenobject.h"
 #include "elements/buttoncobject.h"
-#include "elements/buttontobject.h"
 #include "global_define.h"
 
+
+class Base;
 class MachineConfig;
 class ScreenObject;
 class ButtonCObject;
-//class ButtonTObject;
 
 /**
   * The UIObjectHandler is designed to store and provide a complete range
@@ -37,10 +38,9 @@ public:
     explicit UIObjectHandler(QObject *parent = 0);
 
     bool initUIObjectHandler();
-    typedef QList<ScreenObject*> ScreenList;
-    typedef QList<ButtonCObject*> ButtonCList;
-   // typedef QList<ButtonTObject*> ButtonTList;
 
+	typedef QList<ScreenObject*> ScreenList;
+    typedef QList<ButtonCObject*> ButtonCList;
 
 public:
 
@@ -48,12 +48,6 @@ public:
     MachineConfig *getMachineConfig();
     ScreenList *getScreenList();
     ButtonCList *getButtonCList();
-   // ButtonTList *getButtonTList();
-   // inline bool getState() { return this->state; }
-
-    //SETTER
-
-    //inline void setState(bool state) { this->state = state;}
 
 private:
 
@@ -62,9 +56,6 @@ private:
     MachineConfig *machine_cfg;
     ScreenList screen_list;
     ButtonCList buttonc_list;
-   // ButtonTList buttont_list;
-
-    //bool state;
 };
 
 

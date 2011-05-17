@@ -15,6 +15,49 @@ void ButtonCObject::setObjVisible(QString value)
 		}
     }
 
+
+bool ButtonCObject::buildButtonCObject(ConfigParser *parser, const QDomNamedNodeMap &map)
+    {
+
+    for(uint i = 1; i <= map.length();i++)
+		{
+		QDomAttr attr = map.item(i-1).toAttr();
+		if(attr.name() == BUTTON_C_ATTR_ID)
+			this->setObjID(attr.value().toInt());
+		else if(attr.name() == BUTTON_C_ATTR_PARENT)
+			this->setObjParent(attr.value().toInt());
+		else if(attr.name() == BUTTON_C_ATTR_TYPE)
+			this->setObjType(attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_NAME)
+			this->setObjName(attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_AUX)
+			this->setObjAux(attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_XPOS)
+			this->setObjXPos(attr.value().toInt());
+		else if(attr.name() == BUTTON_C_ATTR_YPOS)
+			this->setObjYPos(attr.value().toInt());
+		else if(attr.name() == BUTTON_C_ATTR_UPFILE && attr.value() != "")
+			this->setObjUpFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_DOFILE && attr.value() != "")
+			this->setObjDoFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_ACT_UPFILE && attr.value() != "")
+			this->setObjActUpFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_ACT_DOFILE && attr.value() != "")
+			this->setObjActDoFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_TEA_UPFILE && attr.value() != "")
+			this->setObjTeaUpFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_TEA_DOFILE && attr.value() != "")
+			this->setObjTeaDoFile(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_VISIBLE)
+			this->setObjVisible(attr.value());
+		else if(attr.name() == BUTTON_C_ATTR_URL_LINK)
+			this->setObjUrlLink(attr.value());
+		}
+
+    return true;
+    }
+
+
 QString ButtonCObject::getObjLogEntry()
     {
     QString temp;

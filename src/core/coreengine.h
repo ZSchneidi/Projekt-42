@@ -7,6 +7,7 @@
 #include <QTimer>
 
 #include "global_define.h"
+#include "ext/base.h"
 #include "core/eventhandler.h"
 #include "core/configparser.h"
 #include "core/loghandler.h"
@@ -16,6 +17,7 @@
 #include "elements/product.h"
 #include "elements/event.h"
 
+class Base;
 class ViewPort;
 class EventHandler;
 class ConfigParser;
@@ -55,7 +57,7 @@ public:
 	WEB_UI
 	};
 
-    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI,LogHandler::Log_state log_state = LogHandler::ACTIVE,QString config_path = "");
+    explicit CoreEngine(QWidget *parent = 0,InitMode mode = QML_UI, Base::Log_state log_state = Base::LS_Active , QString config_path = "");
     ~CoreEngine();
 
     bool SystemStartUp(const QSize size, const Qt::WindowState window_state);

@@ -5,6 +5,9 @@
 #include <QMetaType>
 
 #include "global_define.h"
+#include "core/configparser.h"
+
+class ConfigParser;
 
 
 /**
@@ -28,11 +31,10 @@ class ScreenObject : public QObject
     Q_PROPERTY(QString bgimg READ getObjBackgroundImage CONSTANT)
     Q_PROPERTY(QString def READ getObjDef CONSTANT)
 
-
-
-
 public:
     explicit ScreenObject();
+
+    bool buildScreenObject(ConfigParser *parser,const QDomNamedNodeMap &map);
 
     //GETTER
     inline int getObjID() {return this->id;}

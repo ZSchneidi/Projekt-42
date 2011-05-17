@@ -47,25 +47,25 @@ int main(int argc, char *argv[])
 		}
 
 	/*init LogHandler state*/
-	LogHandler::Log_state log_state = LogHandler::ACTIVE;
+	Base::Log_state log_state = Base::LS_Active;
 	if(arguments.contains(ARG_LOG_STATE_ACTIVE))
 		{
 		used_arguments += ARG_LOG_STATE_ACTIVE;
-		log_state = LogHandler::ACTIVE;
+		log_state = Base::LS_Active;
 		}
 	else 	if(arguments.contains(ARG_LOG_STATE_RESTRICTED))
 		{
 		used_arguments += ARG_LOG_STATE_RESTRICTED;
-		log_state = LogHandler::RESTRICTED;
+		log_state = Base::LS_Restricted;
 		}
 	else 	if(arguments.contains(ARG_LOG_STATE_INACTIVE))
 		{
 		used_arguments += ARG_LOG_STATE_INACTIVE;
-		log_state = LogHandler::INACTIVE;
+		log_state = Base::LS_Inactive;
 		}
 
 	/*display size*/
-	Qt::WindowState windows_state;
+	Qt::WindowState windows_state = Qt::WindowNoState;
 	QSize window_size = QSize(SYSTEM_VIEWPORT_WIDTH,SYSTEM_VIEWPORT_HEIGHT);
 	if(arguments.contains(ARG_FULLSCREEN))
 		{

@@ -8,8 +8,12 @@
 #include <QTime>
 #include <QDate>
 
-#include "core/coreengine.h"
+
 #include "global_define.h"
+#include "ext/base.h"
+#include "coreengine.h"
+
+class CoreEngine;
 
 /**
   * The LogHandler is designed to write all kinds of logs.
@@ -20,7 +24,7 @@
   * based an the XML config.
   */
 class LogHandler : public QObject
-{
+	{
     Q_OBJECT
 
     QIODevice::OpenModeFlag system_log_write_mode;
@@ -30,10 +34,10 @@ public:
 
     enum Message_type {
         SYSTEM,
-	WARNING,
-	ERROR,
-	INFO
-	};
+		WARNING,
+		ERROR,
+		INFO
+		};
 
     enum Parser_Message_type {
         PARSER_INFO,
@@ -42,27 +46,23 @@ public:
         };
 
     enum Event_type {
-	PPRODUCT_EVENT
-	};
+		PPRODUCT_EVENT
+		};
 
-    enum Log_state {
-	ACTIVE,
-	RESTRICTED,
-	INACTIVE
-	};
 
-    explicit LogHandler(CoreEngine *parent = 0,Log_state log_state = LogHandler::ACTIVE);
+   // explicit LogHandler(QObject *parent = 0,  Base::Log_state log_state = Base::LS_Active);
+    explicit LogHandler(CoreEngine *parent = 0,  Base::Log_state log_state = Base::LS_Active);
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);
     bool writeToEventLog(QString message,LogHandler::Event_type);
     bool writeToConfigParserLog(QString message,LogHandler::Parser_Message_type);
 
     //GETTER
-    inline LogHandler::Log_state getLoggerState() { return this->system_log_state; }
+    inline Base::Log_state getLoggerState() { return this->system_log_state; }
     inline CoreEngine *getCore() { return this->core; }
 
 	//SETTER
-    void setLoggerState(Log_state state);
+    void setLoggerState( Base::Log_state state);
     void setLoggerWriteMode(QIODevice::OpenModeFlag);
 
     bool logDirExists();
@@ -71,13 +71,13 @@ public:
 
 private:
 
-    CoreEngine *core;
+	CoreEngine *core;
 
     QFile *system_log;
     QFile *event_log;
     QFile *config_log;
 
-    Log_state system_log_state;
+	Base::Log_state system_log_state;
 
     QString getSystemTimeStr();
 

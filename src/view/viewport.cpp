@@ -6,15 +6,14 @@ ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
 {
     this->core = parent;
     this->main_layer_path = path;
-
     this->interface = new ViewPortInterface(this);
     this->element_interface = new WebElementInterface(this);
-
     }
 
 bool ViewPort::initViewPort()
     {
     /*initialize root_context with the root context of the ViewPort*/
+    /*do not delete this line, this would result in application crash*/
     this->root_context = this->rootContext();
     return true;
     }

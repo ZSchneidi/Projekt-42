@@ -5,8 +5,12 @@
 #include <QMetaType>
 #include <QDeclarativeItem>
 #include <QImage>
+#include <QDomNamedNodeMap>
 
 #include "global_define.h"
+#include "core/configparser.h"
+
+class ConfigParser;
 
 /**
   * This is the representation of a Button_C type object.
@@ -53,6 +57,8 @@ class ButtonCObject : public QObject
 
 public:
     explicit ButtonCObject();
+
+    bool buildButtonCObject(ConfigParser *parser, const QDomNamedNodeMap &map);
 
     //GETTER
     inline int getObjID() {return this->id;}

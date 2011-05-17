@@ -21,15 +21,15 @@ SOURCES += main.cpp\
     elements/screenobject.cpp \
     core/uiobjecthandler.cpp \
     elements/buttoncobject.cpp \
-    elements/screenlistwrapper.cpp \
     elements/product.cpp \
     core/exception.cpp \
     view/webelementinterface.cpp \
-    elements/buttontobject.cpp \
+   # elements/buttontobject.cpp \
     elements/module.cpp \
     core/eventmapper.cpp \
     elements/event.cpp \
-    core/ext/eventdefinition.cpp
+    core/ext/eventdefinition.cpp \
+    core/ext/base.cpp
 
 HEADERS  += core/coreengine.h \
     core/eventhandler.h \
@@ -42,15 +42,15 @@ HEADERS  += core/coreengine.h \
     elements/screenobject.h \
     core/uiobjecthandler.h \
     elements/buttoncobject.h \
-    elements/screenlistwrapper.h \
     elements/product.h \
     core/exception.h \
     view/webelementinterface.h \
-    elements/buttontobject.h \
+ #   elements/buttontobject.h \
     elements/module.h \
     core/eventmapper.h \
     elements/event.h \
-    core/ext/eventdefinition.h
+    core/ext/eventdefinition.h \
+    core/ext/base.h
 
 FORMS    += coreengine.ui
 

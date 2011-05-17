@@ -15,6 +15,36 @@ ScreenObject::ScreenObject() :
 
 	}
 
+
+bool ScreenObject::buildScreenObject(ConfigParser *parser,const QDomNamedNodeMap &map)
+    {
+
+    for(uint i = 1; i <= map.length();i++)
+		{
+		QDomAttr attr = map.item(i-1).toAttr();
+		if(attr.name() == SCREEN_ATTR_ID)
+			this->setObjID(attr.value().toInt());
+		else if(attr.name() == SCREEN_ATTR_PARENT)
+			this->setObjParent(attr.value().toInt());
+		else if(attr.name() == SCREEN_ATTR_TYPE)
+			this->setObjType(attr.value());
+		else if(attr.name() == SCREEN_ATTR_NAME)
+			this->setObjName(attr.value());
+		else if(attr.name() == SCREEN_ATTR_AUX)
+			this->setObjAux(attr.value());
+		else if(attr.name() == SCREEN_ATTR_TIMEOUT)
+			this->setObjTimeout(attr.value().toInt());
+		else if(attr.name() == SCREEN_ATTR_BGIMG)
+			{
+			this->setObjBackgroundImage(QString(parser->getConfigBaseDir()->absolutePath())+"/"+attr.value());
+			}
+		else if(attr.name() == SCREEN_ATTR_DEF)
+			this->setObjDef(attr.value());
+		}
+    return true;
+    }
+
+
 QString ScreenObject::getObjLogEntry()
 	{
     QString temp;
@@ -29,4 +59,3 @@ QString ScreenObject::getObjLogEntry()
     temp += "\t"+QString(SCREEN_ATTR_DEF)+": " + this->def;
     return temp;
 	}
-
