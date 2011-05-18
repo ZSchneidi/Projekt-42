@@ -5,7 +5,6 @@
 #include <QtCore/qtconcurrentexception.h>
 #include <QDebug>
 
-$Revision$
 
 /**
   * The global_definition header contains all kinds of definitions

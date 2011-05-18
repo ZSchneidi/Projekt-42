@@ -1,4 +1,0 @@
-# .gitattributes
-# Map file extensions to git filters
-
-src/global_define.h filter=rcs-keywords 
