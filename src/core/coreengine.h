@@ -68,9 +68,10 @@ public:
     bool configLogInfo(const QString message);
     bool configLogWarning(const QString message);
     bool configLogError(const QString message);
-    void startSystemTimer();
 
-	bool showHelpDialog();
+    void startSystemTimer();
+	void showHelpDialog();
+	void showAboutDialog();
 
     //GETTER
     inline CoreEngine *getCore() {return this;}

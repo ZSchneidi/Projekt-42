@@ -27,6 +27,7 @@ Item {
 				admin_screen.state = "shown_admin_screen"
 			}
 		}
+
 		MouseArea {
 			id: admin_mouse_area
 			opacity: 1

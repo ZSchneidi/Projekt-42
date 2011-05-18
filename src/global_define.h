@@ -13,6 +13,15 @@
   */
 
 #define SYS_NAME															"Projekt-42"
+#define SYS_MAJ_REV													"0"
+#define SYS_MIN_REV													"2"
+#define SYS_SUB_REV													"c5190d8"
+
+
+#define SYS_REVISION													SYS_MAJ_REV"."SYS_MIN_REV"."SYS_SUB_REV
+#define SYS_AUTHOR														"Jan Schneidereit"
+#define SYS_DATE															"18.05.2011"
+
 
 /* VALID STARTUP ARGUMENTS */
 #define ARG_HELP															"--help"
@@ -32,6 +41,8 @@
 #define EVENT_LOG_FILE												LOG_DIR"event_log.log"
 #define CONFIG_LOG_FILE												LOG_DIR"config_log.log"
 
+#define HELP_DIALOG_FILE											DEFAULT_WEB_CFG_SUBDIR"help_dialog.txt"
+
 
 /** Core definition **/
 
@@ -42,7 +53,8 @@
 /*define the hex representation of the button which
 toggles the application fullscreen mode*/
 #define TOGGLE_FULLSCREEN_BUTTON							0x41 // a
-#define TERM_SYSTEM_BUTTON										0x43 // c
+#define TERM_SYSTEM_BUTTON_C									0x43 // c
+#define TERM_SYSTEM_BUTTON_Q									0x51 // q
 #define HELP_SYSTEM_BUTTON										0x48 // h
 
 /*QML type identifiers*/
@@ -175,16 +187,14 @@ toggles the application fullscreen mode*/
 #define EVENT_LOG_PRODUCT										"PRODUCT"
 
 
-
 #define MISSING_MACH_TAG											"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
 #define MISSING_OBJ_TAG												"Missing \"" OBJECT_CFG_TAG "\" tag in " OBJ_CFGV " file"
 #define MISSING_MOD_TAG											"Missing \"" MODULE_CFG_TAG "\" tag in " MOD_CFGV " file"
 #define ERROR_APP_CLOSE											"Application was closed manually"
 #define RESTORE_LOG_DIR											"Restore missing log directory"
 
-#define HELP_DIA_TITLE												"Help"
-#define HELP_DIA_TEXT													SYS_NAME " help Dialog "
 
+#define SYS_HELP_TEXT													"The "SYS_NAME" software was designed as a proof the concept of providing a modern user interface on low performance Systems."
 
 /** QML layer definition **/
 #define SYSTEM_TITLE													"StuffMate"

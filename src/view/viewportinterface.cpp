@@ -53,4 +53,19 @@ void ViewPortInterface::emitOutEventOnTarget(Event *event)
 	emit this->outEventOnTarget(event);
 	}
 
+void ViewPortInterface::showAboutDialog()
+	{
+	emit this->aboutDialogCalled(SYS_REVISION,SYS_AUTHOR,SYS_NAME, SYS_HELP_TEXT,SYS_DATE);
+	}
+
+bool ViewPortInterface::showHelpDialog()
+	{
+	QFile help_file(HELP_DIALOG_FILE);
+	 if (!help_file.open(QIODevice::ReadOnly))
+		return false;
+	QString text = help_file.readAll();
+	emit this->helpDialogCalled(text);
+	return true;
+	}
+
 

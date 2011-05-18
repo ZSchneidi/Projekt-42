@@ -42,12 +42,16 @@ public:
 
 	//Signal caller
 	void emitOutEventOnTarget(Event *event);
+	void showAboutDialog();
+	bool showHelpDialog();
 
 signals:
 
     void systemTimeChanged(QString new_time);
     void systemDateChanged(QString new_date);
     void outEventOnTarget(Event *event);
+    void aboutDialogCalled(QString rev, QString auth, QString name,QString text,QString date);
+    void helpDialogCalled(QString text);
 
 public slots:
 

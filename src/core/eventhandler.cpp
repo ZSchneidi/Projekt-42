@@ -31,11 +31,12 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
                     else
                         this->core->showNormal();
                     return true;
-				case TERM_SYSTEM_BUTTON:
+				case TERM_SYSTEM_BUTTON_C:
+				case TERM_SYSTEM_BUTTON_Q:
 					this->core->close();
 					break;
 				case HELP_SYSTEM_BUTTON:
-					this->core->showHelpDialog();
+					this->core->showAboutDialog();
 					break;
                 default:
                     return false;

@@ -125,6 +125,7 @@ QString getHelpText()
     ret_str += QString("\nDisplay options \n");
     ret_str += QString(ARG_FULLSCREEN" - is used to init the viewport in FullScreen mode\n");
     ret_str += QString(ARG_SCREEN_SIZE"WidthxHeight - used to init the viewport with the defined size \n");
+    ret_str += QString("\nYou cann also use the F1 or ctrl+h key to get more infromation at runtime. \n");
     return ret_str;
     }
 

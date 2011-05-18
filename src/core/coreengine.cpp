@@ -205,15 +205,23 @@ UIObjectHandler *CoreEngine::getUIObjectHandler()
     return this->ui_object_handler;
     }
 
-bool CoreEngine::showHelpDialog()
+/**
+  * The HelpDialog is provided on qml layer.
+  * Because of that the core will call the viewportinterface to show
+  * the HelpDialog.
+  */
+void CoreEngine::showAboutDialog()
 	{
-	qDebug() << "help";
 
-	QMessageBox msgBox;
-	msgBox.setWindowTitle(HELP_DIA_TITLE);
-	msgBox.setText(HELP_DIA_TEXT);
-	msgBox.exec();
+	this->getViewPort()->getViewPortInterface()->showAboutDialog();
+	}
 
+void CoreEngine::showHelpDialog()
+	{
+	if(!this->getViewPort()->getViewPortInterface()->showHelpDialog())
+		{
+		qDebug() << "can't read help file";
+		}
 
 	}
 
