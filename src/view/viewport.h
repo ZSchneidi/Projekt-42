@@ -28,17 +28,6 @@ class ViewPort : public QDeclarativeView
     Q_OBJECT
 
 
-    /**context for the QDeclarative environment*/
-    QDeclarativeContext *root_context;
-
-    /**/
-    CoreEngine *core;
-    /*the interface between C++ and QML layer */
-    ViewPortInterface *interface;
-    WebElementInterface *element_interface;
-
-    QUrl main_layer_path;
-    QUrl sub_layer_path;
 
 
 public:
@@ -46,8 +35,6 @@ public:
 
     bool initViewPort();
     void initViewLayer(QUrl source = QUrl(""));
-
-    void initQmlProperties();
 
     //GETTER
     inline CoreEngine *getCore() { return this->core; }
@@ -65,6 +52,17 @@ public slots:
 
 private:
 
+    /**context for the QDeclarative environment*/
+    QDeclarativeContext *root_context;
+
+    /**/
+    CoreEngine *core;
+    /*the interface between C++ and QML layer */
+    ViewPortInterface *interface;
+    WebElementInterface *element_interface;
+
+    QUrl main_layer_path;
+    QUrl sub_layer_path;
     QUrl ui_layer_path;
 
 };

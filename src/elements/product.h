@@ -39,10 +39,6 @@ public slots:
 
 private:
 
-    int product_code;
-    int sugar_value;
-    int milk_value;
-    float product_price;
     int m_product_code;
     float m_prodcut_price;
     QString m_product_name;

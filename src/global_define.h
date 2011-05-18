@@ -5,11 +5,15 @@
 #include <QtCore/qtconcurrentexception.h>
 #include <QDebug>
 
+$Revision$
+
 /**
   * The global_definition header contains all kinds of definitions
   * which are referred by the hole application.
   *
   */
+
+#define SYS_NAME															"Projekt-42"
 
 /* VALID STARTUP ARGUMENTS */
 #define ARG_HELP															"--help"
@@ -38,8 +42,9 @@
 
 /*define the hex representation of the button which
 toggles the application fullscreen mode*/
-#define TOGGLE_FULLSCREEN_BUTTON							0x41
-#define TERM_SYSTEM_BUTTON										0x43
+#define TOGGLE_FULLSCREEN_BUTTON							0x41 // a
+#define TERM_SYSTEM_BUTTON										0x43 // c
+#define HELP_SYSTEM_BUTTON										0x48 // h
 
 /*QML type identifiers*/
 #define VIEWPORTINTERFACE											"viewportinterface"
@@ -177,6 +182,9 @@ toggles the application fullscreen mode*/
 #define MISSING_MOD_TAG											"Missing \"" MODULE_CFG_TAG "\" tag in " MOD_CFGV " file"
 #define ERROR_APP_CLOSE											"Application was closed manually"
 #define RESTORE_LOG_DIR											"Restore missing log directory"
+
+#define HELP_DIA_TITLE												"Help"
+#define HELP_DIA_TEXT													SYS_NAME " help Dialog "
 
 
 /** QML layer definition **/

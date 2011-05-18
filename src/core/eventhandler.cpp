@@ -10,7 +10,7 @@ EventHandler::EventHandler(CoreEngine *parent):
 
 void EventHandler::keyPressEvent(QKeyEvent *event)
 	{
-	qDebug() << event->key();
+	//qDebug() << event->key();
 	}
 
 bool EventHandler::eventFilter(QObject *obj, QEvent *event)
@@ -19,8 +19,10 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
     if (event->type() == QEvent::KeyPress)
         {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+
         if (keyEvent->modifiers() == Qt::ControlModifier)
             {
+			qDebug() << keyEvent->key();
             switch(keyEvent->key())
                 {
                 case TOGGLE_FULLSCREEN_BUTTON:
@@ -31,10 +33,25 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
                     return true;
 				case TERM_SYSTEM_BUTTON:
 					this->core->close();
+					break;
+				case HELP_SYSTEM_BUTTON:
+					this->core->showHelpDialog();
+					break;
                 default:
                     return false;
                 }
             }
+        else
+			{
+			 switch(keyEvent->key())
+                {
+                case Qt::Key_F1:
+					this->core->showHelpDialog();
+                    return true;
+                default:
+                    return false;
+                }
+			}
         }
     return false;
     }

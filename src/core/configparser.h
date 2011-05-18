@@ -82,7 +82,6 @@ private:
     CoreEngine *core;
     MachineConfig *machine_cfg_ref;
     EventMapper::ModuleList *module_list_ref;
-    //UIObjectHandler::ButtonCList *buttonc_list_ref;
     QList<ButtonCObject*> *buttonc_list_ref;
     QList<ScreenObject*> *screen_list_ref;
 

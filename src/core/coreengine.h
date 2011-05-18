@@ -70,7 +70,7 @@ public:
     bool configLogError(const QString message);
     void startSystemTimer();
 
-
+	bool showHelpDialog();
 
     //GETTER
     inline CoreEngine *getCore() {return this;}

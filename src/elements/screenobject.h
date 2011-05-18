@@ -31,6 +31,10 @@ class ScreenObject : public QObject
     Q_PROPERTY(QString bgimg READ getObjBackgroundImage CONSTANT)
     Q_PROPERTY(QString def READ getObjDef CONSTANT)
 
+
+
+
+
 public:
     explicit ScreenObject();
 

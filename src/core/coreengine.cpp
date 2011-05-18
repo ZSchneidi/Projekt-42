@@ -205,3 +205,15 @@ UIObjectHandler *CoreEngine::getUIObjectHandler()
     return this->ui_object_handler;
     }
 
+bool CoreEngine::showHelpDialog()
+	{
+	qDebug() << "help";
+
+	QMessageBox msgBox;
+	msgBox.setWindowTitle(HELP_DIA_TITLE);
+	msgBox.setText(HELP_DIA_TEXT);
+	msgBox.exec();
+
+
+	}
+
