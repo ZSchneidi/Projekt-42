@@ -1,1 +1,19 @@
-This is going to be the help text 
+You can use the following key combinations to controll the application.
+
+F1 - show this help dialog
+Crtl+A - toggle fullscreen
+Ctrl+C, Ctrl+Q - terminate the programm
+Ctrl+H - show Version Information
+
+You can also use arguments to start the application in different states.
+
+--help - shows a arguments description dialog
+--web - start with XML based Layout
+--qml - start with QML based Layout
+-C=source - source defines the path to the current XML config
+--ls_active - set the logger active
+--ls_restrict - restricts the logger
+--ls_inactive - set the logger inaction
+--fullscreen - start in fullscreen mode
+-S=widthxheight - define the width and height of the viewport
+

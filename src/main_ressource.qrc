@@ -5,8 +5,8 @@
         <file>view/qml_source/QmlSubLayer.qml</file>
         <file>view/qml_source/WebSubLayer.qml</file>
         <file>view/qml_source/pos_layout/PosScreen.qml</file>
-        <file>view/qml_source/pos_layout/SelectionBox.qml</file>
         <file>view/qml_source/pos_layout/Button.qml</file>
+        <file>view/qml_source/pos_layout/HotSelectionBox.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>view/qml_source/img/r_20_shadow.png</file>

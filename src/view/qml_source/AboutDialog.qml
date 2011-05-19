@@ -163,7 +163,7 @@ Item {
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: 10
 		/*access the buttons text and mouse_area property*/
-		text.text: "Ok"
+		text: "Ok"
 		mouse_area.onClicked: {
 			parent.opacity = 0;
 		}

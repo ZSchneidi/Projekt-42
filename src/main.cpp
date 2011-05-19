@@ -88,7 +88,8 @@ int main(int argc, char *argv[])
 
 	/* ARGUMENTS FINISHED */
 
-	a.setGraphicsSystem("raster");
+	//a.setGraphicsSystem("native");
+	QApplication::setGraphicsSystem("raster");
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 

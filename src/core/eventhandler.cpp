@@ -59,6 +59,7 @@ bool EventHandler::eventFilter(QObject *obj, QEvent *event)
 
 bool EventHandler::processProductAction(Product *product)
     {
+    qDebug() << product->productCode() << " - " << product->productName();
     /*this is an example of a product which emits an unhandled error*/
     if(product->productCode() == 10003)
 		return false;

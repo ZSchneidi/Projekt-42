@@ -63,7 +63,6 @@ OTHER_FILES += \
     view/qml_source/AdminPanel.qml \
     view/qml_source/pos_layout/PosScreen.qml\
     view/qml_source/pos_layout/Button.qml \
-    view/qml_source/pos_layout/SelectionBox.qml \
     view/qml_source/pos_layout/MenuBar.qml \
     view/qml_source/pos_layout/MenuButton.qml \
     view/qml_source/web_elements/Screen.qml \
@@ -73,7 +72,13 @@ OTHER_FILES += \
     view/js_source/GlobalVar.js \
     view/qml_source/elements/GenericButton.qml \
     view/qml_source/AboutDialog.qml \
-    view/qml_source/HelpDialog.qml
+    view/qml_source/HelpDialog.qml \
+    view/qml_source/pos_layout/DetailScreen.qml \
+    view/qml_source/elements/Shadow.qml \
+    view/qml_source/pos_layout/HotSelectionBox.qml \
+    view/qml_source/pos_layout/ColdSelectionBox.qml \
+    view/qml_source/elements/Slider.qml \
+    view/qml_source/pos_layout/PaymentInfo.qml
 
 RESOURCES += \
     main_ressource.qrc

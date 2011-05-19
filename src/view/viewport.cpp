@@ -8,6 +8,8 @@ ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
     this->main_layer_path = path;
     this->interface = new ViewPortInterface(this);
     this->element_interface = new WebElementInterface(this);
+
+
     }
 
 bool ViewPort::initViewPort()
