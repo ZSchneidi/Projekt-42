@@ -16,6 +16,9 @@ Item {
 		anchors.topMargin: 10
 		width: (parent.width/100)*button_width_percent
 		height: (parent.height/100)*button_height_percent
+		mouse_area.onClicked: {
+			    loadSelectionScreen("ColdSelectionBox.qml");
+				}
     }
 
     MenuButton{
@@ -26,6 +29,10 @@ Item {
 		anchors.topMargin: 10
 		width: (parent.width/100)*button_width_percent
 		height: (parent.height/100)*button_height_percent
+		mouse_area.onClicked: {
+				loadSelectionScreen("HotSelectionBox.qml");
+				}
+
     }
 
     MenuButton{
@@ -37,4 +44,12 @@ Item {
 		width: (parent.width/100)*button_width_percent
 		height: (parent.height/100)*button_height_percent
     }
+
+    function loadSelectionScreen(source)
+	{
+		parent.parent.parent.select_loader.parent.loadSelectionBox(source);
+	}
 }
+
+
+

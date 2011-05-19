@@ -1,9 +1,11 @@
 import QtQuick 1.0
 import Product 0.1
+import "../elements"
 
 Item {
     id: button_item
-    property string button_name: "empty"
+    property alias mouse_area: button_mouse_area
+    property alias button_name: product.productName
     property string button_image: "../img/Coffee.png"
     property int button_with: 130
     property int button_height: 140
@@ -36,21 +38,15 @@ Item {
 			}
 		}
 		/*shadow declaration*/
-		BorderImage {
+		Shadow{
 			id:shadow
-			anchors.fill: button_base
-			anchors { leftMargin: -10; topMargin: -10; rightMargin: -10; bottomMargin: -10 }
-			border { left: 30; top: 30; right: 30; bottom: 30 }
-			horizontalTileMode: BorderImage.Stretch
-			verticalTileMode: BorderImage.Stretch
-			z:-1
-			source: "../img/r_20_shadow.png"
 		}
 
-
+		/*this is the buttons lable*/
 		Text {
-            id: text1
+            id: button_label
 			y: 11
+			color: "#d3d3d3"
 			text: button_name
 			anchors.right: parent.right
 			anchors.rightMargin: 5
@@ -62,7 +58,6 @@ Item {
 			wrapMode: Text.WordWrap
 			smooth: true
             style: Text.Sunken
-            styleColor: "#000000"
             verticalAlignment: Text.AlignTop
 			horizontalAlignment: Text.AlignHCenter
 			font.pixelSize: (button_item.height/100)*lable_size_percent;
@@ -100,6 +95,7 @@ Item {
                 anchors.leftMargin: 10
                 anchors.topMargin: 10
 
+				/*Product image*/
                 Image {
                     id: image1
 					x: 0
@@ -115,13 +111,8 @@ Item {
                     anchors.fill: parent
 					source: button_image
                 }
-
-
-
             }
         }
-
-
     }
 
     /*product definition is used to link product information to a Button*/
@@ -142,9 +133,13 @@ Item {
         onExited: {
 			highlight.opacity = 0.0
         }
-		onPressed: {
+		onClicked: {
 			viewportinterface.sendProductAction(product)
-			pressed.opacity = 0.2
+			//pressed.opacity = 0.2
+			//shadow.opacity = 0.5
+        }
+        onPressed: {
+			pressed.opacity = 0.3
 			shadow.opacity = 0.5
         }
 		onReleased: {

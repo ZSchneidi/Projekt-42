@@ -7,21 +7,19 @@ import QtQuick 1.0
 Item {
     id: generic_button
     property alias mouse_area: button_mouse_area
-    property alias text: button_text
+    property alias text: button_text.text
     property alias button_background: button_back
+    property int lable_size_percent: 60
+
     property string button_text: ""
     property int button_radius: 5
+    property int button_with: button_text.width+20
 
-	width:  100
-	height: 40
+	width:  button_with
 
 	Rectangle {
 		id: button_back
 		anchors.fill: parent
-		x: 15
-		y: 255
-		width: 60
-		height: 30
 		radius: button_radius
 		gradient: Gradient {
 			GradientStop {
@@ -33,14 +31,16 @@ Item {
 				color: "#807d7d"
 			}
 		}
+
 		Text {
 			id: button_text
 			anchors.centerIn: parent
 			color: "#383737"
 			text: "default"
 			font.bold: true
-			font.pixelSize: 15
+			font.pixelSize: (generic_button.height/100)*lable_size_percent;
 		}
+
 		/*shadow declaration*/
 		BorderImage {
 			id:shadow
@@ -51,6 +51,7 @@ Item {
 			z:-1
 			source: "../img/r_20_shadow.png"
 		}
+
 		Rectangle {
 			id: highlight
 			color: "#e5f4fb"
@@ -59,6 +60,7 @@ Item {
 			anchors.fill: parent
 			z: 1
 		}
+
 		Rectangle {
 			id: pressed
 			color: "#1f1f20"
@@ -86,7 +88,6 @@ Item {
 		onReleased: {
             pressed.opacity = 0.0
 			shadow.opacity = 1.0
-
         }
     }
 }

@@ -3,6 +3,10 @@ import QtQuick 1.0
 Item {
     width: 800
     height: 600
+
+    property alias select_loader: selection_loader
+    property alias bottom_info_loader: bottom_info_content
+
     property color title_text_color: "#5c5c5c"
     property int menu_width_percent: 25
     property int title_height_percent: 20
@@ -13,6 +17,8 @@ Item {
     property int system_date_size: 20
     property int datetime_width_percent: 30
     property string title_font: "Impact"
+
+	property string current_select_box: ""
 
     id: pos_screen
     /** Screen background declaration**/
@@ -144,9 +150,7 @@ Item {
 				}
 			}
 			anchors.fill: parent
-
 		}
-
 		Loader{
 			id:menu_loader
 			anchors.fill: parent
@@ -171,13 +175,50 @@ Item {
 		id: pos_screen_select_box
 		anchors.top: pos_screen_title.bottom
 		anchors.left: pos_screen_menu.right
-		anchors.bottom: pos_screen.bottom
+		anchors.bottom: pos_screen_bottom_info.top
 		anchors.right: pos_screen.right
 		Loader{
 			id: selection_loader
 			anchors.fill: parent
-			source: "SelectionBox.qml"
+			source: "HotSelectionBox.qml"
+
+			Component.onCompleted: {
+				select_loader.item.state = "visible"
+			}
 		}
+
+
+		/* JAVASCRIPT */
+
+		function loadDetailScreen(source,product)
+		{
+			current_select_box = select_loader.source;
+			select_loader.item.state = "invisible"
+			select_loader.source = source;
+			select_loader.item.state = "visible"
+			if(select_loader.status == Loader.Ready)
+			{
+				select_loader.item.product_name = product.productName;
+				select_loader.item.product_price = product.productPrice;
+			}
+
+			bottom_info_loader.source = "PaymentInfo.qml";
+			bottom_info_loader.item.state = "visible";
+
+		}
+
+		function loadSelectionBox(source)
+		{
+			current_select_box = source;
+			if(select_loader.item != null)
+				select_loader.item.state = "invisible";
+			if(bottom_info_loader.item != null)
+				bottom_info_loader.item.state = "invisible";
+			select_loader.source = source;
+			if(select_loader.item != null)
+				select_loader.item.state = "visible";
+		}
+
     }
 
     /** Screen top info bar declaration **/
@@ -203,9 +244,16 @@ Item {
 		height: (parent.height/100)*bottom_info_height_percent
 		Rectangle{
 			anchors.fill: parent
-			color: "lightgrey"
-			opacity: 0.1
+			color: "#888a8d"
+			//opacity: 0.2
 		}
+		Loader{
+			id:bottom_info_content
+			anchors.fill: parent
+			source: ""
+
+		}
+
     }
 
 

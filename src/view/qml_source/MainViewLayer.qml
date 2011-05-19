@@ -1,5 +1,5 @@
 import QtQuick 1.0
-//import "elements"
+import "elements"
 
 /**
   * The MainViewLayer is the central qml file which dynamically loads the
@@ -15,7 +15,6 @@ Item {
         anchors.fill: parent
 
 		/*The Loader is used to load the corresponding qml files depending on the InitMode*/
-
 		Loader{
 			id: sale_loader
 			anchors.fill: parent
@@ -25,24 +24,31 @@ Item {
 		Connections{
 			target: viewportinterface
 			onAboutDialogCalled: {
-				help_dialog.system_revision = rev;
-				help_dialog.system_name = name;
-				help_dialog.system_author = auth;
-				help_dialog.system_date = date;
-				help_dialog.help_text = text;
-				help_dialog.opacity = 1;
+				about_dialog.system_revision = rev;
+				about_dialog.system_name = name;
+				about_dialog.system_author = auth;
+				about_dialog.system_date = date;
+				about_dialog.help_text = text;
+				about_dialog.opacity = 1;
 			}
 			onHelpDialogCalled: {
-				console.log(text);
+				help_dialog.help_text = text;
+				help_dialog.opacity = 1;
 			}
 		}
 
 		AboutDialog {
-			id: help_dialog
+			id: about_dialog
 			anchors.centerIn: parent
 			opacity: 0
 		}
 
+		HelpDialog{
+
+			id: help_dialog
+			anchors.centerIn: parent
+			opacity: 0
+		}
 
 		/*
 		AdminPanel{
@@ -51,6 +57,5 @@ Item {
 		}
 		*/
     }
-
 }
 

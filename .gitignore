@@ -8,6 +8,7 @@ src/debug/
 src/object_script.Projekt*
 Abschluss- projekt/Vorlagen
 am100002/
+stuffmate/
 
 #ignore *.pro.user
 *.pro.user
