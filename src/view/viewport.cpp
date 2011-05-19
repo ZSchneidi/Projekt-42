@@ -21,6 +21,7 @@ bool ViewPort::initViewPort()
 void ViewPort::initViewLayer(QUrl source)
     {
     this->main_layer_path = source;
+	qDebug() << this->main_layer_path.toString();
     this->setSource(this->main_layer_path);
     }
 

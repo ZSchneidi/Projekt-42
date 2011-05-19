@@ -1,5 +1,5 @@
 import QtQuick 1.0
-import "elements"
+//import "elements"
 
 /**
   * The MainViewLayer is the central qml file which dynamically loads the
@@ -15,6 +15,7 @@ Item {
         anchors.fill: parent
 
 		/*The Loader is used to load the corresponding qml files depending on the InitMode*/
+
 		Loader{
 			id: sale_loader
 			anchors.fill: parent
@@ -42,9 +43,6 @@ Item {
 			opacity: 0
 		}
 
-		HelpDialog{
-
-		}
 
 		/*
 		AdminPanel{
@@ -53,5 +51,6 @@ Item {
 		}
 		*/
     }
+
 }
 
