@@ -1,13 +1,17 @@
 import QtQuick 1.0
+import Product 0.1
 import "../elements"
+import "../styles/StyleController.js" as Style
 
 Item {
     id: payment_info
     anchors.fill: parent
 
-	property string price_to_pay: "0.00"
-	property string paid_value: "0.00"
+	property int dezimal_digits: 2
 	property string unit: "€"
+	property string digit_seperator: ","
+	property string price_to_pay: "0"+digit_seperator+"00"
+	property string paid_value: "0"+digit_seperator+"00"
 
 	/* SCREEN STATES & TRANSITIONS*/
     states: State {
@@ -28,7 +32,7 @@ Item {
 		id: price
 		text: "Preis: "+price_to_pay+" "+unit
 		textFormat: Text.RichText
-		color: "#383737"
+		color:  Style.Text.default_text_color
 		font.bold: true
 		anchors.horizontalCenter: parent.horizontalCenter
 		anchors.top: parent.top
@@ -38,7 +42,7 @@ Item {
 	Text {
 		id: paid
 		text: "Bezahlt: "+paid_value+" "+unit
-		color: "#383737"
+		color: Style.Text.default_text_color
 		font.bold: true
 		anchors.horizontalCenter: parent.horizontalCenter
 		anchors.top: parent.top
@@ -74,24 +78,32 @@ Item {
 		}
     }
 
+	Product{
+		id: temp_product
+	}
+
 	/* JAVASCRIPT */
+
 
 	function goBack()
 	{
-	//payment_info.parent.item.state = "invisible";
-	//console.log(payment_info.parent.parent.parent.select_loader.parent.);
 	payment_info.parent.parent.parent.select_loader.parent.loadSelectionBox(payment_info.parent.parent.parent.current_select_box);
-
-
 	}
 
 	function buy()
 	{
 	payment_info.parent.item.state = "invisible";
-
+	payment_info.parent.parent.parent.select_loader.parent.loadServScreen(temp_product.productName);
 	}
 
+	function setPriceToPay(product)
+	{
+		temp_product.productName = product.productName;
 
+		var number = new Number(product.productPrice)
+		price_to_pay = number.toFixed(dezimal_digits).toString().replace(".",digit_seperator);
+
+	}
 
 
 }
