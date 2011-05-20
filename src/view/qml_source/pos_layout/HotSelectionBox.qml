@@ -39,8 +39,13 @@ Item{
 			//anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 33214
+			/* Produkt definition */
+			product.productCode: 100253
+			product.productPrice: 0.80
 			product.productName: "Kaffe"
+			product.productDesc: "Einfach Schwarzer Kaffe"
+			product.productIngred: "Bohnen\nWasser"
+
 			mouse_area.onClicked: {
 				showDetailScreen(button1);
 			}
@@ -54,8 +59,13 @@ Item{
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 32234
-			product.productName: "Kaffe schwarz"
+			/* Produkt definition */
+			product.productCode: 100254
+			product.productPrice: 1.00
+			product.productName: "Cappuccino"
+			product.productDesc: "Besteht zu etwa gleichen Teilen aus einem Espresso, heißer Milch und heißem Milchschaum"
+			product.productIngred: "Robusta-Bohnen\nWasser"
+			product.productImage: "../img/Coffee.png"
 			mouse_area.onClicked: {
 				showDetailScreen(button2);
 			}
@@ -69,8 +79,13 @@ Item{
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
-			product.productName: "Latte Macchiato "
+			/* Produkt definition */
+			product.productCode: 100255
+			product.productPrice: 1.20
+			product.productName: "Latte macchiato"
+			product.productDesc: "Warmgetränk aus Milch und Espresso, das dem Milchkaffee ähnelt, aber in der Regel mehr Milch enthält und aus stärker gerösteten Bohnen zubereitet wird"
+			product.productIngred: "1 heißer Espresso (25 ml)\n200 ml heiße Milch, aufgeschäumt\neventuell Kakaopulver zum Bestreuen"
+			product.productImage: "../img/Coffee.png"
 			mouse_area.onClicked: {
 				showDetailScreen(button3);
 			}
@@ -92,8 +107,12 @@ Item{
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
+			/* Produkt definition */
+			product.productCode: 100256
+			product.productPrice: 1.20
 			product.productName: "Cafe au Lait"
+			product.productDesc: "Milchkaffee ist ein Kaffee mit einem hohen Anteil Milch oder Milchschaum."
+			product.productIngred: "-"
 			mouse_area.onClicked: {
 				showDetailScreen(button4);
 			}
@@ -107,8 +126,13 @@ Item{
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
+			/* Produkt definition */
+			product.productCode: 100257
+			product.productPrice: 0.90
 			product.productName: "Schokolade"
+			product.productDesc: "Kakaohaltiges Getränk"
+			product.productIngred: "Kakaopulver\nWasser"
+			product.productImage: "../img/Coffee.png"
 			mouse_area.onClicked: {
 				showDetailScreen(button5);
 			}
@@ -122,8 +146,12 @@ Item{
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
+			/* Produkt definition */
+			product.productCode: 100258
+			product.productPrice: 1.10
 			product.productName: "Cafe Creme"
+			product.productDesc: "-"
+			product.productIngred: "-"
 			mouse_area.onClicked: {
 				showDetailScreen(button6);
 			}

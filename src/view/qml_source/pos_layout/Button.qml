@@ -1,12 +1,13 @@
 import QtQuick 1.0
 import Product 0.1
 import "../elements"
+import "../styles/StyleController.js" as Style
 
 Item {
     id: button_item
     property alias mouse_area: button_mouse_area
     property alias button_name: product.productName
-    property string button_image: "../img/Coffee.png"
+    property string button_image: product.productImage
     property int button_with: 130
     property int button_height: 140
     property int lable_size_percent: 10
@@ -22,19 +23,19 @@ Item {
         radius: 20
         opacity: 1
         border.width: 0
-        border.color: "#ffffff"
+        border.color: Style.Color.product_button_border
 		z: 1
         smooth: true
         gradient:
             Gradient {
             GradientStop {
                 position: 0
-                color: "#a3a7a8"
+                color: Style.Color.product_button_bg_top
             }
 
             GradientStop {
                 position: 0.99
-                color: "#212b31"
+                color: Style.Color.product_button_bg_bottom
 			}
 		}
 		/*shadow declaration*/
@@ -46,8 +47,8 @@ Item {
 		Text {
             id: button_label
 			y: 11
-			color: "#d3d3d3"
 			text: button_name
+			color: Style.Text.product_button_text_color
 			anchors.right: parent.right
 			anchors.rightMargin: 5
 			anchors.left: parent.left
@@ -78,15 +79,18 @@ Item {
                 radius: 20
 				anchors.fill: parent
 				anchors.bottomMargin: 0
+
+				border.width: 0
+				border.color: Style.Color.product_button_innerborder
                 gradient: Gradient {
                     GradientStop {
                         position: 0
-                        color: "#7c7c7c"
+                        color: Style.Color.product_button_img_bg_top
                     }
 
                     GradientStop {
                         position: 0.96
-                        color: "#474747"
+                        color: Style.Color.product_button_img_bg_bottom
                     }
                 }
                 clip: true
@@ -135,8 +139,6 @@ Item {
         }
 		onClicked: {
 			viewportinterface.sendProductAction(product)
-			//pressed.opacity = 0.2
-			//shadow.opacity = 0.5
         }
         onPressed: {
 			pressed.opacity = 0.3
@@ -149,7 +151,7 @@ Item {
     }
     Rectangle {
         id: highlight
-        color: "#e5f4fb"
+        color: Style.Color.product_button_highlight
         radius: 20
         opacity: 0
         anchors.fill: parent
@@ -157,7 +159,7 @@ Item {
     }
     Rectangle {
         id: pressed
-        color: "#1f1f20"
+        color: Style.Color.product_button_pressed
         radius: 20
         opacity: 0
         anchors.fill: parent

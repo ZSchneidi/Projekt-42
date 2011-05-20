@@ -1,4 +1,5 @@
 import QtQuick 1.0
+import "../styles/StyleController.js" as Style
 
 /**
   * This is a prototype of a generic button Item, that can be used in every
@@ -24,18 +25,18 @@ Item {
 		gradient: Gradient {
 			GradientStop {
 				position: 0
-				color: "#cacaca"
+				color: Style.Color.generic_button_bg_top
 			}
 			GradientStop {
 				position: 1
-				color: "#807d7d"
+				color: Style.Color.generic_button_bg_bottom
 			}
 		}
 
 		Text {
 			id: button_text
 			anchors.centerIn: parent
-			color: "#383737"
+			color: Style.Text.generic_button_text_color
 			text: "default"
 			font.bold: true
 			font.pixelSize: (generic_button.height/100)*lable_size_percent;
@@ -54,7 +55,7 @@ Item {
 
 		Rectangle {
 			id: highlight
-			color: "#e5f4fb"
+			color: Style.Color.eneric_button_highlight
 			radius: button_radius
 			opacity: 0
 			anchors.fill: parent
@@ -63,7 +64,7 @@ Item {
 
 		Rectangle {
 			id: pressed
-			color: "#1f1f20"
+			color: Style.Color.eneric_button_pressed
 			radius: button_radius
 			opacity: 0
 			anchors.fill: parent

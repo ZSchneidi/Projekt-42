@@ -1,4 +1,5 @@
 import QtQuick 1.0
+import "../styles/StyleController.js" as Style
 
 Item {
     width: 800
@@ -7,7 +8,7 @@ Item {
     property alias select_loader: selection_loader
     property alias bottom_info_loader: bottom_info_content
 
-    property color title_text_color: "#5c5c5c"
+    property color title_text_color: Style.Text.title_text_color
     property int menu_width_percent: 25
     property int title_height_percent: 20
     property int bottom_info_height_percent: 0
@@ -27,15 +28,15 @@ Item {
 		gradient: Gradient {
 			GradientStop {
 				position: 0.00;
-				color: "#bbbebd";
+				color: Style.Color.pos_screen_background_top;
 			}
 			GradientStop {
 				position: 0.48;
-				color: "#cfcfcf";
+				color: Style.Color.pos_screen_background_mid;
 			}
 			GradientStop {
 				position: 0.99;
-				color: "#78797a";
+				color: Style.Color.pos_screen_background_bottom;
 			}
 		}
 		anchors.fill: parent
@@ -54,11 +55,11 @@ Item {
 			gradient: Gradient {
 				GradientStop {
 					position: 0.00;
-					color: "#b3b3b3";
+					color: Style.Color.title_background_top;
 				}
 				GradientStop {
 					position: 1.00;
-					color: "#dcdcdd";
+					color: Style.Color.title_background_bottom;
 				}
 			}
 			Image{
@@ -94,7 +95,7 @@ Item {
 
 				Text {
 					id: pos_screen_clock
-					color: "#5c5c5c"
+					color: title_text_color
 					smooth: true
 					anchors.horizontalCenter: parent.horizontalCenter
 					anchors.bottomMargin: (parent.height/100)*30
@@ -124,9 +125,7 @@ Item {
 					}
 				}
 			}
-
 		}
-
     }
 
     /** Screen menu declaration **/
@@ -142,11 +141,11 @@ Item {
 			gradient: Gradient {
 				GradientStop {
 					position: 0.00;
-					color: "#e4e4e4";
+					color: Style.Color.pos_menu_background_top;
 				}
 				GradientStop {
 					position: 1.00;
-					color: "#eeeded";
+					color: Style.Color.pos_menu_background_bottom;
 				}
 			}
 			anchors.fill: parent
@@ -198,25 +197,26 @@ Item {
 			select_loader.item.state = "visible"
 			if(select_loader.status == Loader.Ready)
 			{
-				select_loader.item.product_name = product.productName;
-				select_loader.item.product_price = product.productPrice;
+				select_loader.item.initProductData(product);
 			}
-
-			bottom_info_loader.source = "PaymentInfo.qml";
-			bottom_info_loader.item.state = "visible";
-
 		}
 
 		function loadSelectionBox(source)
 		{
 			current_select_box = source;
-			if(select_loader.item != null)
+			if(select_loader.item !== null)
 				select_loader.item.state = "invisible";
-			if(bottom_info_loader.item != null)
+			if(bottom_info_loader.item !== null)
 				bottom_info_loader.item.state = "invisible";
 			select_loader.source = source;
-			if(select_loader.item != null)
+			if(select_loader.item !== null)
 				select_loader.item.state = "visible";
+		}
+
+		function loadServScreen(productName)
+		{
+		select_loader.source = "ServScreen.qml"
+		select_loader.item.setProduct(productName);
 		}
 
     }
@@ -230,8 +230,8 @@ Item {
 		height: (parent.height/100)*top_info_height_percent
 		Rectangle{
 			anchors.fill: parent
-			color: "lightgrey"
-			opacity: 0.1
+			color: Style.Color.pos_top_info_background
+			opacity: 0.8
 		}
     }
 
@@ -244,8 +244,7 @@ Item {
 		height: (parent.height/100)*bottom_info_height_percent
 		Rectangle{
 			anchors.fill: parent
-			color: "#888a8d"
-			//opacity: 0.2
+			color: Style.Color.pos_bottom_info_background;
 		}
 		Loader{
 			id:bottom_info_content

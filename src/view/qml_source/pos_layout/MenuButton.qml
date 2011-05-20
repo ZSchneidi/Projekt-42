@@ -1,5 +1,6 @@
 import QtQuick 1.0
 import "../elements"
+import "../styles/StyleController.js" as Style
 
 Item {
     id: button_item
@@ -26,11 +27,11 @@ Item {
 			Gradient {
 			GradientStop {
 				position: 0.00;
-				color: "#ececec";
+				color: Style.Color.menu_bar_button_bg_top;
 			}
 			GradientStop {
 				position: 0.99;
-				color: "#c6c6c6";
+				color: Style.Color.menu_bar_button_bg_bottom;
 			}
 		}
 
@@ -43,15 +44,16 @@ Item {
 
 		Text {
 			id: button_lable
-			color: "#c4c0c0"
+			color: Style.Text.menu_bar_button_text_color;
 			text: button_name
 			anchors.centerIn: parent
 			z: 2
 			wrapMode: Text.WordWrap
 			smooth: true
-			style: Text.Sunken
-			styleColor: "#000000"
+			//style: Text.Sunken
+			//styleColor: Style.Text.menu_bar_button_text_style_color;
 			font.pixelSize: (button_item.width/100)*lable_size_percent;
+			font.bold: true
 
 		}
 

@@ -78,7 +78,12 @@ OTHER_FILES += \
     view/qml_source/pos_layout/HotSelectionBox.qml \
     view/qml_source/pos_layout/ColdSelectionBox.qml \
     view/qml_source/elements/Slider.qml \
-    view/qml_source/pos_layout/PaymentInfo.qml
+    view/qml_source/pos_layout/PaymentInfo.qml \
+    view/qml_source/pos_layout/ServScreen.qml \
+    view/qml_source/elements/ProgressBar.qml \
+    view/qml_source/LayoutStyleController.qml \
+    view/qml_source/styles/LightStyle.js \
+    view/qml_source/styles/StyleController.js
 
 RESOURCES += \
     main_ressource.qrc

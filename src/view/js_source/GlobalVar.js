@@ -1,5 +1,7 @@
 .pragma library
 
+var text_color = "#383737";
+
 /*contains the screen objects which are provided by the elementinterface*/
 var a_screen = new Array();
 /*contains all ButtonC objects provided by the elementinterface*/
