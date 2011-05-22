@@ -134,6 +134,7 @@ void CoreEngine::registerQmlTypes()
     qmlRegisterType<ButtonCObject>("ButtonC", 0,1, "ButtonC");
     qmlRegisterType<Event>("Event",0,1,"Event");
     qmlRegisterType<EventDefinition>("EventDefinition",0,1,"EventDefinition");
+    qmlRegisterType<Base>("Base",0,1,"Base");
     }
 
 

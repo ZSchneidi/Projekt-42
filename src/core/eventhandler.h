@@ -35,10 +35,13 @@ class EventHandler : public QObject
     CoreEngine *core;
     EventMapper *mapper;
 
+
 public:
+
     explicit EventHandler(CoreEngine *parent = 0);
 
-    bool processProductAction(Product *product);
+
+    bool processProductAction(Product *product, Base::Product_state state);
     bool processUiObjectEvent(Event *event);
 
     void showWarning(QString msg);

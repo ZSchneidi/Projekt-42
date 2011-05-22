@@ -50,6 +50,10 @@ signals:
 
 public slots:
 
+protected:
+
+    void enterEvent(QEvent *event);
+
 private:
 
     /**context for the QDeclarative environment*/

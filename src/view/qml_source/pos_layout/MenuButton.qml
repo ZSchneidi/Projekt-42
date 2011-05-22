@@ -9,7 +9,7 @@ Item {
     property string button_name: "empty"
     property int button_with: 180
     property int button_height: 60
-    property int lable_size_percent: 11
+    property int lable_size_percent: 9
 
     width: button_with
     height: button_height
@@ -49,9 +49,7 @@ Item {
 			anchors.centerIn: parent
 			z: 2
 			wrapMode: Text.WordWrap
-			smooth: true
-			//style: Text.Sunken
-			//styleColor: Style.Text.menu_bar_button_text_style_color;
+            smooth: true
 			font.pixelSize: (button_item.width/100)*lable_size_percent;
 			font.bold: true
 

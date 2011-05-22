@@ -2,15 +2,18 @@ import QtQuick 1.0
 import Product 0.1
 import "../elements"
 import "../styles/StyleController.js" as Style
+import "../../js_source/generic_func.js" as GenericJs
+import Base 0.1
 
 Item {
     id: payment_info
     anchors.fill: parent
 
 	property int dezimal_digits: 2
-	property string unit: "€"
-	property string digit_seperator: ","
-	property string price_to_pay: "0"+digit_seperator+"00"
+    property string unit: Style.String.unit
+    property string digit_seperator: Style.String.digit_seperator
+    property real price_to_pay: 0.0
+    property real base_price_to_pay: 0.0
 	property string paid_value: "0"+digit_seperator+"00"
 
 	/* SCREEN STATES & TRANSITIONS*/
@@ -30,7 +33,7 @@ Item {
 
 	Text {
 		id: price
-		text: "Preis: "+price_to_pay+" "+unit
+        text: "Preis: "+price_to_pay.toFixed(dezimal_digits).toString().replace(".",digit_seperator)+" "+unit
 		textFormat: Text.RichText
 		color:  Style.Text.default_text_color
 		font.bold: true
@@ -54,12 +57,14 @@ Item {
 		id: back_button
 		text: "Zurück"
 		button_radius: 2
+        button_with: 120
 		anchors.verticalCenter: parent.verticalCenter
 		anchors.left: parent.left
 		anchors.leftMargin: 20
 		height: parent.height/100*80
 		lable_size_percent:40
 		mouse_area.onClicked: {
+            viewportinterface.sendProductAction(temp_product,Base.Canceled);
 			goBack();
 		}
     }
@@ -68,12 +73,14 @@ Item {
 		id: buy_button
 		text: "Kaufen"
 		button_radius: 2
+        button_with: 120
 		anchors.verticalCenter: parent.verticalCenter
 		anchors.right: parent.right
 		anchors.rightMargin: 20
 		height: parent.height/100*80
 		lable_size_percent: 40
-		mouse_area.onClicked: {
+        mouse_area.onClicked: {
+            viewportinterface.sendProductAction(temp_product,Base.Bought);
 			buy();
 		}
     }
@@ -93,17 +100,22 @@ Item {
 	function buy()
 	{
 	payment_info.parent.item.state = "invisible";
-	payment_info.parent.parent.parent.select_loader.parent.loadServScreen(temp_product.productName);
+    payment_info.parent.parent.parent.pos_menu_bar.state = "invisible";
+    payment_info.parent.parent.parent.select_loader.parent.loadServScreen(temp_product);
 	}
 
 	function setPriceToPay(product)
 	{
-		temp_product.productName = product.productName;
-
-		var number = new Number(product.productPrice)
-		price_to_pay = number.toFixed(dezimal_digits).toString().replace(".",digit_seperator);
+        GenericJs.initProductObject(product,temp_product);
+        price_to_pay = temp_product.productPrice;
+        base_price_to_pay = price_to_pay;
 
 	}
+    function updatePriceToPay(price)
+    {
+        console.log("new price "+price);
+        price_to_pay = base_price_to_pay+price;
+    }
 
 
 }

@@ -89,7 +89,6 @@ private:
     bool object_cfg_state;
     bool module_cfg_state;
 
-    bool validateConfigXMLIntegrity(QString path);
     int getModIndexByAdr(int adr, QList<Module*> *mod_list);
     int getModAdrFromTag(QDomNamedNodeMap map);
 

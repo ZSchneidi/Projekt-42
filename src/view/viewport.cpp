@@ -23,7 +23,19 @@ bool ViewPort::initViewPort()
 void ViewPort::initViewLayer(QUrl source)
     {
     this->main_layer_path = source;
+
+    //QGLWidget *glWidget = new QGLWidget;
+
+
 	qDebug() << this->main_layer_path.toString();
+	this->core->logSystemMsg("Init main layer: "+this->main_layer_path.toString());
     this->setSource(this->main_layer_path);
-    }
+}
+
+void ViewPort::enterEvent(QEvent *event)
+{
+    qDebug() << "entered";
+    emit this->getViewPortInterface()->emitInteraction();
+}
+
 

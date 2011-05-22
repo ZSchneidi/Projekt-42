@@ -76,8 +76,21 @@ function screenControl(object,event)
 		}
 	}
 
-
-
+/**
+  * This function was designed to initialize qml Product objects with
+  * the data of another product data.
+  * This is just a temporary workaround, because there are some issues with
+  * asigning product objects to qml Product objects.
+  */
+function initProductObject(product,object)
+{
+    object.productName = product.productName;
+    object.productCode = product.productCode;
+    object.productPrice = product.productPrice;
+    object.productDesc = product.productDesc;
+    object.productIngred = product.productIngred;
+    object.productImage = product.productImage;
+}
 
 
 

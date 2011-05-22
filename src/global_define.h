@@ -46,8 +46,8 @@
 
 /** Core definition **/
 
-#define SYSTEM_VIEWPORT_WIDTH								800
-#define SYSTEM_VIEWPORT_HEIGHT								600
+#define SYSTEM_VIEWPORT_WIDTH								1024
+#define SYSTEM_VIEWPORT_HEIGHT								768
 #define SYSTEM_TIMER_INTERVAL									60000 //milliseconds
 
 /*define the hex representation of the button which
@@ -197,7 +197,7 @@ toggles the application fullscreen mode*/
 #define SYS_HELP_TEXT													"The "SYS_NAME" software was designed as a proof the concept of providing a modern user interface on low performance Systems."
 
 /** QML layer definition **/
-#define SYSTEM_TITLE													"StuffMate"
+#define SYSTEM_TITLE													"Projekt-42"
 #define TITLE_TIME_FORMAT											"hh:mm"
 #define TITLE_DATE_FORMAT											Qt::DefaultLocaleLongDate
 

@@ -38,9 +38,9 @@ void ViewPortInterface::setSystemDate(QString date)
     emit this->systemDateChanged(this->system_date);
     }
 
-void ViewPortInterface::sendProductAction(Product *product)
+void ViewPortInterface::sendProductAction(Product *product, int state)
     {
-    this->parent->getCore()->getEventHandler()->processProductAction(product);
+    this->parent->getCore()->getEventHandler()->processProductAction(product,(Base::Product_state)state);
     }
 
 void ViewPortInterface::sendUiObjectEvent(Event *event)
@@ -66,6 +66,11 @@ bool ViewPortInterface::showHelpDialog()
 	QString text = help_file.readAll();
 	emit this->helpDialogCalled(text);
 	return true;
-	}
+}
+
+void ViewPortInterface::emitInteraction()
+{
+    emit this->interact();
+}
 
 

@@ -29,13 +29,10 @@ Item {
     MouseArea{
 		id: button_mouse_area
 		anchors.fill: parent
-		onPressed: {
+        onPressed: {
 			bgImage.source = button_image_do
 			event.setEventType(EventDefinition.ButtonDown)
 			viewportinterface.sendUiObjectEvent(event)
-
-			//console.log(parent.parent.parent.getScreenArray());
-
 
 		}
 		onReleased: {

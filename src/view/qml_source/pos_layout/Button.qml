@@ -2,6 +2,8 @@ import QtQuick 1.0
 import Product 0.1
 import "../elements"
 import "../styles/StyleController.js" as Style
+import Base 0.1
+
 
 Item {
     id: button_item
@@ -66,13 +68,8 @@ Item {
         }
         Item {
             id: picture
-			x: 0
-			y: 0
 			anchors.fill: parent
-			anchors.bottomMargin: 40
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
-            anchors.topMargin: 0
+            anchors.bottomMargin: (parent.height/100)*25
 
             Rectangle {
                 id: rectangle1
@@ -102,17 +99,11 @@ Item {
 				/*Product image*/
                 Image {
                     id: image1
-					x: 0
-					y: 0
-					anchors.rightMargin: 0
-					anchors.leftMargin: 0
-					anchors.topMargin: 0
-					anchors.bottomMargin: 0
-                    scale: 1
                     z: 1
                     smooth: true
                     fillMode: Image.PreserveAspectFit
                     anchors.fill: parent
+                    anchors.topMargin: 5
 					source: button_image
                 }
             }
@@ -137,8 +128,8 @@ Item {
         onExited: {
 			highlight.opacity = 0.0
         }
-		onClicked: {
-			viewportinterface.sendProductAction(product)
+        onClicked: {
+            viewportinterface.sendProductAction(product,Base.Selected)
         }
         onPressed: {
 			pressed.opacity = 0.3

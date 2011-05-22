@@ -33,7 +33,6 @@ public:
 
 		};
 
-
 	Q_INVOKABLE const QString getEventStr(Event_type type);
 	Q_INVOKABLE EventDefinition::Event_type getEventTypeByStr(QString string);
 
