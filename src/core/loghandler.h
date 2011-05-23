@@ -46,11 +46,11 @@ public:
         };
 
     enum Event_Message_type {
-		PPRODUCT_EVENT
+        PPRODUCT_EVENT,
+        MEDIA_EVENT
 		};
 
 
-   // explicit LogHandler(QObject *parent = 0,  Base::Log_state log_state = Base::LS_Active);
     explicit LogHandler(CoreEngine *parent = 0,  Base::Log_state log_state = Base::LS_Active);
 
     bool writeToSystemLog(QString message, LogHandler::Message_type type);

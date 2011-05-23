@@ -6,7 +6,7 @@ Item {
     property string help_text: ""
 
 	width: 400
-	height: 370
+    height: 470
 
     Rectangle {
         id: rectangle1

@@ -3,7 +3,7 @@
 
 ViewPortInterface::ViewPortInterface(ViewPort *parent) :
     QObject(parent)
-    {
+{
     this->parent = parent;
 
     this->system_time = "00:00";
@@ -17,9 +17,8 @@ void ViewPortInterface::sendCoreAction(int action)
     /*for definition of coreAction take a look at the enum definition in the qmlinterface header*/
     if(action == 0)
 		this->parent->getCore()->close();
+
     }
-
-
 
 QUrl ViewPortInterface::getSubLayer()
     {
@@ -38,9 +37,9 @@ void ViewPortInterface::setSystemDate(QString date)
     emit this->systemDateChanged(this->system_date);
     }
 
-void ViewPortInterface::sendProductAction(Product *product)
+void ViewPortInterface::sendProductAction(Product *product, int state)
     {
-    this->parent->getCore()->getEventHandler()->processProductAction(product);
+    this->parent->getCore()->getEventHandler()->processProductAction(product,(Base::Product_state)state);
     }
 
 void ViewPortInterface::sendUiObjectEvent(Event *event)
@@ -61,11 +60,21 @@ void ViewPortInterface::showAboutDialog()
 bool ViewPortInterface::showHelpDialog()
 	{
 	QFile help_file(HELP_DIALOG_FILE);
-	 if (!help_file.open(QIODevice::ReadOnly))
+    if (!help_file.open(QIODevice::ReadOnly))
 		return false;
 	QString text = help_file.readAll();
 	emit this->helpDialogCalled(text);
 	return true;
-	}
+    }
+
+void ViewPortInterface::emitInteraction()
+    {
+    emit this->interact();
+    }
+
+void ViewPortInterface::sendMediaAction(int state)
+    {
+    this->parent->getCore()->getEventHandler()->processMediaAction((Base::Media_states)state);
+    }
 
 

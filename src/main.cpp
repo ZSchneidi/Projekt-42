@@ -7,11 +7,11 @@ QString getHelpText();
 
 int main(int argc, char *argv[])
     {
+    QApplication::setGraphicsSystem("raster");
     QApplication a(argc, argv);
 
 	QStringList arguments = a.arguments();
-	QString used_arguments = "";
-	//qDebug() << arguments;
+    QString used_arguments = "";
 
 	/* ARGUMENTS */
 	if(arguments.contains(ARG_HELP))
@@ -87,9 +87,6 @@ int main(int argc, char *argv[])
 		}
 
 	/* ARGUMENTS FINISHED */
-
-	//a.setGraphicsSystem("native");
-	QApplication::setGraphicsSystem("raster");
 
     QIODevice::OpenModeFlag open_mode = QIODevice::Truncate;
 

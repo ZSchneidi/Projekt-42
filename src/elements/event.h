@@ -26,7 +26,7 @@ public:
 
 	Q_INVOKABLE inline void setSourceID(int source ) { this->source_id =  source; }
 	Q_INVOKABLE inline void setTargetID(int target ) { this->target_id =  target; }
-	Q_INVOKABLE inline void setEventType(int type ) { this->event_type = (EventDefinition::Event_type)type; }
+    Q_INVOKABLE inline void setEventType(int type ) { this->event_type = (EventDefinition::Event_type)type; }
 	Q_INVOKABLE inline void setEventTypeInt(int type ) { this->event_type = (EventDefinition::Event_type)type; }
 
 signals:

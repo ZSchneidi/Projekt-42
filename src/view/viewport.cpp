@@ -8,8 +8,6 @@ ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
     this->main_layer_path = path;
     this->interface = new ViewPortInterface(this);
     this->element_interface = new WebElementInterface(this);
-
-
     }
 
 bool ViewPort::initViewPort()
@@ -23,7 +21,13 @@ bool ViewPort::initViewPort()
 void ViewPort::initViewLayer(QUrl source)
     {
     this->main_layer_path = source;
-	qDebug() << this->main_layer_path.toString();
+	this->core->logSystemMsg("Init main layer: "+this->main_layer_path.toString());
     this->setSource(this->main_layer_path);
-    }
+}
+
+void ViewPort::enterEvent(QEvent *event)
+{
+    emit this->getViewPortInterface()->emitInteraction();
+}
+
 

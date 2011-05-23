@@ -9,11 +9,14 @@ src/object_script.Projekt*
 Abschluss- projekt/Vorlagen
 am100002/
 stuffmate/
+Abschluss- projekt/Dokumentation/
+src/config/deprecated/
 
 #ignore *.pro.user
 *.pro.user
 *.pro.user.*
 *moc_*
+*.dll
 
 # Ignore log files
 *.log

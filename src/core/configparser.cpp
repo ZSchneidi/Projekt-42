@@ -59,9 +59,6 @@ bool ConfigParser::buildConfig()
 			if((*this->file_list_it).fileName() == MACHINE_CFG)
 				{
 				this->machine_cfg_ref = this->core->getUIObjectHandler()->getMachineConfig();
-				if(!this->validateConfigXMLIntegrity((*this->file_list_it).absoluteFilePath()))
-					{
-					}
 				if(this->buildMachineConfig((*this->file_list_it).absoluteFilePath()))
 					{
 					this->machine_cfg_state = true;
@@ -263,13 +260,6 @@ bool ConfigParser::buildObjects(const QString object_cfgv)
 				}
 			}
 		}
-    return true;
-    }
-
-
-bool ConfigParser::validateConfigXMLIntegrity(QString path)
-    {
-
     return true;
     }
 

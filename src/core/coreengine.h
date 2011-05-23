@@ -7,7 +7,7 @@
 #include <QTimer>
 
 #include "global_define.h"
-#include "ext/base.h"
+#include "core/ext/base.h"
 #include "core/eventhandler.h"
 #include "core/configparser.h"
 #include "core/loghandler.h"
@@ -17,7 +17,7 @@
 #include "elements/product.h"
 #include "elements/event.h"
 
-class Base;
+
 class ViewPort;
 class EventHandler;
 class ConfigParser;

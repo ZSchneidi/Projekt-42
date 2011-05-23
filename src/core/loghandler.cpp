@@ -68,13 +68,21 @@ bool LogHandler::writeToEventLog(QString message, LogHandler::Event_Message_type
 		}
     QString date_time = this->getSystemTimeStr();
     QTextStream log_stream(this->event_log);
-    if(type == LogHandler::PPRODUCT_EVENT)
-	{
-	log_stream << "["+date_time+"]" << "["<< EVENT_LOG_PRODUCT << "] " << message << endl;
-	}
+
+    switch(type)
+    {
+    case LogHandler::PPRODUCT_EVENT:
+        log_stream << "["+date_time+"]" << "["<< EVENT_LOG_PRODUCT << "] " << message << endl;
+        break;
+    case LogHandler::MEDIA_EVENT:
+        log_stream << "["+date_time+"]" << "["<< EVENT_LOG_MEDIA << "] " << message << endl;
+        break;
+    }
+
     this->event_log->close();
     return true;
     }
+
 
 /**
   * This method is used to log messages from the ConfigParser to the config_log file.

@@ -92,9 +92,4 @@ function getParentScreenByID(id)
     }
 
 
-function createEventhandling(obj,index)
-	{
-	//console.log(obj.mod_adr);
-	}
-
 

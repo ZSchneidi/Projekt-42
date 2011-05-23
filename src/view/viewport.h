@@ -27,9 +27,6 @@ class ViewPort : public QDeclarativeView
 {
     Q_OBJECT
 
-
-
-
 public:
     explicit ViewPort(CoreEngine *parent = 0,QUrl path = QUrl(""));
 
@@ -49,6 +46,10 @@ public:
 signals:
 
 public slots:
+
+protected:
+
+    void enterEvent(QEvent *event);
 
 private:
 

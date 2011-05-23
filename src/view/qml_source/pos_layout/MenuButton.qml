@@ -9,10 +9,25 @@ Item {
     property string button_name: "empty"
     property int button_with: 180
     property int button_height: 60
-    property int lable_size_percent: 11
+    property int lable_size_percent: 9
 
     width: button_with
     height: button_height
+
+    /* SCREEN STATES & TRANSITIONS*/
+    states: State {
+        name: "selected"
+        PropertyChanges { target: selection_index; opacity: 0.4 }
+
+    }
+    State {
+        name: "unselected"
+        PropertyChanges { target: selection_index; opacity: 0 }
+    }
+
+    transitions: Transition {
+        PropertyAnimation { properties: "opacity"; duration: 300 }
+    }
 
     Rectangle {
 		id:button_base
@@ -49,9 +64,7 @@ Item {
 			anchors.centerIn: parent
 			z: 2
 			wrapMode: Text.WordWrap
-			smooth: true
-			//style: Text.Sunken
-			//styleColor: Style.Text.menu_bar_button_text_style_color;
+            smooth: true
 			font.pixelSize: (button_item.width/100)*lable_size_percent;
 			font.bold: true
 
@@ -76,11 +89,13 @@ Item {
 		onReleased: {
 			pressed.opacity = 0.0
 		}
+        onClicked: {
+        }
     }
 
     Rectangle {
 		id: highlight
-		color: "#e5f4fb"
+        color: Style.Color.product_button_highlight
 		radius: 20
 		opacity: 0
 		anchors.fill: parent
@@ -89,10 +104,30 @@ Item {
 
     Rectangle {
 		id: pressed
-		color: "#1f1f20"
+        color: Style.Color.product_button_pressed
 		radius: 20
 		opacity: 0
 		anchors.fill: parent
 		z: 1
+    }
+    Rectangle {
+        id: selection_index
+        anchors.fill: parent
+        anchors.rightMargin: -(parent.width/100)*20
+        anchors.leftMargin: -6
+        anchors.topMargin: -1
+        anchors.bottomMargin: -3
+        radius: 20
+        color: Style.Color.product_button_selected
+        opacity: 0
+    }
+
+    function setSelected()
+    {
+        state = "selected";
+    }
+    function setUnselected()
+    {
+        state = "unselected";
     }
 }

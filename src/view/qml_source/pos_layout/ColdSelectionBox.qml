@@ -38,9 +38,16 @@ Item{
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			//anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
-			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 33214
-			product.productName: "Wasser"
+            button_height: (parent.height/100)*button_height_percent
+            product.productCode: 100156
+            product.productPrice: 1.10
+            product.productName: "Cola"
+            product.productDesc: "Coka Cola 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/cola.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button1);
+            }
 
 		}
 
@@ -52,12 +59,15 @@ Item{
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
 			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 32234
-			product.productName: "Eis Tee"
-
-			mouse_area.onClicked: {
-				showDetailScreen(button2);
-			}
+            product.productCode: 100157
+            product.productPrice: 1.10
+            product.productName: "Red Bull"
+            product.productDesc: "Energy Drink 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/red-bull.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button2);
+            }
 		}
 
 		Button{
@@ -67,10 +77,16 @@ Item{
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
-			button_height: (parent.height/100)*button_height_percent
-
-			product.productCode: 43321
-			product.productName: "Kalter Kaffe"
+            button_height: (parent.height/100)*button_height_percent
+            product.productCode: 100158
+            product.productPrice: 1.10
+            product.productName: "Sprite"
+            product.productDesc: "Erfrischungsgetränk 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/sprite.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button3);
+            }
 		}
 
     }
@@ -89,9 +105,16 @@ Item{
 			anchors.left: parent.left
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
-			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
-			product.productName: "Wurstwasser"
+            button_height: (parent.height/100)*button_height_percent
+            product.productCode: 100159
+            product.productPrice: 1.10
+            product.productName: "Duff Bier"
+            product.productDesc: "Bier 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/Duff1.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button4);
+            }
 		}
 
 		Button{
@@ -101,9 +124,16 @@ Item{
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
-			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
-			product.productName: "Bier"
+            button_height: (parent.height/100)*button_height_percent
+            product.productCode: 100160
+            product.productPrice: 1.10
+            product.productName: "Coke Zero"
+            product.productDesc: "Coca Cola ohne Zucker 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/coke-zero.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button5);
+            }
 		}
 
 		Button{
@@ -113,9 +143,16 @@ Item{
 			anchors.leftMargin: (parent.width/100)*margin_percentage
 			anchors.topMargin: (parent.height/100)*margin_percentage
 			button_with: (parent.width/100)*button_width_percent
-			button_height: (parent.height/100)*button_height_percent
-			product.productCode: 43321
-			product.productName: "Korn"
+            button_height: (parent.height/100)*button_height_percent
+            product.productCode: 100161
+            product.productPrice: 1.10
+            product.productName: "Fanta"
+            product.productDesc: "Orangengetränk 0,33 Ltr."
+            product.productIngred: "-"
+            product.productImage: "../img/fanta.png"
+            mouse_area.onClicked: {
+                showDetailScreen(button6);
+            }
 		}
     }
 

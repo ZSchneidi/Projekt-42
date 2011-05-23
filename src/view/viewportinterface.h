@@ -2,9 +2,11 @@
 #define VIEWPORTINTERFACE_H
 
 #include <QObject>
+#include "core/ext/base.h"
 #include "view/viewport.h"
 #include "core/uiobjecthandler.h"
 #include "core/exception.h"
+#include "core/eventhandler.h"
 #include "elements/product.h"
 #include "elements/event.h"
 
@@ -44,6 +46,7 @@ public:
 	void emitOutEventOnTarget(Event *event);
 	void showAboutDialog();
 	bool showHelpDialog();
+    void emitInteraction();
 
 signals:
 
@@ -52,12 +55,15 @@ signals:
     void outEventOnTarget(Event *event);
     void aboutDialogCalled(QString rev, QString auth, QString name,QString text,QString date);
     void helpDialogCalled(QString text);
+    void interact();
 
 public slots:
 
     /*connection from qml to c++ logic*/
     void sendCoreAction( int action);
-    void sendProductAction(Product *product);
+    void sendProductAction(Product *product, int state);
+    void sendMediaAction(int state);
+
     void sendUiObjectEvent(Event *event);
 
 private:

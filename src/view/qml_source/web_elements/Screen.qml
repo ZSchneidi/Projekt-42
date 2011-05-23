@@ -41,10 +41,7 @@ Item {
 	Connections{
 		target: viewportinterface
 		onOutEventOnTarget: {
-
-			Generic_func.performActions(event,screen,EventDefinition);
-			//console.log();
-
+            Generic_func.performActions(event,screen,EventDefinition);
 		}
 	}
 }

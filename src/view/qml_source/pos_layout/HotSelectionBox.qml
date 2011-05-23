@@ -45,7 +45,8 @@ Item{
 			product.productName: "Kaffe"
 			product.productDesc: "Einfach Schwarzer Kaffe"
 			product.productIngred: "Bohnen\nWasser"
-
+            product.productImage: "../img/Coffee.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button1);
 			}
@@ -63,9 +64,10 @@ Item{
 			product.productCode: 100254
 			product.productPrice: 1.00
 			product.productName: "Cappuccino"
-			product.productDesc: "Besteht zu etwa gleichen Teilen aus einem Espresso, heißer Milch und heißem Milchschaum"
-			product.productIngred: "Robusta-Bohnen\nWasser"
-			product.productImage: "../img/Coffee.png"
+            product.productDesc: "Espresso, heiße Milch und heißer Milchschaum"
+            product.productIngred: "Robusta-Bohnen\nMilchschaum"
+            product.productImage: "../img/Cappuccino.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button2);
 			}
@@ -82,10 +84,11 @@ Item{
 			/* Produkt definition */
 			product.productCode: 100255
 			product.productPrice: 1.20
-			product.productName: "Latte macchiato"
-			product.productDesc: "Warmgetränk aus Milch und Espresso, das dem Milchkaffee ähnelt, aber in der Regel mehr Milch enthält und aus stärker gerösteten Bohnen zubereitet wird"
-			product.productIngred: "1 heißer Espresso (25 ml)\n200 ml heiße Milch, aufgeschäumt\neventuell Kakaopulver zum Bestreuen"
-			product.productImage: "../img/Coffee.png"
+            product.productName: "Latte macchiato"
+            product.productDesc: "Warmgetränk aus Milch und Espresso"
+            product.productIngred: "-"
+            product.productImage: "../img/latte_macchiato.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button3);
 			}
@@ -113,6 +116,8 @@ Item{
 			product.productName: "Cafe au Lait"
 			product.productDesc: "Milchkaffee ist ein Kaffee mit einem hohen Anteil Milch oder Milchschaum."
 			product.productIngred: "-"
+            product.productImage: "../img/Coffee.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button4);
 			}
@@ -132,7 +137,8 @@ Item{
 			product.productName: "Schokolade"
 			product.productDesc: "Kakaohaltiges Getränk"
 			product.productIngred: "Kakaopulver\nWasser"
-			product.productImage: "../img/Coffee.png"
+            product.productImage: "../img/hot-chocolate.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button5);
 			}
@@ -152,6 +158,8 @@ Item{
 			product.productName: "Cafe Creme"
 			product.productDesc: "-"
 			product.productIngred: "-"
+            product.productImage: "../img/Coffee.png"
+            product.isMeasurable: true
 			mouse_area.onClicked: {
 				showDetailScreen(button6);
 			}

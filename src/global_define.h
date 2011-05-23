@@ -46,8 +46,8 @@
 
 /** Core definition **/
 
-#define SYSTEM_VIEWPORT_WIDTH								800
-#define SYSTEM_VIEWPORT_HEIGHT								600
+#define SYSTEM_VIEWPORT_WIDTH								1024
+#define SYSTEM_VIEWPORT_HEIGHT								768
 #define SYSTEM_TIMER_INTERVAL									60000 //milliseconds
 
 /*define the hex representation of the button which
@@ -56,6 +56,7 @@ toggles the application fullscreen mode*/
 #define TERM_SYSTEM_BUTTON_C									0x43 // c
 #define TERM_SYSTEM_BUTTON_Q									0x51 // q
 #define HELP_SYSTEM_BUTTON										0x48 // h
+//#define MEDIA_SCREEN_BUTTON										0x48 // h
 
 /*QML type identifiers*/
 #define VIEWPORTINTERFACE											"viewportinterface"
@@ -184,7 +185,16 @@ toggles the application fullscreen mode*/
 #define CONF_LOG_WARNING											"WARNING"
 #define CONF_LOG_ERROR												"ERROR"
 
-#define EVENT_LOG_PRODUCT										"PRODUCT"
+//EVENT LOGGING
+#define EVENT_LOG_PRODUCT                                           "PRODUCT"
+#define EVENT_LOG_PRODUCT_SELECT                                    "Product selected "
+#define EVENT_LOG_PRODUCT_CANCELED                                  "Product canceled "
+#define EVENT_LOG_PRODUCT_SALE                                      "Product sold "
+#define EVENT_LOG_PRODUCT_SERVED                                    "Product served success "
+#define EVENT_LOG_PRODUCT_ERROR                                     "Undefined Product error "
+#define EVENT_LOG_MEDIA                                             "MEDIA"
+#define EVENT_LOG_PRODUCT_MEDIA                                     "Initialize media screen "
+
 
 
 #define MISSING_MACH_TAG											"Missing \"" MACHINE_CFG_TAG "\" tag in " MACHINE_CFG " file"
@@ -197,7 +207,7 @@ toggles the application fullscreen mode*/
 #define SYS_HELP_TEXT													"The "SYS_NAME" software was designed as a proof the concept of providing a modern user interface on low performance Systems."
 
 /** QML layer definition **/
-#define SYSTEM_TITLE													"StuffMate"
+#define SYSTEM_TITLE													"Projekt-42"
 #define TITLE_TIME_FORMAT											"hh:mm"
 #define TITLE_DATE_FORMAT											Qt::DefaultLocaleLongDate
 

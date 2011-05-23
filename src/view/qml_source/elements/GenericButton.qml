@@ -14,9 +14,11 @@ Item {
 
     property string button_text: ""
     property int button_radius: 5
-    property int button_with: button_text.width+20
+    property int button_with: 90
+    property int button_height: 30
 
-	width:  button_with
+    width:  button_with
+    height: button_height
 
 	Rectangle {
 		id: button_back

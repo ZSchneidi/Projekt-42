@@ -134,6 +134,7 @@ void CoreEngine::registerQmlTypes()
     qmlRegisterType<ButtonCObject>("ButtonC", 0,1, "ButtonC");
     qmlRegisterType<Event>("Event",0,1,"Event");
     qmlRegisterType<EventDefinition>("EventDefinition",0,1,"EventDefinition");
+    qmlRegisterType<Base>("Base",0,1,"Base");
     }
 
 
@@ -212,16 +213,11 @@ UIObjectHandler *CoreEngine::getUIObjectHandler()
   */
 void CoreEngine::showAboutDialog()
 	{
-
 	this->getViewPort()->getViewPortInterface()->showAboutDialog();
 	}
 
 void CoreEngine::showHelpDialog()
 	{
-	if(!this->getViewPort()->getViewPortInterface()->showHelpDialog())
-		{
-		qDebug() << "can't read help file";
-		}
-
+    this->getViewPort()->getViewPortInterface()->showHelpDialog();
 	}
 

@@ -51,6 +51,7 @@ Item {
 	width: 250; height: 23
 	clip: true
 
+
 	Rectangle {
 		id: highlight
 
