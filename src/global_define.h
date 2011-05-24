@@ -14,8 +14,8 @@
 
 #define SYS_NAME															"Projekt-42"
 #define SYS_MAJ_REV													"0"
-#define SYS_MIN_REV													"2"
-#define SYS_SUB_REV													"c5190d8"
+#define SYS_MIN_REV													"4"
+#define SYS_SUB_REV													"7803928"
 
 
 #define SYS_REVISION													SYS_MAJ_REV"."SYS_MIN_REV"."SYS_SUB_REV

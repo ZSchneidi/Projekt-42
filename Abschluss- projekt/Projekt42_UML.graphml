@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
-  <!--Created by yFiles for Java HEAD-Current-->
+  <!--Created by yFiles for Java 2.8-->
   <key for="graphml" id="d0" yfiles.type="resources"/>
   <key for="port" id="d1" yfiles.type="portgraphics"/>
   <key for="port" id="d2" yfiles.type="portgeometry"/>
@@ -23,7 +23,7 @@
           <y:Geometry height="423.4715044601673" width="390.0" x="-96.62573718052997" y="-376.76468000177067"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="98.8212890625" x="145.58935546875" y="3.0">ConfigParser</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="85.630859375" x="152.1845703125" y="3.0">ConfigParser</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QDir *config_dir
 - QDir *config_base_dir
@@ -65,7 +65,7 @@
           <y:Geometry height="198.78062321871113" width="302.5" x="407.0515988372092" y="-290.18554198286677"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="103.53759765625" x="99.481201171875" y="3.0">EventHandler</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="87.8017578125" x="107.34912109375" y="3.0">EventHandler</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- CoreEngine *core
 - EventMapper *mapper</y:AttributeLabel>
@@ -90,7 +90,7 @@
           <y:Geometry height="308.7853256900212" width="496.6951633986928" x="771.6524183006537" y="-604.3926628450106"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="88.41748046875" x="204.1388414649714" y="3.0">LogHandler</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="76.2236328125" x="210.2357652930964" y="3.0">LogHandler</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QIODevice::OpenModeFlag system_log_write_mode
 - QIODevice::OpenModeFlag config_log_write_mode
@@ -123,7 +123,7 @@
           <y:Geometry height="121.75" width="166.34459515923572" x="1206.8277024203821" y="-210.875"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="107.43505859375" x="29.45476828274286" y="25.96875">Message_type</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="92.8798828125" x="36.73235617336786" y="26.701171875">Message_type</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>SYSTEM
 WARNING
@@ -142,7 +142,7 @@ INFO</y:AttributeLabel>
           <y:Geometry height="109.48556955380576" width="165.0" x="1207.5" y="-82.125"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="161.6123046875" x="1.69384765625" y="25.96875">Parser_Message_type</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="140.5888671875" x="12.20556640625" y="26.701171875">Parser_Message_type</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>PARSER_INFO
 PARSER_WARNING
@@ -160,7 +160,7 @@ PARSER_ERROR</y:AttributeLabel>
           <y:Geometry height="86.00872168603706" width="165.0" x="1207.5" y="261.625"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="155.57568359375" x="4.712158203125" y="25.96875">Event_Message_type</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="135.5107421875" x="14.74462890625" y="26.701171875">Event_Message_type</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>PPRODUCT_EVENT
 MEDIA_EVENT</y:AttributeLabel>
@@ -177,7 +177,7 @@ MEDIA_EVENT</y:AttributeLabel>
           <y:Geometry height="106.7826834645669" width="165.0" x="1207.5" y="39.75"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="74.7763671875" x="45.11181640625" y="25.96875">Log_state</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="65.40087890625" x="49.799560546875" y="26.701171875">Log_state</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>ACTIVE	
 RESTRICTED
@@ -195,7 +195,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="205.22279900332228" width="300.13989825581393" x="403.92997300664445" y="-56.39837693798461"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="124.84033203125" x="87.64978311228197" y="3.0">UIObjectHandler</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="105.8544921875" x="97.14270303415697" y="3.0">UIObjectHandler</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- bool object_handler_state
 - MachineConfig *machine_cfg
@@ -218,7 +218,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="736.5258702608571" width="255.46699733333344" x="902.6331155065612" y="239.39501762547707"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="110.869140625" x="72.29892835416672" y="3.0">ButtonCObject</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="95.7109375" x="79.87802991666672" y="3.0">ButtonCObject</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- int id
 - int iparent
@@ -281,7 +281,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="467.68868341627" width="302.5" x="217.66534468438533" y="226.72551218161664"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="112.341796875" x="95.0791015625" y="3.0">MachineConfig</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="97.16455078125" x="102.667724609375" y="3.0">MachineConfig</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int amid )
 - Q_PROPERTY(QString type )
@@ -325,7 +325,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="536.469427676424" width="302.5" x="-122.3894959509962" y="227.4476700927463"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="101.9189453125" x="100.29052734375" y="3.0">ScreenObject</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="87.814453125" x="107.3427734375" y="3.0">ScreenObject</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int id READ)
 - Q_PROPERTY(int iparent READ)
@@ -374,7 +374,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="271.89414435440426" width="340.0285625616798" x="-868.3330091168644" y="232.20450540732259"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="70.42822265625" x="134.8001699527149" y="3.0">ViewPort</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="59.62451171875" x="140.2020254214649" y="3.0">ViewPort</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QDeclarativeContext *root_context
 - CoreEngine *core
@@ -404,7 +404,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="436.76847772326556" width="302.5" x="-485.406580928153" y="232.66706789001924"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="136.91357421875" x="82.793212890625" y="3.0">ViewPortInterface</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="113.814453125" x="94.3427734375" y="3.0">ViewPortInterface</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(QUrl sublayer )
 - Q_PROPERTY(QString system_time )
@@ -446,7 +446,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="228.5565393754154" width="302.5" x="-862.7843127076353" y="560.330469615171"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="162.9326171875" x="69.78369140625" y="3.0">WebElementInterface</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="136.20263671875" x="83.148681640625" y="3.0">WebElementInterface</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int module_count)
 - Q_PROPERTY(int screen_count)
@@ -474,7 +474,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="42.22259136212631" width="270.25890801440516" x="366.8367421096344" y="-442.2935008305648"/>
           <y:Fill color="#00FF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="62.6015625" x="103.82867275720258" y="3.0">QObject</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="54.5654296875" x="107.84673916345258" y="3.0">QObject</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel/>
             <y:MethodLabel/>
@@ -490,7 +490,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="28.0" width="175.55751661129568" x="-801.2546454786134" y="115.51764667254974"/>
           <y:Fill color="#00FF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="134.08251953125" x="20.73749854002284" y="3.0">QDeclarativeView</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="113.1162109375" x="31.22065283689784" y="3.0">QDeclarativeView</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel/>
             <y:MethodLabel/>
@@ -506,7 +506,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="28.0" width="243.70743355481724" x="-557.6807367061233" y="-622.8642616559453"/>
           <y:Fill color="#00FF00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="108.76806640625" x="67.46968357428362" y="3.0">QMainWindow</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="93.5400390625" x="75.08369724615862" y="3.0">QMainWindow</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel/>
             <y:MethodLabel/>
@@ -522,7 +522,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="549.243421219194" width="461.6640217864922" x="-657.181370816463" y="-502.5365967607974"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="87.66845703125" x="186.9977823776211" y="3.0">CoreEngine</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="76.95361328125" x="192.3552042526211" y="3.0">CoreEngine</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>+ QTime *system_time
 + QTimer *system_timer
@@ -570,7 +570,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-185.96443084114594" y="-426.7515386104489"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -581,7 +581,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-5.776689085451437" y="-324.540371028861"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -592,7 +592,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-186.37791049231063" y="-384.22516663378246"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -603,7 +603,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="935.0232969366067" y="-324.2405814602352"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358419" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858419" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -614,7 +614,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-823.394947938345" y="194.40763003530105"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358306" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858306" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -625,7 +625,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-683.7691812239026" y="-447.2089868856935"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358419" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858419" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -636,7 +636,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="376.6081221455514" y="97.00573445398584"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -647,7 +647,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-186.34013648767322" y="-357.9368097165812"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -658,7 +658,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="658.8314863649248" y="-301.1482178601936"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358306" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858306" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -669,7 +669,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-611.1380414243571" y="202.75935206728855"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358419" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858419" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -680,7 +680,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-384.8132823532411" y="202.74475057101944"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -691,7 +691,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-562.1798578037284" y="511.91621548882074"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358419" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858419" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -702,7 +702,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-562.733543678436" y="588.971704993781"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358306" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858306" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -713,7 +713,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="417.0757525304798" y="149.6105778135447"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -724,7 +724,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="37.75784494393679" x="90.34494108807866" y="204.29945895442734"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="26.98828125" x="5.384781846968394" y="2.8846082719061314">0...*</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="23.56689453125" x="7.095475206343394" y="2.5489149125311314">0...*</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -735,7 +735,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="470.596687785212" y="150.5686639327372"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -746,7 +746,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="433.6139735770686" y="195.10078301497606"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -757,7 +757,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="555.3593556368692" y="148.0714142442119"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358306" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858306" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -768,7 +768,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="37.75784494393679" x="1038.4117945883995" y="212.19557186260823"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="26.98828125" x="5.384781846968508" y="2.8846082719061314">0...*</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="23.56689453125" x="7.095475206343508" y="2.5489149125311314">0...*</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -781,7 +781,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="166.02278954248368" width="302.5" x="768.0398512691896" y="-279.11564829652815"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="101.18896484375" x="100.655517578125" y="3.0">EventMapper</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="85.630859375" x="108.4345703125" y="3.0">EventMapper</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- ModuleList mod_list
 - EventDefinition *event_def</y:AttributeLabel>
@@ -803,7 +803,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="130.07399769534993" width="389.67582022929946" x="768.4219492644941" y="-104.15527926821557"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="117.927734375" x="135.87404292714973" y="3.0">EventDefinition</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="99.33544921875" x="145.17018550527473" y="3.0">EventDefinition</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- QMap&lt;QString, Event_type&gt; event_definition_map</y:AttributeLabel>
             <y:MethodLabel>+ EventDefinition()
@@ -822,7 +822,7 @@ INACTIVE</y:AttributeLabel>
           <y:Geometry height="132.47062736305736" width="165.0" x="1207.5" y="353.7646863184713"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="84.95166015625" x="40.024169921875" y="25.96875">Event_type</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="73.36083984375" x="45.819580078125" y="26.701171875">Event_type</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>Blank
 ButtonDown	
@@ -842,7 +842,7 @@ Show</y:AttributeLabel>
           <y:Geometry height="95.26443044619413" width="165.0" x="1207.5" y="157.13221522309712"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="68.75244140625" x="48.123779296875" y="25.96875">InitMode</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="57.4345703125" x="53.78271484375" y="26.701171875">InitMode</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>QML_UI
 WEB_UI</y:AttributeLabel>
@@ -859,7 +859,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="283.97976279089136" width="312.16123780891735" x="561.7254387413022" y="241.63533262895652"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="45.640625" x="133.26030640445867" y="3.0">Event</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="39.40087890625" x="136.38017945133367" y="3.0">Event</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int sourceID)
 - Q_PROPERTY(int targetID)
@@ -889,7 +889,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="454.55822184044627" width="302.5" x="566.5560576457609" y="536.3441711085181"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="61.35107421875" x="120.574462890625" y="3.0">Product</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="53.11181640625" x="124.694091796875" y="3.0">Product</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int productCode )
 - Q_PROPERTY(float productPrice )
@@ -932,7 +932,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="398.5693546668925" width="302.5" x="209.79318735717345" y="814.7894305020185"/>
           <y:Fill color="#E5E8F4" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="57.701171875" x="122.3994140625" y="3.0">Module</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="49.49365234375" x="126.503173828125" y="3.0">Module</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- Q_PROPERTY(int mod_adr)
 - int mod_adr
@@ -969,7 +969,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="748.390350199666" y="-217.04019735818255"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358306" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858306" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -980,7 +980,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="37.75784494393679" x="519.4085808307618" y="925.2611102184447"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="26.98828125" x="5.384781846968394" y="2.8846082719061314">0...*</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="23.56689453125" x="7.095475206343394" y="2.5489149125311314">0...*</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -991,7 +991,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-2.117652416570081" y="-398.41677017375866"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -1002,7 +1002,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="-187.761124569431" y="-501.2144682970133"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.6757512393583625" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.1161809268583625" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -1013,7 +1013,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="22.573904043812263" width="22.350037634966725" x="741.3203318585134" y="-500.58581722394786"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.8046875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.99853515625" x="5.675751239358419" y="2.8846082719061314">1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" borderDistance="0.0" fontFamily="Dialog" fontSize="11" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.47607421875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="10.11767578125" x="6.116180926858419" y="2.5489149125311314">1</y:NodeLabel>
           <y:Shape type="rectangle"/>
         </y:ShapeNode>
       </data>
@@ -1026,7 +1026,7 @@ WEB_UI</y:AttributeLabel>
           <y:Geometry height="86.00872168603706" width="165.0" x="1207.5" y="492.3662783139629"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="155.57568359375" x="4.712158203125" y="25.96875">Event_Message_type</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="135.5107421875" x="14.74462890625" y="26.701171875">Event_Message_type</y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="enumeration" use3DEffect="true">
             <y:AttributeLabel>Init_Media</y:AttributeLabel>
             <y:MethodLabel/>
@@ -1035,14 +1035,13 @@ WEB_UI</y:AttributeLabel>
       </data>
     </node>
     <node id="n50">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
           <y:Geometry height="113.16617292006526" width="420.2252528548124" x="-59.76761478160324" y="-764.8243693311581"/>
           <y:Fill color="#FFFFFFE6" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="32" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="192.4375" x="113.89387642740621" y="17.333086460032632">Projekt-42
-version 0.4.</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="32" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="82.40625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="294.0" x="63.11262642740621" y="15.379961460032632">Projekt-42
+version 0.4.7803928</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="ARTIFACT_TYPE_ANNOTATION"/>
             <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>

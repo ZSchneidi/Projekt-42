@@ -144,6 +144,7 @@ bool EventHandler::processMediaAction(Base::Media_states state)
         default:
             break;
         }
+	return true;
     }
 
 
