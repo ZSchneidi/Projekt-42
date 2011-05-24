@@ -58,7 +58,7 @@ Item {
 				id: author
 				width: 50
 				height: 20
-				text: "Author:"
+                text: "Author: "
 				font.bold: true
 				font.pixelSize: 12
 			}
@@ -85,7 +85,7 @@ Item {
 				id: revision
 				width: 50
 				height: 20
-				text: "Revision:"
+                text: "Revision: "
 				font.bold: true
 				font.pixelSize: 12
 			}
@@ -112,7 +112,7 @@ Item {
 				id: date
 				width: 50
 				height: 20
-				text: "Date:"
+                text: "Date: "
 				font.bold: true
 				font.pixelSize: 12
 			}

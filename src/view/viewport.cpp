@@ -1,5 +1,6 @@
 #include "viewport.h"
 #include <QUrl>
+#include <QDebug>
 
 ViewPort::ViewPort(CoreEngine *parent, QUrl path) :
     QDeclarativeView(parent)
@@ -22,6 +23,13 @@ void ViewPort::initViewLayer(QUrl source)
     {
     this->main_layer_path = source;
 	this->core->logSystemMsg("Init main layer: "+this->main_layer_path.toString());
+
+    QFile main_layer_file(this->main_layer_path.toLocalFile());
+    if(!main_layer_file.exists())
+        {
+        this->core->logSystemMsg(MISSING_QML_LAYER_MSG);
+        QMessageBox::information(0,"Error",MISSING_QML_LAYER_MSG+QString("\nensure that subdir view is present"));
+        }
     this->setSource(this->main_layer_path);
 }
 

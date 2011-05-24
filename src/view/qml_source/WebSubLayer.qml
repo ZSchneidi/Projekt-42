@@ -51,13 +51,8 @@ Item {
 	    }
 		for (var i = 0;i < elementinterface.buttonc_count;i++)
 	    {
-			WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i,web_ui_layer,elementinterface);
-	    }
-	    /* for each module create the eventHandling */
-	    for (var i = 0; i < elementinterface.module_count; i++)
-		{
-			WebUiLogic.createEventhandling(elementinterface.getModuleAt(i),i);
-		}
+            WebUiLogic.createButtoncObjects(elementinterface.getButtoncObjectAt(i),i,web_ui_layer,elementinterface);
+	    }        
 	}
 
 
@@ -70,6 +65,7 @@ Item {
 	{
 		return WebUiLogic.a_screen;
 	}
+
 }
 
 

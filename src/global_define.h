@@ -20,7 +20,7 @@
 
 #define SYS_REVISION													SYS_MAJ_REV"."SYS_MIN_REV"."SYS_SUB_REV
 #define SYS_AUTHOR														"Jan Schneidereit"
-#define SYS_DATE															"18.05.2011"
+#define SYS_DATE															"23.05.2011"
 
 
 /* VALID STARTUP ARGUMENTS */
@@ -171,6 +171,8 @@ toggles the application fullscreen mode*/
 #define SYSTEM_ARG_MSG												"Initialize with arguments : "
 #define WEB_UI_INIT_MSG												"Initialize WEB_UI"
 #define QML_UI_INIT_MSG												"Initialize QML_UI"
+#define MISSING_QML_LAYER_MSG										"QML main layer could not be found"
+#define AUTO_SHUTDOWN_MSG                                           "Shut down process automatically"
 #define UNEX_CFG_MSG													"Found unexpected config file"
 #define UNHA_ATT_MSG													"Found unhandled attribute \'#_1\' in \'#_2\' tag"
 #define UNHA_OBJ_TYPE_MSG										"Found unhandled object type \'#_1\'"
